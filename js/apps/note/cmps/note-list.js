@@ -7,6 +7,7 @@ export default {
             <note-preview v-for="note in notes" :key="note.id" :note="note" />
         </ul>
     `,
+
   components: {
     notePreview,
   },

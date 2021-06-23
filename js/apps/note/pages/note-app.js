@@ -2,6 +2,7 @@ import { noteService } from '../services/note-service.js';
 import noteList from '../cmps/note-list.js';
 import noteFilter from '../cmps/note-filter.js';
 import noteAdd from '../cmps/note-add.js';
+import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
   template: `
@@ -32,6 +33,7 @@ export default {
   },
   created() {
     this.renderNotes();
+    eventBus.$on('addedNote', this.renderNotes);
   },
   components: {
     noteList,

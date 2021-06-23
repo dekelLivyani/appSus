@@ -10,10 +10,16 @@ export const noteService = {
   getById,
   getPrevNoteId,
   getNextNoteId,
+  getEmptyNote,
+  addNote,
 };
 
 function query() {
   return storageService.query(NOTES_KEY);
+}
+
+function addNote(note) {
+  return storageService.post(NOTES_KEY, note);
 }
 
 function getById(id) {
@@ -25,6 +31,10 @@ function getPrevNoteId(id) {
     const idx = notes.findIndex((note) => note.id === id);
     return idx < 0 ? notes[notes.length - 1].id : notes[idx - 1].id;
   });
+}
+
+function getEmptyNote(type) {
+  if ((type = 'txt')) return _createEmptyNote();
 }
 
 function getNextNoteId(id) {
@@ -47,4 +57,19 @@ function _createNotes() {
 
 function _getInitNotes() {
   return notesInitService.getInitNotes().then((notes) => notes);
+}
+
+function _createEmptyNote() {
+  const note = {
+    id: utilService.makeId(),
+    created: Date.now(),
+    lastEdited: Date.now(),
+    type: '',
+    isPinned: false,
+    info: {
+      title: '',
+      txt: '',
+    },
+  };
+  return Promise.resolve(note);
 }
