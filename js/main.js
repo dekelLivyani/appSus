@@ -1,11 +1,11 @@
-import appFooter from '../cmps/app-footer.js';
-import appHeader from '../cmps/app-header.js';
-import homePage from '../pages/home-page.js';
-import { routes } from './routes.js';
+import appFooter from '../js/cmps/app-footer.js';
+import appHeader from '../js/cmps/app-header.js';
+import homePage from '../js/pages/home-page.js';
+import { router } from './routes.js';
 
 const options = {
     el: '#app',
-    routes,
+    router,
     template: `
     <section>
     <div class="wrapper">

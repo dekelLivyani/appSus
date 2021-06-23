@@ -1,7 +1,7 @@
 @import url('./basic/base.css');
 @import url('./pages/home-page.css');
-@import url('./cmps/app-footer.css');
-@import url('./cmps/app-header.css');
+@import url('../css/cmps/app-footer.css');
+@import url('../css/cmps/app-header.css');
 @import url('./apps/email/email.css');
 @import url('./apps/email/cmps/email-list.css');
 @import url('./apps/email/pages/email-app.css');
