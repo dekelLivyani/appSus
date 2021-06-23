@@ -1,15 +1,25 @@
+import { eventBus } from '../../../services/event-bus-service.js'
 export default {
     props: ['email'],
     template: `
-         <article class="email-preview">
+         <article class="email-preview" :class="classByRead">
         <p  class="subject">{{email.subject}} </p>
         <p class="body">{{email.body}}</p>
         <p class="sent-at">
            <span> {{formatDate.date}}</span>
            <span> {{formatDate.time}}</span>
         </p>
+        <div class="buttons">
+        <button class="remove-btn" @click.stop="removeEmail(email.id)">🗑</button>
+        </div>
         </article>
    `,
+    methods: {
+        removeEmail(id) {
+            eventBus.$emit('removeEmail', id)
+            this.$emit('removeEmail', id);
+        }
+    },
     computed: {
         formatDate() {
             var fullDate = new Date(this.email.sentAt);
@@ -21,6 +31,9 @@ export default {
                     (fullDate.getMinutes() + '').padStart(2, '0')
             };
         },
+        classByRead() {
+            return { 'email-read': this.email.isRead }
+        }
     }
 
 };

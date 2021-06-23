@@ -6,6 +6,8 @@ export const emailService = {
     query,
     addEmail,
     getById,
+    removeEmail,
+    updateEmail,
 }
 
 function query() {
@@ -18,6 +20,8 @@ function query() {
                         body: 'Fine, thanks',
                         to: 'Puki',
                         isRead: false,
+                        isDraft: false,
+                        isStar: false,
                         sentAt: 1624443334523
                     },
                     {
@@ -26,6 +30,8 @@ function query() {
                         body: 'Hey for all my friends',
                         to: 'Shuki',
                         isRead: false,
+                        isDraft: false,
+                        isStar: false,
                         sentAt: 1624349334523
                     },
                     {
@@ -34,6 +40,8 @@ function query() {
                         body: 'I got surprise',
                         to: 'Muki',
                         isRead: false,
+                        isDraft: false,
+                        isStar: false,
                         sentAt: 1624248334523
                     },
                     {
@@ -42,6 +50,8 @@ function query() {
                         body: 'Really i don\'t know',
                         to: 'Amit',
                         isRead: false,
+                        isDraft: false,
+                        isStar: false,
                         sentAt: 1624147334523
                     },
                     {
@@ -50,6 +60,8 @@ function query() {
                         body: 'Of corse!!!',
                         to: 'Puki',
                         isRead: false,
+                        isDraft: false,
+                        isStar: false,
                         sentAt: 1624046334523
                     },
                     {
@@ -58,6 +70,8 @@ function query() {
                         body: 'Sure, it\s a funny question!',
                         to: 'Stav',
                         isRead: false,
+                        isDraft: false,
+                        isStar: false,
                         sentAt: 1619445334523
                     },
                     {
@@ -66,6 +80,8 @@ function query() {
                         body: 'Love is in the air',
                         to: 'Puki',
                         isRead: false,
+                        isDraft: false,
+                        isStar: false,
                         sentAt: 1618444334523
                     },
                 ]
@@ -80,4 +96,12 @@ function addEmail(newEmail) {
 
 function getById(id) {
     return storageService.get(EMAIL_KEY, id);
+}
+
+function removeEmail(id) {
+    return storageService.remove(EMAIL_KEY, id);
+}
+
+function updateEmail(email) {
+    return storageService.put(EMAIL_KEY, email);
 }

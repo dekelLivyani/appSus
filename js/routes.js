@@ -10,7 +10,7 @@ const routes = [{
     },
     {
         path: '/email',
-        component: emailApp
+        component: emailApp,
     },
     {
         path: '/email/:emailId',
