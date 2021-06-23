@@ -1,15 +1,27 @@
 import { storageService } from '../../../services/async-storage-service.js';
+import { utilService } from '../../../services/util-service.js';
 import { notesInitService } from './notes-init-service.js';
 
 const NOTES_KEY = 'notes';
-var gNotes = _getInitNotes();
+const gNotes = _createNotes();
 
 export default {
-  getNotes,
+  query,
 };
 
-function getNotes() {
-  return Promise.resolve(gNotes);
+function query() {
+  return storageService.query(NOTES_KEY);
+}
+
+function _createNotes() {
+  let notes = utilService.load(NOTES_KEY);
+  if (!notes || !notes.length) {
+    notes = _getInitNotes().then((notes) => {
+      utilService.save(NOTES_KEY, notes);
+      return notes;
+    });
+  }
+  return notes;
 }
 
 function _getInitNotes() {

@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     getNotes() {
-      noteService.getNotes().then((notes) => console.log(notes));
+      noteService.query().then((notes) => console.log(notes));
     },
   },
   created() {
