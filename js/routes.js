@@ -1,4 +1,4 @@
-import homePage from '../pages/home-page.js';
+import homePage from '../js/pages/home-page.js';
 import emailApp from './apps/email/pages/email-app.js';
 import emailDetail from './apps/email/pages/email-detail.js';
 import noteApp from './apps/note/pages/note-app.js';
