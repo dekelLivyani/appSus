@@ -23,7 +23,7 @@ export default {
     },
   },
   methods: {
-    getNotes() {
+    renderNotes() {
       noteService.query().then((notes) => (this.notes = notes));
     },
   },
@@ -31,7 +31,7 @@ export default {
     notes() {},
   },
   created() {
-    this.getNotes();
+    this.renderNotes();
   },
   components: {
     noteList,
