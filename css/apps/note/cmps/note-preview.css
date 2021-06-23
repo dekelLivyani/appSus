@@ -8,6 +8,11 @@
 .note-preview-cont .removeNote {
   position: absolute;
   right: 0;
+  bottom: 0;
+}
+
+.note-preview-cont .pinNote {
+  position: absolute;
+  right: 0;
   top: 0;
-  cursor: pointer;
 }

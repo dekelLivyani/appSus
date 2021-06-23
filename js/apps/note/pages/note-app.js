@@ -10,22 +10,22 @@ export default {
         <h1 class="note-app-title">Welcome to Note!</h1>
         <note-filter />
         <note-add />
-        <note-list v-show="notes" :notes="notesToShow">Note List</note-list>
+        <note-list v-show="pinnedNotes" :notes="pinnedNotes">Pinned notes</note-list>
+        <note-list v-show="notes" :notes="notes">Note List</note-list>
     </section>
     `,
   data() {
     return {
       notes: null,
+      pinnedNotes: null,
     };
-  },
-  computed: {
-    notesToShow() {
-      return this.notes;
-    },
   },
   methods: {
     renderNotes() {
-      noteService.query().then((notes) => (this.notes = notes));
+      noteService.query().then((notes) => {
+        this.notes = notes.filter((note) => !note.isPinned);
+        this.pinnedNotes = notes.filter((note) => note.isPinned);
+      });
     },
   },
   watch: {
