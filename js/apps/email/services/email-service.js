@@ -5,6 +5,7 @@ const EMAIL_KEY = 'emails';
 export const emailService = {
     query,
     addEmail,
+    getById,
 }
 
 function query() {
@@ -74,6 +75,9 @@ function query() {
 }
 
 function addEmail(newEmail) {
-    newEmail.id = utilService.makeId();
     return (storageService.post(EMAIL_KEY, newEmail))
+}
+
+function getById(id) {
+    return storageService.get(EMAIL_KEY, id);
 }

@@ -5,11 +5,15 @@ export default {
     template: `
     <ul class="email-list">
        <li v-for="email in emails" :key="email.id">
-            <email-preview :email="email"/>
+            <email-preview :email="email" @click.native="clickEmail(email.id)"/>
        </li>
     </ul>
   `,
-    methods: {},
+    methods: {
+        clickEmail(emailId) {
+            this.$router.push(`/email/${emailId}`)
+        }
+    },
     components: {
         emailPreview,
     }
