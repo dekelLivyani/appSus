@@ -6,11 +6,8 @@
 @import url('./apps/email/cmps/email-list.css');
 @import url('./apps/email/cmps/email.preview.css');
 @import url('./apps/email/pages/email-app.css');
-<<<<<<< HEAD
-=======
 @import url('./apps/email/pages/email.details.css');
 @import url('./apps/note/cmps/note.css');
->>>>>>> de6d57fb43d4a14010d2e857bada6b4fa0f43f7e
 @import url('./apps/note/pages/notes-app.css');
 @import url('./apps/note/cmps/note.css');
 @import url('./apps/note/cmps/note-list.css');
