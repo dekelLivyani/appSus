@@ -5,6 +5,7 @@
     grid-row: 60px 1fr;
     justify-content: space-between;
     padding: 5px 10px;
+    cursor: pointer;
 }
 
 .subject {

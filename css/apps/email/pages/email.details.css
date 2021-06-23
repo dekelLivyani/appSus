@@ -1,0 +1,8 @@
+.remove-btn {
+    font-size: 2rem;
+    color: red;
+    border: 0;
+    background-color: unset;
+    cursor: pointer;
+    padding: 0;
+}
