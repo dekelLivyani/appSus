@@ -1,9 +1,12 @@
 import noteService from '../services/note-service.js';
+import noteList from '../cmps/note-list.js';
 
 export default {
   template: `
     <section class="note-app">
         <h1 class="note-app-title">Welcome to Note!</h1>
+        <note-filter>Filter</note-filter>
+        <note-list v-show="notes" :notes="notesToShow">Note List</note-list>
     </section>
     `,
   data() {
@@ -11,12 +14,23 @@ export default {
       notes: null,
     };
   },
+  computed: {
+    notesToShow() {
+      return this.notes;
+    },
+  },
   methods: {
     getNotes() {
-      noteService.query().then((notes) => console.log(notes));
+      noteService.query().then((notes) => (this.notes = notes));
     },
+  },
+  watch: {
+    notes() {},
   },
   created() {
     this.getNotes();
+  },
+  components: {
+    noteList,
   },
 };
