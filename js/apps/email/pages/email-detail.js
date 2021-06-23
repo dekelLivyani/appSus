@@ -10,7 +10,7 @@ export default {
       <span> {{formatDate.date}}</span>
       <span> {{formatDate.time}}</span>
    </div>
-   <button class="remove-btn" @click="removeEmail">🗑</button>
+   <button class="remove-btn" @click="removeEmail(email.id)">🗑</button>
 </section>
 `,
     data() {
@@ -29,8 +29,8 @@ export default {
         }
     },
     methods: {
-        removeEmail() {
-
+        removeEmail(id) {
+            // emailService.removeEmail(id);
         }
     },
     computed: {
