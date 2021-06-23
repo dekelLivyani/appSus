@@ -10,6 +10,9 @@ export default {
        <li v-if="isEmptyList"><h1>No have emails here </h1></li>
     </ul>
   `,
+    components: {
+        emailPreview,
+    },
     methods: {
         clickEmail(email) {
             email.isRead = true;
@@ -18,11 +21,10 @@ export default {
                     this.$router.push(`/email/${email.id}`);
                 })
         },
-        isEmptyList() {
-            return (emails.length === 0);
-        }
     },
-    components: {
-        emailPreview,
+    computed: {
+        isEmptyList() {
+            return (!this.emails || this.emails.length === 0);
+        }
     }
 };
