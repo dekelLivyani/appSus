@@ -10,10 +10,10 @@ export default {
          <button @click="setList('Inbox')">Inbox</button>
          <button @click="setList('Stars')">Stars</button>
          <button @click="setList('Drafts')">Drafts</button>
+         <button @click="composeEmail">Add Compose</button>
       </div>
      <email-list :emails="emailsToShow"/>
-     <button @click="composeEmail">Add Compose</button>
-     <email-compose  v-if="isComposeEmail" @addEmail="addEmail"/>   
+     <email-compose  v-if="isComposeEmail" @closeCompose="isComposeEmail = false" @addEmail="addEmail"/>   
  </section>
  `,
     data() {

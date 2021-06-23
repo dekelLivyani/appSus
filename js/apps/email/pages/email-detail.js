@@ -4,7 +4,7 @@ import emailCompose from '../cmps/email-compose.js'
 export default {
     template: `
     <section class="email-details">
-      <div class="details" v-if="!isEdit">
+      <div class="details">
          <h2>Email-details </h2>
          <div>{{email.subject}} </div>
          <div>{{email.to}}</div>
@@ -13,10 +13,10 @@ export default {
             <span> {{formatDate.date}}</span>
             <span> {{formatDate.time}}</span>
          </div>
-         <button class="remove-btn" @click="removeEmail(email.id)" title="delete">🗑</button>
-         <button class="edit-btn-btn" v-if="email.isDraft" @click="editEmail">✎</button>
+         <button class="edit-btn icon" v-if="email.isDraft" @click="editEmail">✎</button>
+         <button class="remove-btn icon" @click="removeEmail(email.id)" title="delete">🗑</button>
    </div>
-   <email-compose v-else @addEmail="updateEmail" />
+   <email-compose v-if="isEdit" @addEmail="updateEmail" />
 </section>
 `,
     data() {

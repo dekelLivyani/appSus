@@ -2,11 +2,8 @@
     padding: 10px;
 }
 
-.remove-btn {
-    font-size: 2rem;
-    color: red;
-    border: 0;
-    background-color: unset;
-    cursor: pointer;
+.edit-btn {
     padding: 0;
+    font-size: 2rem;
+    color: rgb(119, 119, 122)
 }

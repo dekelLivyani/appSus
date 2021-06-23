@@ -17,7 +17,13 @@ function query() {
                 var emailsToSave = emails = [{
                         id: utilService.makeId(),
                         subject: 'what sup?',
-                        body: 'Fine, thanks',
+                        body: `Fine, thanks amet consectetur adipisicing elit. Sed laborum nulla, 
+                        porro quas explicabo Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
+                        porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
+                        dolore aliquid maxime consequuntur. Quisquam, amet consectetur adipisicing elit. Sed laborum nulla, 
+                        porro quas explicabo Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
+                        porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
+                        dolore aliquid maxime consequuntur. Quisquam`,
                         to: 'Puki',
                         isRead: false,
                         isDraft: false,
@@ -37,7 +43,10 @@ function query() {
                     {
                         id: utilService.makeId(),
                         subject: 'Surprise',
-                        body: 'I got surprise',
+                        body: `I got surprise amet consectetur adipisicing elit. Sed laborum nulla, 
+                        porro quas explicabo Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
+                        porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
+                        dolore aliquid maxime consequuntur. Quisquam`,
                         to: 'Muki',
                         isRead: false,
                         isDraft: false,
@@ -47,7 +56,13 @@ function query() {
                     {
                         id: utilService.makeId(),
                         subject: 'What new?',
-                        body: 'Really i don\'t know',
+                        body: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
+                        porro quas explicabo Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
+                        porro quas explicabo Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
+                        porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
+                        dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum! blanditiis possimus consectetur est earum delectus dolorum, nihil 
+                        dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum! blanditiis possimus consectetur est earum delectus dolorum, nihil 
+                        dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum!`,
                         to: 'Amit',
                         isRead: false,
                         isDraft: false,
@@ -67,7 +82,9 @@ function query() {
                     {
                         id: utilService.makeId(),
                         subject: 'you love me??',
-                        body: 'Sure, it\s a funny question!',
+                        body: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
+                        porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
+                        dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum!`,
                         to: 'Stav',
                         isRead: false,
                         isDraft: false,

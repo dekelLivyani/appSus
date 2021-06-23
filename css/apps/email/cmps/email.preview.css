@@ -2,11 +2,12 @@
     background-color: rgb(155, 158, 155);
     display: grid;
     grid-column: 6fr 1fr;
-    grid-row: 60px 1fr;
+    grid-row: 1fr 2fr;
     justify-content: space-between;
     padding: 5px 10px;
     font-weight: 900;
     cursor: pointer;
+    font-size: 1.1rem;
 }
 
 .email-preview .subject {
@@ -33,4 +34,27 @@
     grid-row: 2/3;
     grid-column: 2/3;
     justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.remove-btn {
+    font-size: 2rem;
+    color: rgb(216, 91, 91);
+    font-weight: 700;
+    padding: 0;
+}
+
+.read-btn {
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 0;
+}
+
+.read-more {
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0;
 }
