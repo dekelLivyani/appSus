@@ -2,6 +2,7 @@
   background-color: whitesmoke;
   position: relative;
   padding: 1rem;
+  cursor: pointer;
 }
 
 .note-preview-cont .removeNote {

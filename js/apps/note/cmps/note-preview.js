@@ -5,13 +5,13 @@ noteService;
 export default {
   props: ['note'],
   template: `
-        <li class="note-preview-cont">
-            <router-link :to="noteURL" class="note-preview">
+            <!-- <router-link :to="noteURL" class="note-preview"> -->
+            <li class="note-preview-cont" title="Edit the note">
                 <h3 class="note-title">{{note.info.title}}</h3>
                 <p class="note-txt">{{note.info.txt}}</p>
-            </router-link>
-            <button class="removeNote" @click="removeNote">🗑</button>
-        </li>       
+                <button class="removeNote" @click.stop="removeNote" title="Delete">🗑</button>
+            </li>       
+        <!-- </router-link> -->
     `,
   methods: {
     removeNote() {

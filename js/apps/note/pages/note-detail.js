@@ -7,10 +7,10 @@ export default {
               <input type="text" class="note-title" v-model="note.info.title">
               <textarea rows="10" cols="20"class="note-txt" v-model="note.info.txt"> </textarea>
               <p class="lastEdited">Last edited: {{editedAt.time}}, {{editedAt.date}}</p>
-              <button class="saveNote">Save note</button>
+              <router-link to="/note">
+                  <button class="saveNote">Save note</button>
+              </router-link>
           </form>
-        <!-- <h2 class="note-title">{{note.info.title}}</h2> -->
-        <!-- <p class="note-txt">{{note.info.txt}}</p> -->
         <router-link to="/note">
             <button class="back-to-notes">Back to Notes</button>
         </router-link>
