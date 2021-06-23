@@ -13,5 +13,5 @@
 @import url('./apps/note/cmps/note-list.css');
 @import url('./apps/note/cmps/note-preview.css');
 .wrapper {
-  min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 50px);
 }
