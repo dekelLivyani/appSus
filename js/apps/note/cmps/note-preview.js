@@ -1,3 +1,4 @@
+import { eventBus } from '../../../services/event-bus-service.js';
 import { noteService } from '../services/note-service.js';
 
 noteService;
@@ -8,12 +9,14 @@ export default {
             <router-link :to="noteURL" class="note-preview">
                 <h3 class="note-title">{{note.info.title}}</h3>
                 <p class="note-txt">{{note.info.txt}}</p>
-                <button class="removeNote" @click="removeNote">✖</button>
             </router-link>
+            <button class="removeNote" @click="removeNote">🗑</button>
         </li>       
     `,
   methods: {
-    removeNote() {},
+    removeNote() {
+      noteService.removeNote(this.note).then(() => eventBus.$emit('renderNotes'));
+    },
   },
   computed: {
     noteURL() {

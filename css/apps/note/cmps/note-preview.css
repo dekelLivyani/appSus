@@ -1,3 +1,11 @@
 .note-preview-cont {
   background-color: whitesmoke;
+  position: relative;
+  padding: 1rem;
+}
+
+.note-preview-cont .removeNote {
+  position: absolute;
+  right: 0;
+  top: 0;
 }

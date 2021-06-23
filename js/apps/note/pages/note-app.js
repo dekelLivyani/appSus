@@ -33,7 +33,7 @@ export default {
   },
   created() {
     this.renderNotes();
-    eventBus.$on('addedNote', this.renderNotes);
+    eventBus.$on('renderNotes', this.renderNotes);
   },
   components: {
     noteList,

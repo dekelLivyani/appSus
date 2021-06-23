@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     addNote() {
-      noteService.addNote(this.note).then(() => eventBus.$emit('addedNote'));
+      noteService.addNote(this.note).then(() => eventBus.$emit('renderNotes'));
     },
     getEmptyNote() {
       return noteService.getEmptyNote(this.noteType).then((note) => {

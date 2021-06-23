@@ -12,6 +12,7 @@ export const noteService = {
   getNextNoteId,
   getEmptyNote,
   addNote,
+  removeNote,
 };
 
 function query() {
@@ -20,6 +21,11 @@ function query() {
 
 function addNote(note) {
   return storageService.post(NOTES_KEY, note);
+}
+
+function removeNote(note) {
+  const id = note.id;
+  return storageService.remove(NOTES_KEY, id);
 }
 
 function getById(id) {
