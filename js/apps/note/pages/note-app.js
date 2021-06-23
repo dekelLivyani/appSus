@@ -1,11 +1,14 @@
-import noteService from '../services/note-service.js';
+import { noteService } from '../services/note-service.js';
 import noteList from '../cmps/note-list.js';
+import noteFilter from '../cmps/note-filter.js';
+import noteAdd from '../cmps/note-add.js';
 
 export default {
   template: `
     <section class="note-app">
         <h1 class="note-app-title">Welcome to Note!</h1>
-        <note-filter>Filter</note-filter>
+        <note-filter />
+        <note-add />
         <note-list v-show="notes" :notes="notesToShow">Note List</note-list>
     </section>
     `,
@@ -32,5 +35,7 @@ export default {
   },
   components: {
     noteList,
+    noteFilter,
+    noteAdd,
   },
 };

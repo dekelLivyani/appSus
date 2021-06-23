@@ -1,19 +1,10 @@
 export const utilService = {
-<<<<<<< HEAD
   load: loadFromStorage,
   save: saveToStorage,
   getRandomInt,
   debounce,
   makeId,
 };
-=======
-    load: loadFromStorage,
-    save: saveToStorage,
-    getRandomInt,
-    makeId
-
-}
->>>>>>> 2b16cb14e640b7b018a3dc302872dddb2b70dfde
 
 function loadFromStorage(key) {
   var val = localStorage.getItem(key);
@@ -25,7 +16,6 @@ function saveToStorage(key, val) {
 }
 
 function getRandomInt(min, max) {
-<<<<<<< HEAD
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
@@ -53,18 +43,3 @@ function makeId(length = 7) {
   }
   return txt;
 }
-=======
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
-}
-
-function makeId(length = 7) {
-    var txt = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return txt;
-}
->>>>>>> 2b16cb14e640b7b018a3dc302872dddb2b70dfde

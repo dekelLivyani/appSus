@@ -1,8 +1,8 @@
 export default {
   props: ['note'],
   template: `
-        <li class="note-cont">
-            <router-link :to="noteURL" class="note-Preview">
+        <li class="note-preview-cont">
+            <router-link :to="noteURL" class="note-preview">
                 <p class="note-txt">
                     {{note.info.txt}}
                 </p>

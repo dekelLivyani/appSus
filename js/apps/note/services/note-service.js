@@ -5,7 +5,7 @@ import { notesInitService } from './notes-init-service.js';
 const NOTES_KEY = 'notes';
 const gNotes = _createNotes();
 
-export default {
+export const noteService = {
   query,
 };
 
