@@ -8,8 +8,6 @@ const gNotes = _createNotes();
 export const noteService = {
   query,
   getById,
-  getPrevNoteId,
-  getNextNoteId,
   getEmptyNote,
   addNote,
   removeNote,
