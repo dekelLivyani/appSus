@@ -7,10 +7,6 @@ export default {
             <form @submit.prevent="addNote">
             <select name="noteType" v-model="noteType" >
                 <option value="txt">Text</option>
-                <!-- <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option> -->
             </select>
                 <input class="note-add-title" v-model="note.info.title" v-if="note && isEditing" type="text" name="addNoteTitle" placeholder="Title" >
                 <input class="note-add-txt" v-model="note.info.txt" v-if="note" @focus="isEditing=true"  type="text" name="addNoteText" placeholder="Take a note..." >

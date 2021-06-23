@@ -13,6 +13,8 @@ export const noteService = {
   getEmptyNote,
   addNote,
   removeNote,
+  editNote,
+  getNeighborById,
 };
 
 function query() {
@@ -28,26 +30,24 @@ function removeNote(note) {
   return storageService.remove(NOTES_KEY, id);
 }
 
+function editNote(note) {
+  return storageService.put(NOTES_KEY, note);
+}
+
 function getById(id) {
   return storageService.get(NOTES_KEY, id);
 }
 
-function getPrevNoteId(id) {
-  return query().then((notes) => {
-    const idx = notes.findIndex((note) => note.id === id);
-    return idx < 0 ? notes[notes.length - 1].id : notes[idx - 1].id;
+function getNeighborById(id, diff) {
+  return storageService.query(NOTES_KEY).then((notes) => {
+    const noteIdx = notes.findIndex((note) => note.id === id);
+    if (diff === 1) return noteIdx === notes.length - 1 ? notes[0].id : notes[noteIdx + diff].id;
+    else return noteIdx === 0 ? notes[notes.length - 1].id : notes[noteIdx + diff].id;
   });
 }
 
 function getEmptyNote(type) {
   if ((type = 'txt')) return _createEmptyNote();
-}
-
-function getNextNoteId(id) {
-  return query().then((notes) => {
-    const idx = notes.findIndex((note) => note.id === id);
-    return idx === notes.length - 1 ? notes[0].id : notes[idx + 1].id;
-  });
 }
 
 function _createNotes() {

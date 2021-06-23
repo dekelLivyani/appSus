@@ -3,11 +3,16 @@ import { noteService } from '../services/note-service.js';
 export default {
   template: `
       <section v-if="note" class="note-details">
-        <h2 class="note-title">{{note.info.title}}</h2>
-        <p class="note-txt">{{note.info.txt}}</p>
-        <p class="lastEdited">Last edited: {{editedAt.time}}, {{editedAt.date}}</p>
+          <form @submit.prevent="editNote">
+              <input type="text" class="note-title" v-model="note.info.title">
+              <textarea rows="10" cols="20"class="note-txt" v-model="note.info.txt"> </textarea>
+              <p class="lastEdited">Last edited: {{editedAt.time}}, {{editedAt.date}}</p>
+              <button class="saveNote">Save note</button>
+          </form>
+        <!-- <h2 class="note-title">{{note.info.title}}</h2> -->
+        <!-- <p class="note-txt">{{note.info.txt}}</p> -->
         <router-link to="/note">
-            <button class="back-to-notes" @click="backToNotes">Back to Notes</button>
+            <button class="back-to-notes">Back to Notes</button>
         </router-link>
         <router-link :to="'/note/'+prevNoteId">
             <button>Previous note</button>
@@ -25,7 +30,10 @@ export default {
     };
   },
   methods: {
-    backToNotes() {},
+    editNote() {
+      this.note.lastEdited = Date.now();
+      noteService.editNote(this.note).then(() => console.log('note saved'));
+    },
   },
   computed: {
     editedAt() {
@@ -43,8 +51,8 @@ export default {
         const { noteId } = this.$route.params;
         noteService.getById(noteId).then((note) => {
           this.note = note;
-          noteService.getPrevNoteId(noteId).then((noteId) => (this.prevNoteId = noteId));
-          noteService.getNextNoteId(noteId).then((noteId) => (this.nextNoteId = noteId));
+          noteService.getNeighborById(noteId, -1).then((noteId) => (this.prevNoteId = noteId));
+          noteService.getNeighborById(noteId, 1).then((noteId) => (this.nextNoteId = noteId));
         });
       },
     },
