@@ -1,10 +1,16 @@
 import emailList from '../cmps/email-list.js'
 import emailCompose from '../cmps/email-compose.js'
 import { emailService } from '../services/email-service.js'
+import { eventBus } from '../../../services/event-bus-service.js'
 
 export default {
     template: `
      <section class="email-app">
+      <div class="filter-email">
+         <button @click="setList('Inbox')">Inbox</button>
+         <button @click="setList('Stars')">Stars</button>
+         <button @click="setList('Drafts')">Drafts</button>
+      </div>
      <email-list :emails="emailsToShow"/>
      <button @click="composeEmail">Add Compose</button>
      <email-compose  v-if="isComposeEmail" @addEmail="addEmail"/>   
@@ -14,6 +20,7 @@ export default {
         return {
             emails: null,
             isComposeEmail: false,
+            listOf: 'Inbox',
         }
     },
     components: {
@@ -22,7 +29,7 @@ export default {
     },
     created() {
         this.renderEmails();
-
+        eventBus.$on('removeEmail', this.removeEmail);
     },
     methods: {
         renderEmails() {
@@ -38,11 +45,29 @@ export default {
                 .then(email => {
                     this.renderEmails();
                 })
+        },
+        removeEmail(emailId) {
+            emailService.removeEmail(emailId)
+                .then(() => this.renderEmails())
+        },
+        setList(list) {
+            this.listOf = list;
         }
     },
     computed: {
         emailsToShow() {
-            return this.emails;
+            if (this.emails) {
+                switch (this.listOf) {
+                    case 'Inbox':
+                        return (this.emails).filter(email => !email.isDraft);
+                    case 'Stars':
+                        return (this.emails).filter(email => email.isStar);
+                    case 'Drafts':
+                        return (this.emails).filter(email => email.isDraft);
+
+                }
+                return (this.emails).filter(email => !email.isDraft);
+            }
         }
     }
 }

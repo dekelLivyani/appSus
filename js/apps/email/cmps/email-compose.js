@@ -11,6 +11,7 @@ export default {
          <textarea class="body" rows="8" cols="50" v-model="newEmail.body">
          </textarea>
           <button class="send" type="submit">Send</button>
+          <button class="send" type="submit" @click="setToDraft">As Draft</button>
       </form>
  `,
     data() {
@@ -20,6 +21,8 @@ export default {
                 body: null,
                 to: null,
                 isRead: false,
+                isDraft: false,
+                isStar: false,
                 sentAt: null,
             }
         }
@@ -28,7 +31,9 @@ export default {
         composeEmail() {
             this.newEmail.sentAt = Date.now();
             this.$emit('addEmail', this.newEmail)
+        },
+        setToDraft() {
+            this.newEmail.isDraft = true;
         }
-
     },
 };

@@ -30,7 +30,8 @@ export default {
     },
     methods: {
         removeEmail(id) {
-            // emailService.removeEmail(id);
+            emailService.removeEmail(id);
+            this.$router.push('/email');
         }
     },
     computed: {
