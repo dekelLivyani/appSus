@@ -52,6 +52,7 @@ export default {
                 .then(email => {
                     this.isEdit = false;
                     this.email = email;
+
                 })
         },
     },
