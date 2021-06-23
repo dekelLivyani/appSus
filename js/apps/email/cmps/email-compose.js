@@ -1,22 +1,24 @@
+import { emailService } from "../services/email-service.js";
+
 export default {
     template: `
       <form class="email-compose" @submit.prevent="composeEmail">
          <div class="title">      
-            <h2>Mew Message</h2>
+            <h2>{{title}}</h2>
          </div>
          <label for="to">To::</label>
-         <input id="to" type="text" v-model="newEmail.to">
+         <input id="to" type="text" v-model="email.to">
          <label for="subject">Subject:</label>
-         <input id="subject" type="text"  v-model="newEmail.subject">
-         <textarea class="body" rows="8" cols="50" v-model="newEmail.body">
+         <input id="subject" type="text"  v-model="email.subject">
+         <textarea class="body" rows="8" cols="50" v-model="email.body">
          </textarea>
-          <button class="send" type="submit">Send</button>
-          <button class="send" type="submit" @click="setToDraft">As Draft</button>
+          <button class="send" type="submit" @click="setDraft(false)">Send</button>
+          <button class="send" type="submit" @click="setDraft(true)">As Draft</button>
       </form>
  `,
     data() {
         return {
-            newEmail: {
+            email: {
                 subject: null,
                 body: null,
                 to: null,
@@ -27,13 +29,25 @@ export default {
             }
         }
     },
+    created() {
+        const { emailId } = this.$route.params;
+        if (emailId) {
+            emailService.getById(emailId)
+                .then(email => this.email = email);
+        }
+    },
     methods: {
         composeEmail() {
-            this.newEmail.sentAt = Date.now();
-            this.$emit('addEmail', this.newEmail)
+            this.email.sentAt = Date.now();
+            this.$emit('addEmail', this.email)
         },
-        setToDraft() {
-            this.newEmail.isDraft = true;
+        setDraft(deff) {
+            this.email.isDraft = deff;
+        },
+    },
+    computed: {
+        title() {
+            return this.$route.params.emailId ? 'Edit email' : 'Add new email';
         }
     },
 };

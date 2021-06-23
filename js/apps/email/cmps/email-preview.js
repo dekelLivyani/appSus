@@ -10,7 +10,7 @@ export default {
            <span> {{formatDate.time}}</span>
         </p>
         <div class="buttons">
-        <button class="remove-btn" @click.stop="removeEmail(email.id)">🗑</button>
+        <button class="remove-btn" @click.stop="removeEmail(email.id)" title="delete">🗑</button>
         </div>
         </article>
    `,
