@@ -12,7 +12,7 @@ export default {
          <input id="to" type="text" v-model="email.to">
          <label for="subject">Subject:</label>
          <input id="subject" type="text"  v-model="email.subject">
-         <textarea class="body" rows="8" cols="50" v-model="email.body">
+         <textarea class="body" rows="15" cols="70" v-model="email.body">
          </textarea>
          <div class="buttons">
           <button class="send" type="submit" @click="setDraft(false)">Send</button>
@@ -43,6 +43,10 @@ export default {
     },
     methods: {
         composeEmail() {
+            if (!this.email.subject || !this.email.to || !this.email.body) {
+                console.log('Empty Cell!');
+                return;
+            }
             this.email.sentAt = Date.now();
             this.$emit('addEmail', this.email)
         },
@@ -55,7 +59,7 @@ export default {
     },
     computed: {
         title() {
-            return this.$route.params.emailId ? 'Edit email' : 'Add new email';
+            return this.$route.params.emailId ? 'Edit Message' : 'New Message';
         }
     },
 };

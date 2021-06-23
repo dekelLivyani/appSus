@@ -1,5 +1,5 @@
 .email-preview {
-    background-color: rgb(155, 158, 155);
+    background-color: rgb(235, 233, 233);
     display: grid;
     grid-column: 6fr 1fr;
     grid-row: 1fr 2fr;
@@ -33,7 +33,7 @@
 .email-preview .buttons {
     grid-row: 2/3;
     grid-column: 2/3;
-    justify-self: center;
+    justify-self: flex-end;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,8 +53,24 @@
     padding: 0;
 }
 
+.email-preview.email-read .read-btn {
+    font-size: 1.7rem;
+}
+
 .read-more {
-    font-size: 1.3rem;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.star-btn {
+    font-size: 2rem;
     font-weight: 700;
     padding: 0;
+}
+
+.star-btn.stared {
+    font-size: 2rem;
+    color: rgb(235, 210, 69);
 }
