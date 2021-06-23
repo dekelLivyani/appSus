@@ -1,22 +1,24 @@
-import { router } from './router.js';
-import bookFooter from '../cmps/app-footer.js';
-import bookHeader from '../pages/app-header.js';
+import appFooter from '../cmps/app-footer.js';
+import appHeader from '../cmps/app-header.js';
 import homePage from '../pages/home-page.js';
+import { routes } from './routes.js';
 
 const options = {
     el: '#app',
-    router,
+    routes,
     template: `
     <section>
+    <div class="wrapper">
     <app-header/>
     <router-view/>
+   </div>
     <app-footer/>
 
     </section>
     `,
     components: {
-        bookFooter,
-        bookHeader,
+        appFooter,
+        appHeader,
         homePage
     }
 }

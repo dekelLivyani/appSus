@@ -2,10 +2,12 @@
 @import url('./pages/home-page.css');
 @import url('./cmps/app-footer.css');
 @import url('./cmps/app-header.css');
-
 @import url('./apps/email/email.css');
 @import url('./apps/email/cmps/email-list.css');
 @import url('./apps/email/pages/email-app.css');
 @import url('./apps/note/keep.css');
 @import url('./apps/note/cmps/note.css');
 @import url('./apps/note/pages/notes-app.css');
+.wrapper {
+    min-height: calc(100vh - 50px);
+}
