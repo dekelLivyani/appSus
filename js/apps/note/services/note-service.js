@@ -7,10 +7,31 @@ const gNotes = _createNotes();
 
 export const noteService = {
   query,
+  getById,
+  getPrevNoteId,
+  getNextNoteId,
 };
 
 function query() {
   return storageService.query(NOTES_KEY);
+}
+
+function getById(id) {
+  return storageService.get(NOTES_KEY, id);
+}
+
+function getPrevNoteId(id) {
+  return query().then((notes) => {
+    const idx = notes.findIndex((note) => note.id === id);
+    return idx < 0 ? notes[notes.length - 1].id : notes[idx - 1].id;
+  });
+}
+
+function getNextNoteId(id) {
+  return query().then((notes) => {
+    const idx = notes.findIndex((note) => note.id === id);
+    return idx === notes.length - 1 ? notes[0].id : notes[idx + 1].id;
+  });
 }
 
 function _createNotes() {

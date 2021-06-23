@@ -3,7 +3,7 @@ import { noteService } from '../services/note-service.js';
 export default {
   template: `
         <section class="add-note-cont">
-            <form @submit="submit" >
+            <form @submit="addNote" >
             <select name="noteType" v-model="noteType" >
                 <option value="txt">Text</option>
                 <!-- <option value="2">2</option>
@@ -24,7 +24,7 @@ export default {
     };
   },
   methods: {
-    submit() {
+    addNote() {
       //   noteService.addNote(this.note);
     },
   },
