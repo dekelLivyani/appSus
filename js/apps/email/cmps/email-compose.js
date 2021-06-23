@@ -5,15 +5,20 @@ export default {
       <form class="email-compose" @submit.prevent="composeEmail">
          <div class="title">      
             <h2>{{title}}</h2>
+            <button class="icon close" @click="closeCompose">X</button>
          </div>
-         <label for="to">To::</label>
+         <div class="main-compose">
+         <label for="to">To:</label>
          <input id="to" type="text" v-model="email.to">
          <label for="subject">Subject:</label>
          <input id="subject" type="text"  v-model="email.subject">
          <textarea class="body" rows="8" cols="50" v-model="email.body">
          </textarea>
+         <div class="buttons">
           <button class="send" type="submit" @click="setDraft(false)">Send</button>
           <button class="send" type="submit" @click="setDraft(true)">As Draft</button>
+          </div>
+          </div>
       </form>
  `,
     data() {
@@ -44,6 +49,9 @@ export default {
         setDraft(deff) {
             this.email.isDraft = deff;
         },
+        closeCompose() {
+            this.$emit('closeCompose')
+        }
     },
     computed: {
         title() {

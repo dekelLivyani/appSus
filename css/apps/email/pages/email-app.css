@@ -1,0 +1,11 @@
+.email-app {
+    display: flex;
+    margin: 20px;
+}
+
+.filter-email {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 120px;
+}

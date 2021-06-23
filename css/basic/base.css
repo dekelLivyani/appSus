@@ -1,10 +1,10 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background-color: lightblue;
+    margin: 0;
+    background-color: lightblue;
 }
 
 h1,
@@ -14,25 +14,28 @@ h4,
 h5,
 h6,
 p {
-  margin: 0;
+    margin: 0;
 }
 
 ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .router-link-exact-active {
-  color: blue;
+    color: blue;
 }
 
 button {
-  border: none;
-  background-color: none;
-  cursor: pointer;
+    cursor: pointer;
+}
+
+.icon {
+    border: none;
+    background-color: unset;
 }
