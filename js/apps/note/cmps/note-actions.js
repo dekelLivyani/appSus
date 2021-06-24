@@ -29,11 +29,11 @@ export default {
     toggleColorEdit() {
       this.isEditingColor = !this.isEditingColor;
     },
-    sendRenderNotes() {
-      eventBus.$emit('renderNotes');
-    },
     updateColor(color) {
       this.$emit('updateColor', color);
+    },
+    sendRenderNotes() {
+      eventBus.$emit('renderNotes');
     },
   },
   components: {

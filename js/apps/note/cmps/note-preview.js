@@ -32,6 +32,9 @@ export default {
       this.note.color = color;
       this.updateNotes();
     },
+    updateNotes() {
+      noteService.updateNote(this.note).then(() => eventBus.$emit('renderNotes'));
+    },
   },
   computed: {
     noteURL() {

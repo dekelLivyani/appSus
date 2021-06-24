@@ -9,9 +9,6 @@ export default {
               <input type="text" class="note-title" v-model="note.info.title">
               <textarea rows="10" cols="20"class="note-txt" v-model="note.info.txt"> </textarea>
               <p class="lastEdited">Last edited: {{editedAt.time}}, {{editedAt.date}}</p>
-              <router-link to="/note">
-                  <button class="saveNote">Save note</button>
-              </router-link>
           </form>
         <router-link to="/note">
             <button class="back-to-notes" title="Close">Close</button>
@@ -23,7 +20,7 @@ export default {
             <button title="Next note">Next note</button>
         </router-link>
         <note-pin :propNote="note"/>
-        <note-actions :propNote="note"/>
+        <note-actions :propNote="note" @updateColor="renderColor"/>
         
       </section>
       `,
@@ -37,7 +34,11 @@ export default {
   methods: {
     editNote() {
       this.note.lastEdited = Date.now();
-      noteService.editNote(this.note).then(() => console.log('note saved'));
+      noteService.editNote(this.note);
+    },
+    renderColor(color) {
+      this.note.color = color;
+      this.editNote();
     },
   },
   computed: {
