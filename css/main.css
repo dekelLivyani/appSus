@@ -3,11 +3,8 @@
 @import url('../css/cmps/app-footer.css');
 @import url('../css/cmps/app-header.css');
 @import url('./apps/email/email.css');
-@import url('./apps/note/cmps/note.css');
-@import url('./apps/note/pages/notes-app.css');
-@import url('./apps/note/cmps/note.css');
-@import url('./apps/note/cmps/note-list.css');
-@import url('./apps/note/cmps/note-preview.css');
+@import url('./apps/note/note.css');
+
 .wrapper {
   min-height: calc(100vh - 50px);
 }

@@ -1,7 +1,22 @@
-.btn-color-change {
-  position: relative;
+@font-face {
+  font-family: fontawesome-regular;
+  src: url('/fonts/fontawesome/fa-regular-400.ttf');
+}
+@font-face {
+  font-family: fontawesome-solid;
+  src: url('/fonts/fontawesome/fa-solid-900.ttf');
 }
 
+.note-actions .btn-color-change {
+  position: relative;
+  background-color: red;
+  /* font-family: fontawesome-solid; */
+}
+
+.btn-color-change::after {
+  /* content: '\f53f'; */
+  content: 'X';
+}
 .change-color-modal {
   position: absolute;
   top: 0;

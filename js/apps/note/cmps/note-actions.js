@@ -8,7 +8,6 @@ export default {
     <section v-if="note" class="note-actions">
         <button class="removeNote" @click.stop="removeNote" title="Delete">🗑</button>
         <button class="btn-color-change" @click.stop="toggleColorEdit" title="ChangeColor">
-            🎨
             <note-color-select v-if="isEditingColor" @updateColor="updateColor"/>
         </button>
     </section>
