@@ -1,8 +1,9 @@
 import { noteService } from '../services/note-service.js';
+import notePin from '../cmps/note-pin.js';
 
 export default {
   template: `
-      <section v-if="note" class="note-details">
+      <section v-if="note" class="note-details" :style="{ 'background-color': note.color }">
           <form @submit.prevent="editNote">
               <input type="text" class="note-title" v-model="note.info.title">
               <textarea rows="10" cols="20"class="note-txt" v-model="note.info.txt"> </textarea>
@@ -12,14 +13,18 @@ export default {
               </router-link>
           </form>
         <router-link to="/note">
-            <button class="back-to-notes">Back to Notes</button>
+            <button class="back-to-notes" title="Close">Close</button>
         </router-link>
         <router-link :to="'/note/'+prevNoteId">
-            <button>Previous note</button>
+            <button title="Previous note">Previous note</button>
         </router-link>
         <router-link :to="'/note/'+nextNoteId">
-            <button>Next note</button>
+            <button title="Next note">Next note</button>
         </router-link>
+        <!-- <button class="pinNote" @click.stop="pinNoteToggle" title="Pin">
+            <img :src="pinImg">
+        </button> -->
+        <note-pin :note="note"/>
       </section>
       `,
   data() {
@@ -56,5 +61,8 @@ export default {
         });
       },
     },
+  },
+  components: {
+    notePin,
   },
 };

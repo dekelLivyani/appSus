@@ -7,7 +7,7 @@ export default {
   template: `
     <section class="note-actions">
         <button class="removeNote" @click.stop="removeNote" title="Delete">🗑</button>
-        <button class="note-color" @click.stop="toggleColorEdit" title="ChangeColor">
+        <button class="btn-color-change" @click.stop="toggleColorEdit" title="ChangeColor">
             🎨
             <note-color-select v-if="isEditingColor" @updateColor="updateColor"/>
         </button>
@@ -29,7 +29,6 @@ export default {
       eventBus.$emit('renderNotes');
     },
     updateColor(color) {
-      console.log('color:', color);
       this.$emit('updateColor', color);
     },
   },

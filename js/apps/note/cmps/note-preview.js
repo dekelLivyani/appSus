@@ -29,7 +29,6 @@ export default {
       noteService.updateNote(this.note).then(() => eventBus.$emit('renderNotes'));
     },
     renderColor(color) {
-      console.log('TTcolor:', color);
       this.note.color = color;
       this.updateNotes();
     },
