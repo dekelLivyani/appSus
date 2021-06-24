@@ -1,8 +1,9 @@
 export default {
-    template: `
+  template: `
       <section class="app-header">
           <div class="logo">
-            <h1 class="page-title">AppSus</h1>
+            <img src="./img/logo2.png" class="logo-main">
+            <h1 class="page-title"></h1>
           </div>
           <div class="nav">
             <router-link to="/">Homepage</router-link> |
