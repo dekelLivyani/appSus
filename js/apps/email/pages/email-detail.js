@@ -4,20 +4,26 @@ import emailCompose from '../cmps/email-compose.js'
 export default {
     template: `
     <section class="email-details">
+       <div class="header">
+       <h2 class="title">Email Details </h2>
+       <div class="buttons">
+       <button class="star-btn icon" :class="classToStared" @click.stop="toggleStar" :title="titleStar">{{iconStar}}</button>
+       <button class="edit-btn icon" v-if="email.isDraft" @click="editEmail" title="Edit">✎</button>
+          <button class="remove-btn icon" @click="removeEmail(email.id)" title="Delete">🗑</button>
+          <button class="back-btn icon" @click="goBack" title="Back">➦</button>
+      </div>
+      </div>
       <div class="details">
-         <h2>Email-details </h2>
-         <div>{{email.subject}} </div>
-         <div>{{email.to}}</div>
-         <div>{{email.body}}</div>
+         <div class="subject">{{email.subject}} </div>
+         <div class="to"> To {{email.to}}</div>
          <div class="sent-at">
             <span> {{formatDate.date}}</span>
             <span> {{formatDate.time}}</span>
-         </div>
-         <button class="edit-btn icon" v-if="email.isDraft" @click="editEmail">✎</button>
-         <button class="remove-btn icon" @click="removeEmail(email.id)" title="delete">🗑</button>
-   </div>
-   <email-compose v-if="isEdit" @addEmail="updateEmail" />
-</section>
+         </div> 
+      </div>
+         <div class="body">{{email.body}}</div> 
+      <email-compose v-if="isEdit" @addEmail="updateEmail" />
+   </section>
 `,
     data() {
         return {
@@ -47,7 +53,6 @@ export default {
             this.isEdit = true;
         },
         updateEmail(emailToUpdate) {
-            this.isComposeEmail = false;
             emailService.updateEmail(emailToUpdate)
                 .then(email => {
                     this.isEdit = false;
@@ -55,6 +60,12 @@ export default {
 
                 })
         },
+        toggleStar() {
+            this.email.isStar = !this.email.isStar;
+        },
+        goBack() {
+            this.$router.push('/email')
+        }
     },
     computed: {
         formatDate() {
@@ -67,5 +78,14 @@ export default {
                     (fullDate.getMinutes() + '').padStart(2, '0')
             };
         },
+        titleStar() {
+            return (this.email.isStar) ? 'Started' : 'Not Started';
+        },
+        iconStar() {
+            return (this.email.isStar) ? '★' : '☆';
+        },
+        classToStared() {
+            return { 'stared': this.email.isStar }
+        }
     }
 }

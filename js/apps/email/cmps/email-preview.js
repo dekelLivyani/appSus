@@ -1,5 +1,7 @@
 import { eventBus } from '../../../services/event-bus-service.js'
 import emailDescription from '../../email/cmps/email-description.js'
+import { emailService } from '../services/email-service.js';
+
 export default {
     props: ['email'],
     template: `
@@ -32,13 +34,17 @@ export default {
         },
         setRead() {
             this.email.isRead = !this.email.isRead;
+            emailService.updateEmail(this.email)
+                .then(() => {})
         },
         toggleLongText() {
             this.isTextOpen = !this.isTextOpen;
         },
         toggleStar() {
             this.email.isStar = !this.email.isStar;
-        }
+            emailService.updateEmail(this.email)
+                .then(() => {})
+        },
     },
     computed: {
         formatDate() {

@@ -6,13 +6,29 @@ import { eventBus } from '../../../services/event-bus-service.js'
 export default {
     template: `
      <section class="email-app">
+        <div class="header-email-app">
+          <div class="logo"> Logo </div>
+          <div class="info-place">
+          <div class="search"> Search </div>
+          <div class="sort"> Sort </div>
+          <div> 
+         <p class="unread">
+         <button class="read-btn icon" @click="toggleUnReadTop">✉</button>
+         <span>{{unReadCount}}</span>
+          </p> 
+          </div>     
+         </div>
+        </div>
+        <div class="body-email-app">
       <div class="filter-email">
          <button @click="setList('Inbox')">Inbox</button>
          <button @click="setList('Stars')">Stars</button>
          <button @click="setList('Drafts')">Drafts</button>
          <button @click="composeEmail">Add Compose</button>
       </div>
-     <email-list :emails="emailsToShow"/>
+     <email-list v-if="!isUnReadTop" :emails="emailsToShow"/>
+     <email-list v-else :emails="setEmailsByFilter"/>
+     </div>
      <email-compose  v-if="isComposeEmail" @closeCompose="isComposeEmail = false" @addEmail="addEmail"/>   
  </section>
  `,
@@ -21,6 +37,7 @@ export default {
             emails: null,
             isComposeEmail: false,
             listOf: 'Inbox',
+            isUnReadTop: false
         }
     },
     components: {
@@ -52,6 +69,18 @@ export default {
         },
         setList(list) {
             this.listOf = list;
+        },
+        toggleUnReadTop() {
+            this.isUnReadTop = !this.isUnReadTop;
+        },
+        sortEmails(sortBy) {
+            switch (sortBy) {
+                case 'read':
+                    this.emails.sort((email1, email2) => {
+                        if (email2.isRead && !email1.isRead) return -1
+                        else return 1;
+                    })
+            }
         }
     },
     computed: {
@@ -64,10 +93,19 @@ export default {
                         return (this.emails).filter(email => email.isStar);
                     case 'Drafts':
                         return (this.emails).filter(email => email.isDraft);
-
                 }
                 return (this.emails).filter(email => !email.isDraft);
             }
-        }
+        },
+        setEmailsByFilter() {
+            return this.emailsToShow.filter(email => !email.isRead)
+        },
+        unReadCount() {
+            if (!this.emails) return;
+            return this.emails.reduce((acc, email) => {
+                if (!email.isRead) acc++;
+                return acc;
+            }, 0)
+        },
     }
 }

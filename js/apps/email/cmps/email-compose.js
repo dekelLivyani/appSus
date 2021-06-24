@@ -1,6 +1,7 @@
 import { emailService } from "../services/email-service.js";
 
 export default {
+    props: ['emailToEdit'],
     template: `
       <form class="email-compose" @submit.prevent="composeEmail">
          <div class="title">      
@@ -35,6 +36,7 @@ export default {
         }
     },
     created() {
+        if (this.emailToEdit) this.email = this.emailToEdit;
         const { emailId } = this.$route.params;
         if (emailId) {
             emailService.getById(emailId)
