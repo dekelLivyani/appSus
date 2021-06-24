@@ -1,26 +1,22 @@
 import emailList from '../cmps/email-list.js'
 import emailCompose from '../cmps/email-compose.js'
+import emailSearch from '../cmps/email.search.js'
+import emailSort from '../cmps/email-sort.js'
 import { emailService } from '../services/email-service.js'
+import { UserService } from '../services/User-Service.js'
 import { eventBus } from '../../../services/event-bus-service.js'
 
 export default {
     template: `
      <section class="email-app">
         <div class="header-email-app">
-             <img src="/img/logos/email-logo.png"/>
-             
+             <img src="/img/logos/email-logo.png"/>      
           <div class="info-place">
-            <div class="search"> Search </div>
-            <div class="sort"> Sort By
-             <select v-model="sortBy" class="sort-select" @change="sortEmails">
-               <option value="Date">Date</option>
-               <option value="Subject">Subject</option>
-               <option value="UnRead">UnRead</option>
-            </select>
-            </div>
+            <email-search :emails="emails" @EmailsAfterSearch="EmailsAfterSearch"/>
+            <email-sort :emails="emails"/>
             <div> 
              <p class="unread">
-             <button class="read-btn icon" @click="toggleUnReadTop">✉</button>
+             <button class="read-btn icon" @click="toggleUnReadTop"></button>
              <span>{{unReadCount}}</span> </p> 
           </div>
          </div>
@@ -29,13 +25,14 @@ export default {
 
         <div class="body-email-app">
       <div class="filter-email">
-         <button @click="setList('Inbox')">Inbox</button>
-         <button @click="setList('Stars')">Stars</button>
-         <button @click="setList('Drafts')">Drafts</button>
-         <button @click="composeEmail">Add Compose</button>
+         <button class="inbox" :class="isActiveInbox" @click="setList('Inbox')"> Inbox</button>
+         <button class="stars" :class="isActiveStars" @click="setList('Stars')"> Stars</button>
+         <button class="drafts" :class="isActiveDrafts" @click="setList('Drafts')"> Drafts</button>
+         <button class="sent" :class="isActiveSent" @click="setList('Sent')"> Sent</button>
+         <button class="add-compose" @click="composeEmail"> Compose</button>
       </div>
      <email-list v-if="!isUnReadTop" :emails="emailsToShow"/>
-     <email-list v-else :emails="setEmailsByFilter"/>
+     <email-list v-else :emails="EmailsUnReadShow"/>
      </div>
      <email-compose  v-if="isComposeEmail" @closeCompose="isComposeEmail = false" @addEmail="addEmail"/>   
  </section>
@@ -46,16 +43,22 @@ export default {
             isComposeEmail: false,
             listOf: 'Inbox',
             isUnReadTop: false,
-            sortBy: 'Date'
+            user: null,
+            emailsSearches: null
+
         }
     },
     components: {
         emailList,
-        emailCompose
+        emailCompose,
+        emailSearch,
+        emailSort
     },
     created() {
         this.renderEmails();
         eventBus.$on('removeEmail', this.removeEmail);
+        UserService.query()
+            .then(user => this.user = user[0])
     },
     methods: {
         renderEmails() {
@@ -82,46 +85,32 @@ export default {
         toggleUnReadTop() {
             this.isUnReadTop = !this.isUnReadTop;
         },
-        sortEmails() {
-            switch (this.sortBy) {
-                case 'Date':
-                    this.emails.sort((email1, email2) => {
-                        return email2.sentAt - email1.sentAt;
-                    })
-                    break;
-                case 'Subject':
-                    this.emails.sort((email1, email2) => {
-                        const email1Subject = email1.subject.toUpperCase();
-                        const email2Subject = email2.subject.toUpperCase();
-                        if (email1Subject < email2Subject) return -1;
-                        else if (email1Subject > email2Subject) return 1;
-                        return 0;
-                    })
-                    break;
-                case 'UnRead':
-                    this.emails.sort((email1, email2) => {
-                        if (email2.isRead && !email1.isRead) return -1
-                        else return 1;
-                    })
-                    break;
-            }
+        EmailsAfterSearch(emailsToShow) {
+            this.emailsSearches = emailsToShow;
         }
     },
     computed: {
         emailsToShow() {
-            if (this.emails) {
+            let emailsToFilter = this.emails;
+            if (this.emailsSearches || this.emailsSearches && this.emailsSearches.length) {
+                emailsToFilter = this.emailsSearches;
+            }
+            if (emailsToFilter) {
                 switch (this.listOf) {
                     case 'Inbox':
-                        return (this.emails).filter(email => !email.isDraft);
+                        return (emailsToFilter).filter(email => !email.isDraft);
                     case 'Stars':
-                        return (this.emails).filter(email => email.isStar);
+                        return (emailsToFilter).filter(email => email.isStar);
                     case 'Drafts':
-                        return (this.emails).filter(email => email.isDraft);
+                        return (emailsToFilter).filter(email => email.isDraft);
+                    case 'Sent':
+                        console.log(emailsToFilter);
+                        return (emailsToFilter).filter(email => email.from === this.user.name);
                 }
-                return (this.emails).filter(email => !email.isDraft);
+                return (emailsToFilter).filter(email => !email.isDraft);
             }
         },
-        setEmailsByFilter() {
+        EmailsUnReadShow() {
             return this.emailsToShow.filter(email => !email.isRead)
         },
         unReadCount() {
@@ -131,5 +120,17 @@ export default {
                 return acc;
             }, 0)
         },
+        isActiveInbox() {
+            return { 'active': (this.listOf === 'Inbox') }
+        },
+        isActiveStars() {
+            return { 'active': (this.listOf === 'Stars') }
+        },
+        isActiveDrafts() {
+            return { 'active': (this.listOf === 'Drafts') }
+        },
+        isActiveSent() {
+            return { 'active': (this.listOf === 'Sent') }
+        }
     }
 }

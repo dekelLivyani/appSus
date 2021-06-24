@@ -12,11 +12,11 @@ export default {
            <span> {{formatDate.date}}</span>
            <span> {{formatDate.time}}</span>
         </p>
-        <div class="buttons">
-        <button class="read-more icon" @click.stop="toggleLongText" v-if="isLongText" :title="titleArrow">{{iconArrow}}</button>
-        <button class="star-btn icon" :class="classToStared" @click.stop="toggleStar" :title="titleStar">{{iconStar}}</button>
-        <button class="remove-btn icon" @click.stop="removeEmail" title="Delete">🗑</button>
-        <button class="read-btn icon" @click.stop="setRead" :title="titleRead">{{iconRead}}</button>
+        <div class="buttons-icon" :class="classToButtons">
+        <button class="read-more icon":class="{'is-open':isTextOpen}" @click.stop="toggleLongText" v-if="isLongText" :title="titleArrow"></button>
+        <button class="star-btn icon" :class="classToStared" @click.stop="toggleStar" :title="titleStar"></button>
+        <button class="remove-btn icon" @click.stop="removeEmail" title="Delete"></button>
+        <button class="read-btn icon" @click.stop="setRead" :title="titleRead"></button>
         </div>
         </article>
    `,
@@ -57,23 +57,17 @@ export default {
                     (fullDate.getMinutes() + '').padStart(2, '0')
             };
         },
+        classToButtons() {
+            return { 'is-stared': this.email.isStar, 'is-readed': !this.email.isRead }
+        },
         titleRead() {
             return (this.email.isRead) ? 'Read' : 'Unread';
-        },
-        iconRead() {
-            return (this.email.isRead) ? '🖂' : '✉';
         },
         titleArrow() {
             return (this.isTextOpen) ? 'Close' : 'Open';
         },
-        iconArrow() {
-            return (this.isTextOpen) ? '⇑' : '⇓';
-        },
         titleStar() {
             return (this.email.isStar) ? 'Started' : 'Not Started';
-        },
-        iconStar() {
-            return (this.email.isStar) ? '★' : '☆';
         },
         isLongText() {
             return (this.email.body.length > 155)

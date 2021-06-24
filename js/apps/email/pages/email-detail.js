@@ -5,16 +5,16 @@ export default {
     template: `
     <section class="email-details">
        <div class="header">
-       <h2 class="title">Email Details </h2>
-       <div class="buttons">
-       <button class="star-btn icon" :class="classToStared" @click.stop="toggleStar" :title="titleStar">{{iconStar}}</button>
-       <button class="edit-btn icon" v-if="email.isDraft" @click="editEmail" title="Edit">✎</button>
-          <button class="remove-btn icon" @click="removeEmail(email.id)" title="Delete">🗑</button>
-          <button class="back-btn icon" @click="goBack" title="Back">➦</button>
+       <h2 class="subject">{{email.subject}} </h2>
+       <div class="buttons-icon" :class="classToButtons">
+       <button class="star-btn icon" :class="classToStared" @click.stop="toggleStar" :title="titleStar"></button>
+       <button class="edit-btn icon" v-if="email.isDraft" @click="editEmail" title="Edit"></button>
+          <button class="remove-btn icon" @click="removeEmail(email.id)" title="Delete"></button>
+          <button class="back-btn icon" @click="goBack" title="Back"></button>
       </div>
       </div>
       <div class="details">
-         <div class="subject">{{email.subject}} </div>
+         <div class="from">By {{email.from}}</div>
          <div class="to"> To {{email.to}}</div>
          <div class="sent-at">
             <span> {{formatDate.date}}</span>
@@ -68,6 +68,9 @@ export default {
         }
     },
     computed: {
+        classToButtons() {
+            return { 'is-stared': this.email.isStar }
+        },
         formatDate() {
             var fullDate = new Date(this.email.sentAt);
             return {
@@ -80,9 +83,6 @@ export default {
         },
         titleStar() {
             return (this.email.isStar) ? 'Started' : 'Not Started';
-        },
-        iconStar() {
-            return (this.email.isStar) ? '★' : '☆';
         },
         classToStared() {
             return { 'stared': this.email.isStar }

@@ -1,4 +1,5 @@
 import { emailService } from "../services/email-service.js";
+import { UserService } from '../services/User-Service.js'
 
 export default {
     props: ['emailToEdit'],
@@ -27,6 +28,7 @@ export default {
             email: {
                 subject: null,
                 body: null,
+                from: UserService.query(),
                 to: null,
                 isRead: false,
                 isDraft: false,
