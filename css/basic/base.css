@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    background-color: lightblue;
+    background-color: whitesmoke;
 }
 
 h1,
@@ -38,4 +38,19 @@ button {
 .icon {
     border: none;
     background-color: unset;
+}
+
+@font-face {
+    font-family: poppins-bold;
+    src: url('/fonts/Poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: poppins-regular;
+    src: url('/fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: poppins-medium;
+    src: url('/fonts/Poppins/Poppins-Medium.ttf');
 }

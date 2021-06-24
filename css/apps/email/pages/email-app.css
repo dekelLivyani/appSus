@@ -1,8 +1,8 @@
 .email-app {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin: 0 30px;
+    gap: 1.2rem;
+    margin: 0 2rem;
 }
 
 .email-app .header-email-app {
