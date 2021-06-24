@@ -4,7 +4,7 @@ import noteActions from './note-actions.js';
 
 noteService;
 export default {
-  props: ['noteId'],
+  props: ['propNote'],
   template: `
     <li v-if="note" class="note-preview-cont" title="Edit the note" :style="{ 'background-color': note.color }">
         <h3 class="note-title">{{note.info.title}}</h3>
@@ -42,7 +42,7 @@ export default {
     },
   },
   created() {
-    noteService.getById(this.noteId).then((note) => (this.note = note));
+    noteService.cloneNote(this.propNote).then((note) => (this.note = note));
   },
   components: {
     noteActions,
