@@ -1,0 +1,22 @@
+.note-app {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.note-app > * {
+  margin: 0 2rem;
+  gap: 1.2rem;
+  background-color: whitesmoke;
+}
+
+.logo-img {
+  height: 65px;
+}
+
+.header-note-app {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid gray;
+}

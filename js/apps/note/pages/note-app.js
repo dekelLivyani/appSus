@@ -7,9 +7,14 @@ import { eventBus } from '../../../services/event-bus-service.js';
 export default {
   template: `
     <section class="note-app">
-        <h1 class="note-app-title">Welcome to Note!</h1>
-        <note-filter />
+        <div class="header-note-app">
+          <div class="logo">
+            <img src="./img/logos/note-logo.png" class="logo-img">
+          </div>        
+          <note-filter />
+        </div>
         <note-add />
+        <h1 v-if="!notes" class="list-empty-state">No notes! Try adding some...</h1>
         <h2 class="list-title" v-if="!arePinned">Pinned</h2>
         <note-list v-show="pinnedNotes" :notes="pinnedNotes">Pinned notes</note-list>
         <h2 class="list-title" v-if="!arePinned">Others</h2>

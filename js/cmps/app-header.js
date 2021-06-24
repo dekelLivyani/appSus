@@ -2,7 +2,7 @@ export default {
   template: `
       <section class="app-header">
           <div class="logo">
-            <img src="./img/logo2.png" class="logo-main">
+            <img src="./img/logos/main-logo.png" class="logo-main">
             <h1 class="page-title"></h1>
           </div>
           <div class="nav">

@@ -22,7 +22,7 @@ export default {
     removeNote() {
       noteService.removeNote(this.note).then(() => {
         this.sendRenderNotes();
-        this.$router.push('/note');
+        if (this.$route.path !== '/note') this.$router.push('/note');
       });
     },
     toggleColorEdit() {

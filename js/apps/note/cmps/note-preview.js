@@ -1,6 +1,7 @@
 import { eventBus } from '../../../services/event-bus-service.js';
 import { noteService } from '../services/note-service.js';
 import noteActions from './note-actions.js';
+import notePin from './note-pin.js';
 
 noteService;
 export default {
@@ -9,9 +10,7 @@ export default {
     <li v-if="note" class="note-preview-cont" title="Edit the note" :style="{ 'background-color': note.color }">
         <h3 class="note-title">{{note.info.title}}</h3>
         <p class="note-txt">{{note.info.txt}}</p>
-        <button class="pinNote" @click.stop="pinNoteToggle" title="Pin">
-            <img :src="pinImg">
-        </button>
+        <note-pin :propNote="note"/>
         <note-actions :propNote="note" @updateColor="renderColor"/>
     </li>       
     `,
@@ -49,5 +48,6 @@ export default {
   },
   components: {
     noteActions,
+    notePin,
   },
 };
