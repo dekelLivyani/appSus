@@ -6,7 +6,8 @@ export default {
   `,
     computed: {
         descToDisplay() {
-            if (!this.isTextOpen) return this.desc.substring(0, 155) + '...';
+            if (this.desc.length < 145) return this.desc;
+            if (!this.isTextOpen) return this.desc.substring(0, 145) + '...';
             else {
                 if (this.desc.length < 800) return this.desc;
                 else return this.desc.substring(0, 800) + '...';
