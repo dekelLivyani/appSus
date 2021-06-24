@@ -3,9 +3,12 @@
 }
 
 body {
-    margin: 0;
+    <<<<<<< HEAD margin: 0;
     background-color: whitesmoke;
     font-family: poppins-regular;
+    =======margin: 0;
+    background-color: whitesmoke;
+    >>>>>>>153adbbd89307cac5e3b939e23ae6c1a7eb0aa26
 }
 
 h1,
@@ -62,4 +65,14 @@ button {
 @font-face {
     font-family: poppins-medium;
     src: url('/fonts/Poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: fontawesome-regular;
+    src: url('/fonts/fontawesome/fa-regular-400.ttf');
+}
+
+@font-face {
+    font-family: fontawesome-solid;
+    src: url('/fonts/fontawesome/fa-solid-900.ttf');
 }

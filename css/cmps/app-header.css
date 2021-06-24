@@ -1,8 +1,11 @@
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    height: 60px;
-    border-bottom: 3px solid black;
-    font-size: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  border-bottom: 3px solid black;
+  font-size: 1.3rem;
+}
+
+.logo-main {
+  width: 100px;
 }
