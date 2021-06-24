@@ -1,3 +1,8 @@
+@font-face {
+  font-family: poppins-regular;
+  src: url('/fonts/Poppins/Poppins-Regular.ttf');
+}
+
 .note-app {
   display: flex;
   flex-direction: column;
@@ -19,4 +24,17 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid gray;
+}
+
+.header-note-app input {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-family: poppins-regular;
+}
+.header-note-app input:focus-visible {
+  outline: none;
 }

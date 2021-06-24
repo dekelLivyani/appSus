@@ -1,0 +1,73 @@
+@font-face {
+  font-family: poppins-regular;
+  src: url('/fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: poppins-bold;
+  src: url('/fonts/Poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: fontawesome-regular;
+  src: url('/fonts/fontawesome/fa-regular-400.ttf');
+}
+@font-face {
+  font-family: fontawesome-solid;
+  src: url('/fonts/fontawesome/fa-solid-900.ttf');
+}
+
+.note-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+  position: relative;
+}
+
+.note-details form {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-details form > * {
+  width: 500px;
+}
+
+.note-details form > *:focus-visible {
+  outline: none;
+}
+
+.note-details form > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.note-details form input[type='text'],
+.note-details form textarea {
+  width: 100%;
+  padding: 12px 20px;
+  /* margin: 8px 0; */
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-family: poppins-bold;
+}
+
+.note-details form textarea {
+  font-family: poppins-regular;
+}
+
+.note-details .buttons-cont {
+  display: flex;
+  align-items: center;
+}
+
+.note-details .buttons-cont > *:not(:last-child) {
+  padding-right: 1rem;
+}
+
+.note-details .pinNote {
+  align-self: flex-end;
+}

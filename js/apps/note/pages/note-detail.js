@@ -10,17 +10,19 @@ export default {
               <textarea rows="10" cols="20"class="note-txt" v-model="note.info.txt"> </textarea>
               <p class="lastEdited">Last edited: {{editedAt.time}}, {{editedAt.date}}</p>
           </form>
-        <router-link to="/note">
-            <button class="back-to-notes" title="Close">Close</button>
-        </router-link>
-        <router-link :to="'/note/'+prevNoteId">
-            <button title="Previous note">Previous note</button>
-        </router-link>
-        <router-link :to="'/note/'+nextNoteId">
-            <button title="Next note">Next note</button>
-        </router-link>
-        <note-pin :propNote="note"/>
-        <note-actions :propNote="note" @updateColor="renderColor"/>
+          <div class="buttons-cont">
+            <router-link :to="'/note/'+prevNoteId">
+                <button title="Previous note" class="prev-note icon">Previous note</button>
+            </router-link>
+            <router-link :to="'/note/'+nextNoteId">
+                <button title="Next note" class="next-note icon" >Next note</button>
+            </router-link>
+            <note-pin :propNote="note"/>
+            <note-actions :propNote="note" @updateColor="renderColor"/>
+            <router-link to="/note">
+                <button class="back-to-notes icon" @click="editNote" title="Close">Close</button>
+            </router-link>
+          </div>
         
       </section>
       `,

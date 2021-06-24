@@ -1,4 +1,52 @@
+@font-face {
+  font-family: poppins-regular;
+  src: url('/fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: poppins-bold;
+  src: url('/fonts/Poppins/Poppins-Bold.ttf');
+}
+
 .add-note-cont {
   display: flex;
   justify-content: center;
+}
+
+.add-note-cont form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-note-cont form > * {
+  margin-bottom: 1rem;
+  width: 500px;
+}
+
+.add-note-cont form > *:focus-visible {
+  outline: none;
+}
+
+.add-note-cont form input[type='text'] {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.add-note-cont form select {
+  font-family: poppins-regular;
+  border-radius: 10px;
+  padding-left: 20px;
+  border: none;
+}
+
+.add-note-cont .note-add-title {
+  font-family: poppins-bold;
+}
+
+.add-note-cont .note-add-txt {
+  font-family: poppins-regular;
 }
