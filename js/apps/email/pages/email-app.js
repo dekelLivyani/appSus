@@ -8,17 +8,25 @@ export default {
      <section class="email-app">
         <div class="header-email-app">
           <div class="logo"> Logo </div>
+
           <div class="info-place">
-          <div class="search"> Search </div>
-          <div class="sort"> Sort </div>
-          <div> 
-         <p class="unread">
-         <button class="read-btn icon" @click="toggleUnReadTop">✉</button>
-         <span>{{unReadCount}}</span>
-          </p> 
-          </div>     
+            <div class="search"> Search </div>
+            <div class="sort"> Sort By
+             <select v-model="sortBy" class="sort-select" @change="sortEmails">
+               <option value="Date">Date</option>
+               <option value="Subject">Subject</option>
+               <option value="UnRead">UnRead</option>
+            </select>
+            </div>
+            <div> 
+             <p class="unread">
+             <button class="read-btn icon" @click="toggleUnReadTop">✉</button>
+             <span>{{unReadCount}}</span> </p> 
+          </div>
          </div>
+
         </div>
+
         <div class="body-email-app">
       <div class="filter-email">
          <button @click="setList('Inbox')">Inbox</button>
@@ -37,7 +45,8 @@ export default {
             emails: null,
             isComposeEmail: false,
             listOf: 'Inbox',
-            isUnReadTop: false
+            isUnReadTop: false,
+            sortBy: 'Date'
         }
     },
     components: {
@@ -73,13 +82,28 @@ export default {
         toggleUnReadTop() {
             this.isUnReadTop = !this.isUnReadTop;
         },
-        sortEmails(sortBy) {
-            switch (sortBy) {
-                case 'read':
+        sortEmails() {
+            switch (this.sortBy) {
+                case 'Date':
+                    this.emails.sort((email1, email2) => {
+                        return email2.sentAt - email1.sentAt;
+                    })
+                    break;
+                case 'Subject':
+                    this.emails.sort((email1, email2) => {
+                        const email1Subject = email1.subject.toUpperCase();
+                        const email2Subject = email2.subject.toUpperCase();
+                        if (email1Subject < email2Subject) return -1;
+                        else if (email1Subject > email2Subject) return 1;
+                        return 0;
+                    })
+                    break;
+                case 'UnRead':
                     this.emails.sort((email1, email2) => {
                         if (email2.isRead && !email1.isRead) return -1
                         else return 1;
                     })
+                    break;
             }
         }
     },
