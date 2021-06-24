@@ -3,9 +3,9 @@ import { noteService } from '../services/note-service.js';
 import noteColorSelect from './note-color-select.js';
 
 export default {
-  props: ['note'],
+  props: ['propNote'],
   template: `
-    <section class="note-actions">
+    <section v-if="note" class="note-actions">
         <button class="removeNote" @click.stop="removeNote" title="Delete">🗑</button>
         <button class="btn-color-change" @click.stop="toggleColorEdit" title="ChangeColor">
             🎨
@@ -15,12 +15,16 @@ export default {
     `,
   data() {
     return {
+      note: null,
       isEditingColor: false,
     };
   },
   methods: {
     removeNote() {
-      noteService.removeNote(this.note).then(() => this.sendRenderNotes());
+      noteService.removeNote(this.note).then(() => {
+        this.sendRenderNotes();
+        this.$router.push('/note');
+      });
     },
     toggleColorEdit() {
       this.isEditingColor = !this.isEditingColor;
@@ -34,5 +38,8 @@ export default {
   },
   components: {
     noteColorSelect,
+  },
+  created() {
+    noteService.cloneNote(this.propNote).then((note) => (this.note = note));
   },
 };

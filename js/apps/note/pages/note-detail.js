@@ -1,5 +1,6 @@
 import { noteService } from '../services/note-service.js';
 import notePin from '../cmps/note-pin.js';
+import noteActions from '../cmps/note-actions.js';
 
 export default {
   template: `
@@ -22,6 +23,7 @@ export default {
             <button title="Next note">Next note</button>
         </router-link>
         <note-pin :propNote="note"/>
+        <note-actions :propNote="note"/>
         
       </section>
       `,
@@ -62,5 +64,6 @@ export default {
   },
   components: {
     notePin,
+    noteActions,
   },
 };

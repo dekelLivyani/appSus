@@ -12,7 +12,7 @@ export default {
         <button class="pinNote" @click.stop="pinNoteToggle" title="Pin">
             <img :src="pinImg">
         </button>
-        <note-actions :note="note" @updateColor="renderColor"/>
+        <note-actions :propNote="note" @updateColor="renderColor"/>
     </li>       
     `,
   data() {
