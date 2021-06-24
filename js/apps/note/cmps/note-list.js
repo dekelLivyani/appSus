@@ -5,6 +5,7 @@ export default {
   template: `
         <ul class="note-list">
             <note-preview v-for="note in notes" :key="note.id" :note="note" @click.native="noteClicked(note)"/>
+            <h1 v-if="!notes" class="list-empty-state">No notes here</h1>
         </ul>
     `,
   methods: {
