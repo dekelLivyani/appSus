@@ -10,7 +10,9 @@ export default {
         <h1 class="note-app-title">Welcome to Note!</h1>
         <note-filter />
         <note-add />
+        <h2 class="list-title" v-if="!arePinned">Pinned</h2>
         <note-list v-show="pinnedNotes" :notes="pinnedNotes">Pinned notes</note-list>
+        <h2 class="list-title" v-if="!arePinned">Others</h2>
         <note-list v-show="notes" :notes="notes">Note List</note-list>
     </section>
     `,
@@ -28,8 +30,10 @@ export default {
       });
     },
   },
-  watch: {
-    notes() {},
+  computed: {
+    arePinned() {
+      return !this.pinnedNotes || !this.pinnedNotes.length;
+    },
   },
   created() {
     this.renderNotes();
