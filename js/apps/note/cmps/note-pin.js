@@ -4,7 +4,7 @@ import { noteService } from '../services/note-service.js';
 export default {
   props: ['propNote'],
   template: `
-        <button v-if="note" class="pinNote icon" @click.stop="pinNoteToggle" title="Pin">
+        <button v-if="note" class="icon pinNote" @click.stop="pinNoteToggle" title="Pin">
             <img :src="pinImg">
         </button>
     `,

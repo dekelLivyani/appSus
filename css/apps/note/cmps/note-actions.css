@@ -7,17 +7,24 @@
   src: url('/fonts/fontawesome/fa-solid-900.ttf');
 }
 
+.note-actions > * {
+  font-family: fontawesome-solid;
+}
+
 .note-actions .btn-color-change {
   position: relative;
-  background-color: red;
-  /* font-family: fontawesome-solid; */
+  font-size: 1rem;
 }
 
 .btn-color-change::after {
-  /* content: '\f53f'; */
-  content: 'X';
+  content: '\f53f';
 }
 .change-color-modal {
   position: absolute;
   top: 0;
+}
+
+.btn-remove-note::after {
+  content: '\f2ed';
+  font-size: 1rem;
 }
