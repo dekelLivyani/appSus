@@ -2,12 +2,17 @@ import { eventBus } from '../../../services/event-bus-service.js';
 import { noteService } from '../services/note-service.js';
 
 export default {
-  props: ['note'],
+  props: ['propNote'],
   template: `
-        <button class="pinNote" @click.stop="pinNoteToggle" title="Pin">
+        <button v-if="note" class="pinNote" @click.stop="pinNoteToggle" title="Pin">
             <img :src="pinImg">
         </button>
     `,
+  data() {
+    return {
+      note: null,
+    };
+  },
   methods: {
     pinNoteToggle() {
       this.note.isPinned = !this.note.isPinned;
@@ -19,5 +24,7 @@ export default {
       return this.note.isPinned ? 'img/note/pin-full.png' : 'img/note/pin-hollow.png';
     },
   },
-  created() {},
+  created() {
+    noteService.cloneNote(this.propNote).then((note) => (this.note = note));
+  },
 };

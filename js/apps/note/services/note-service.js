@@ -14,10 +14,15 @@ export const noteService = {
   editNote,
   getNeighborById,
   updateNote,
+  cloneNote,
 };
 
 function query() {
   return storageService.query(NOTES_KEY);
+}
+
+function cloneNote(note) {
+  return Promise.resolve(JSON.parse(JSON.stringify(note)));
 }
 
 function updateNote(note) {

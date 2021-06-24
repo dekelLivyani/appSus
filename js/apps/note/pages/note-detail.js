@@ -21,10 +21,8 @@ export default {
         <router-link :to="'/note/'+nextNoteId">
             <button title="Next note">Next note</button>
         </router-link>
-        <!-- <button class="pinNote" @click.stop="pinNoteToggle" title="Pin">
-            <img :src="pinImg">
-        </button> -->
-        <note-pin :note="note"/>
+        <note-pin :propNote="note"/>
+        
       </section>
       `,
   data() {
