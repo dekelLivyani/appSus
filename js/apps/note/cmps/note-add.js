@@ -10,7 +10,7 @@ export default {
             </select>
                 <input class="note-add-title" v-model="note.info.title" v-if="note" type="text" name="addNoteTitle" placeholder="Title" >
                 <input class="note-add-txt" v-model="note.info.txt" v-if="note" @focus="isEditing=true"  type="text" name="addNoteText" placeholder="Take a note..." >
-                <button class="btd-add-note icon">Add note</button>
+                <button class="btn-add-note icon">Add note</button>
             </form>
         </section>
     `,
