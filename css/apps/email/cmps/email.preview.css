@@ -38,7 +38,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
 }
 
 .remove-btn {
@@ -56,22 +55,22 @@
 
 .email-preview.email-read .read-btn {
     font-size: 1.7rem;
+    margin-top: 8px;
 }
 
 .read-more {
     font-size: 2rem;
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: 8px;
     padding: 0;
 }
 
 .star-btn {
-    font-size: 2rem;
+    font-size: 2.1rem;
     font-weight: 700;
     padding: 0;
 }
 
 .star-btn.stared {
-    font-size: 2rem;
     color: rgb(235, 210, 69);
 }

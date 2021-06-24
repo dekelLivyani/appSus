@@ -7,10 +7,8 @@ export default {
     template: `
      <section class="email-app">
         <div class="header-email-app">
-          <div class="logo"> 
-             <img src="/img/logos/email-logo.png" />
-         </div>
-
+             <img src="/img/logos/email-logo.png"/>
+             
           <div class="info-place">
             <div class="search"> Search </div>
             <div class="sort"> Sort By
