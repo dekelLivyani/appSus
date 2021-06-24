@@ -20,7 +20,7 @@ function _createInitNotes(num = 10) {
       lastEdited: Date.now(),
       type: 'NoteTxt',
       isPinned: false,
-      color: '',
+      color: 'whitesmoke',
       imgURLs: [],
       info: {
         title: `Title ${i}`,

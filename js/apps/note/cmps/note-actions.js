@@ -9,7 +9,7 @@ export default {
         <button class="removeNote" @click.stop="removeNote" title="Delete">🗑</button>
         <button class="note-color" @click.stop="toggleColorEdit" title="ChangeColor">
             🎨
-            <note-color-Select v-if="isEditingColor" @updateColor="updateColor" />
+            <note-color-select v-if="isEditingColor" @updateColor="updateColor"/>
         </button>
     </section>
     `,
@@ -29,6 +29,7 @@ export default {
       eventBus.$emit('renderNotes');
     },
     updateColor(color) {
+      console.log('color:', color);
       this.$emit('updateColor', color);
     },
   },
