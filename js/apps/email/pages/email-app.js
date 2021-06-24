@@ -7,7 +7,9 @@ export default {
     template: `
      <section class="email-app">
         <div class="header-email-app">
-          <div class="logo"> Logo </div>
+          <div class="logo"> 
+             <img src="/img/logos/email-logo.png" />
+         </div>
 
           <div class="info-place">
             <div class="search"> Search </div>
