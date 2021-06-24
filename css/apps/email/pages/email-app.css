@@ -9,8 +9,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid gray;
-    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(177, 176, 176, 0.767);
+    padding: 5px 0;
 }
 
 .header-email-app .logo {
@@ -25,7 +25,16 @@
 }
 
 .info-place .unread {
-    font-size: 2rem;
+    font-size: 1.5rem;
+}
+
+.info-place .unread>.read-btn {
+    font-family: fontawesome-solid;
+}
+
+.unread .read-btn::after {
+    font-size: 1.5rem;
+    content: "\f0e0";
 }
 
 .email-app .body-email-app {
@@ -35,6 +44,54 @@
 .filter-email {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    min-width: 120px;
+    min-width: 185px;
+    height: 210px;
+    border-bottom: 1px solid rgba(177, 176, 176, 0.767);
+}
+
+.filter-email>* {
+    font-family: fontawesome-solid;
+}
+
+.filter-email .inbox::before {
+    content: '\f01c';
+    color: rgb(255, 103, 103);
+}
+
+.filter-email .stars::before {
+    content: '\f005';
+    color: rgb(253, 229, 89);
+}
+
+.filter-email .drafts::before {
+    content: '\f249';
+    color: rgb(168, 172, 236);
+}
+
+.filter-email .sent::before {
+    content: '\f1d8';
+    color: rgb(120, 223, 214);
+}
+
+.filter-email .add-compose::before {
+    content: '\f067';
+    color: rgb(32, 240, 32);
+}
+
+.active {
+    font-weight: bold;
+    background-color: rgb(235, 232, 232) !important;
+}
+
+.filter-email button {
+    text-align: left;
+    font-size: 1.1rem;
+    border: 0;
+    background-color: unset;
+    padding: 10px 5px;
+    border-radius: 10px;
+}
+
+.filter-email button:hover {
+    background-color: rgb(235, 232, 232);
 }

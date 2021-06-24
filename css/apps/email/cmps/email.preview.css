@@ -1,5 +1,5 @@
 .email-preview {
-    background-color: rgb(235, 233, 233);
+    background-color: rgba(236, 236, 236, 0.404);
     display: grid;
     grid-column: 6fr 1fr;
     grid-row: 1fr 2fr;
@@ -7,12 +7,17 @@
     padding: 5px 10px;
     font-weight: 900;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 0.875rem;
     border-bottom: 2px solid rgba(204, 203, 203, 0.534);
 }
 
+.email-preview:hover {
+    box-shadow: 0px 0px 7px 0px rgba(105, 105, 105, 0.75);
+    border-bottom: 2px solid rgba(119, 119, 119, 0.534);
+}
+
 .email-preview .subject {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     grid-row: 1/2;
     grid-column: 1/2;
 }
@@ -29,49 +34,59 @@
 .email-preview .sent-at {
     grid-row: 1/2;
     grid-column: 2/3;
+    justify-self: flex-end;
 }
 
-.email-preview .buttons {
+.email-preview .buttons-icon {
     grid-row: 2/3;
     grid-column: 2/3;
+    align-self: center;
     justify-self: flex-end;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
 }
 
-.remove-btn {
-    font-size: 2rem;
+.buttons-icon>* {
+    font-family: fontawesome-regular;
+}
+
+.buttons-icon.is-stared>.star-btn {
+    font-family: fontawesome-solid;
+}
+
+.buttons-icon.is-readed>.read-btn {
+    font-family: fontawesome-solid;
+}
+
+.buttons-icon>.read-more {
+    font-family: fontawesome-solid;
+}
+
+.buttons-icon>* {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0;
+}
+
+.remove-btn::after {
+    content: "\f2ed";
     color: rgb(216, 91, 91);
-    font-weight: 700;
-    padding: 0;
 }
 
-.read-btn {
-    font-size: 2rem;
-    font-weight: 700;
-    padding: 0;
+.read-btn::after {
+    content: "\f0e0";
 }
 
-.email-preview.email-read .read-btn {
-    font-size: 1.7rem;
+.read-more::after {
+    content: "\f0dd";
 }
 
-.read-more {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 10px;
-    padding: 0;
+.read-more.is-open::after {
+    content: "\f0de";
 }
 
-.star-btn {
-    font-size: 2rem;
-    font-weight: 700;
-    padding: 0;
+.star-btn::after {
+    content: "\f005";
 }
 
 .star-btn.stared {
-    font-size: 2rem;
     color: rgb(235, 210, 69);
 }

@@ -20,17 +20,14 @@
 
 .email-details .details {
     display: grid;
-    grid-template-columns: 1fr 145px;
-    grid-template-rows: 1fr 1fr;
-    gap: 5px;
-    border-bottom: 1px solid gray;
+    grid-template-columns: 1fr 155px;
+    grid-template-rows: 3fr 2fr;
+    border-bottom: 1px solid rgba(179, 174, 174, 0.712);
 }
 
-.details .subject {
+.details .from {
     grid-row: 1/2;
     grid-column: 1/2;
-    font-size: 1.8rem;
-    font-weight: bold;
 }
 
 .details .to {
@@ -38,22 +35,32 @@
     grid-column: 1/2;
 }
 
-.details .send-at {
+.details .sent-at {
     grid-row: 1/2;
     grid-column: 2/3;
+    justify-self: flex-end;
 }
 
 .email-details .body {
     padding-top: 10px;
 }
 
-.email-details .buttons .edit-btn {
+.email-details .buttons-icon>* {
+    font-family: fontawesome-solid;
+}
+
+.email-details .buttons-icon .edit-btn::after {
+    content: "\f044";
     padding: 0;
-    font-size: 2rem;
     color: rgb(119, 119, 122)
 }
 
-.email-details .buttons .back-btn {
+.email-details .buttons-icon .back-btn {
+    transform: rotate(180deg);
+}
+
+.email-details .buttons-icon .back-btn::after {
+    content: "\f100";
     padding: 0;
     font-size: 2rem;
 }

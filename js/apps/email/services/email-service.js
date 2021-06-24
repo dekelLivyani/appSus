@@ -24,6 +24,7 @@ function query() {
                         porro quas explicabo Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
                         porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
                         dolore aliquid maxime consequuntur. Quisquam`,
+                        from: 'Muki',
                         to: 'Puki',
                         isRead: false,
                         isDraft: false,
@@ -34,6 +35,7 @@ function query() {
                         id: utilService.makeId(),
                         subject: 'Hey all',
                         body: 'Hey for all my friends',
+                        from: 'Muki',
                         to: 'Shuki',
                         isRead: false,
                         isDraft: false,
@@ -47,6 +49,7 @@ function query() {
                         porro quas explicabo Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
                         porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
                         dolore aliquid maxime consequuntur. Quisquam`,
+                        from: 'Dekel',
                         to: 'Muki',
                         isRead: false,
                         isDraft: false,
@@ -63,6 +66,7 @@ function query() {
                         dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum! blanditiis possimus consectetur est earum delectus dolorum, nihil 
                         dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum! blanditiis possimus consectetur est earum delectus dolorum, nihil 
                         dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum!`,
+                        from: 'Stav',
                         to: 'Amit',
                         isRead: false,
                         isDraft: false,
@@ -73,6 +77,7 @@ function query() {
                         id: utilService.makeId(),
                         subject: 'Yes???',
                         body: 'Of corse!!!',
+                        from: 'Dekel',
                         to: 'Puki',
                         isRead: false,
                         isDraft: false,
@@ -85,6 +90,7 @@ function query() {
                         body: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
                         porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
                         dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum!`,
+                        from: 'Omer',
                         to: 'Stav',
                         isRead: false,
                         isDraft: false,
@@ -95,6 +101,7 @@ function query() {
                         id: utilService.makeId(),
                         subject: 'love?',
                         body: 'Love is in the air',
+                        from: 'Dekel',
                         to: 'Puki',
                         isRead: false,
                         isDraft: false,

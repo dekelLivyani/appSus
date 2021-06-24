@@ -23,13 +23,19 @@
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
+<<<<<<< HEAD
   margin: 0;
   background-color: whitesmoke;
   font-family: poppins-regular;
+=======
+    margin: 0;
+    background-color: whitesmoke;
+    font-family: poppins-regular;
+>>>>>>> b84443ed052cbd1d4a688894b460d63319057c64
 }
 
 h1,
@@ -39,28 +45,64 @@ h4,
 h5,
 h6,
 p {
-  margin: 0;
+    margin: 0;
 }
 
 ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .router-link-exact-active {
-  color: blue;
+    color: blue;
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .icon {
-  border: none;
-  background-color: unset;
+    border: none;
+    background-color: unset;
+    border-radius: 25px;
+    width: 40px;
+    height: 40px;
+    transition: background-color .5s;
 }
+<<<<<<< HEAD
+=======
+
+.icon:hover {
+    background-color: rgb(211, 208, 208);
+}
+
+@font-face {
+    font-family: poppins-bold;
+    src: url('/fonts/Poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: poppins-regular;
+    src: url('/fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: poppins-medium;
+    src: url('/fonts/Poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: fontawesome-regular;
+    src: url('/fonts/fontawesome/fa-regular-400.ttf');
+}
+
+@font-face {
+    font-family: fontawesome-solid;
+    src: url('/fonts/fontawesome/fa-solid-900.ttf');
+}
+>>>>>>> b84443ed052cbd1d4a688894b460d63319057c64
