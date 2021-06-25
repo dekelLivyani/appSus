@@ -9,6 +9,7 @@ export default {
             <router-link to="/">Homepage</router-link> |
             <router-link to="/email">Email</router-link> |
             <router-link to="/note">Note</router-link>
+            <router-link to="/noteDyn">NoteDyn</router-link>
           </div>
       </section>
       `,

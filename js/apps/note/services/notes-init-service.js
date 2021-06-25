@@ -11,31 +11,37 @@ function getInitNotes() {
 const notesInitOld = _createInitNotes();
 
 const notesInitNew = [
-  {
-    type: 'NoteImg',
-    info: {
-      url: 'http://some-img/me',
-      title: 'Me playing Mi',
-    },
-    style: {
-      backgroundColor: '#00d',
-    },
-  },
-  {
-    type: 'NoteTodos',
-    info: {
-      label: 'How was it:',
-      todos: [
-        { txt: 'Do that', doneAt: null },
-        { txt: 'Do this', doneAt: 187111111 },
-      ],
-    },
-  },
+  // {
+  //   id: 'gsfd234T',
+  //   created: 1624612963984,
+  //   lastEdited: 1624612963984,
+  //   type: 'noteImg',
+  //   info: {
+  //     url: 'http://some-img/me',
+  //     title: 'Me playing Mi',
+  //   },
+  //   style: {
+  //     backgroundColor: '#00d',
+  //   },
+  // },
+  // {
+  //   id: 'asdfo897',
+  //   created: 1624612963984,
+  //   lastEdited: 1624612963984,
+  //   type: 'noteTodos',
+  //   info: {
+  //     label: 'How was it:',
+  //     todos: [
+  //       { txt: 'Do that', doneAt: null },
+  //       { txt: 'Do this', doneAt: 187111111 },
+  //     ],
+  //   },
+  // },
   {
     id: 'KS0qjHo',
     created: 1624612963984,
     lastEdited: 1624612963984,
-    type: 'NoteTxt',
+    type: 'noteTxt',
     isPinned: false,
     color: 'whitesmoke',
     info: {
@@ -47,7 +53,7 @@ const notesInitNew = [
     id: 'ZmSIAAg',
     created: 1624612963984,
     lastEdited: 1624612963984,
-    type: 'NoteTxt',
+    type: 'noteTxt',
     isPinned: false,
     color: '#D499B9',
     info: {
@@ -59,7 +65,7 @@ const notesInitNew = [
     id: '0t5pxVZ',
     created: 1624612963984,
     lastEdited: 1624612963984,
-    type: 'NoteTxt',
+    type: 'noteTxt',
     isPinned: false,
     color: '#DCE2AA',
     info: {
