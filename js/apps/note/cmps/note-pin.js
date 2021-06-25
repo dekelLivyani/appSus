@@ -4,8 +4,8 @@ import { noteService } from '../services/note-service.js';
 export default {
   props: ['propNote'],
   template: `
-        <button v-if="note" class="icon pinNote" @click.stop="pinNoteToggle" title="Pin">
-            <img :src="pinImg">
+        <button v-if="note" class="icon pinNote" :class="isPinned" @click.stop="pinNoteToggle" title="Pin">
+            <!-- <img :src="pinImg"> -->
         </button>
     `,
   data() {
@@ -20,8 +20,8 @@ export default {
     },
   },
   computed: {
-    pinImg() {
-      return this.note.isPinned ? 'img/note/pin-full.png' : 'img/note/pin-hollow.png';
+    isPinned() {
+      if (this.note.isPinned) return 'pinned';
     },
   },
   created() {

@@ -29,8 +29,11 @@
   font-size: 1rem;
 }
 
-.pinNote {
-  width: 1.5rem;
+.pinNote::after {
+  content: url('../../../../img/note/pin-hollow.png');
+}
+.pinNote.pinned::after {
+  content: url('../../../../img/note/pin-full.png');
 }
 
 .change-color-modal {
