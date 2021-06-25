@@ -1,26 +1,26 @@
 @font-face {
-    font-family: poppins-bold;
-    src: url('/fonts/Poppins/Poppins-Bold.ttf');
+  font-family: poppins-bold;
+  src: url('/fonts/Poppins/Poppins-Bold.ttf');
 }
 
 @font-face {
-    font-family: poppins-regular;
-    src: url('/fonts/Poppins/Poppins-Regular.ttf');
+  font-family: poppins-regular;
+  src: url('/fonts/Poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
-    font-family: poppins-medium;
-    src: url('/fonts/Poppins/Poppins-Medium.ttf');
+  font-family: poppins-medium;
+  src: url('/fonts/Poppins/Poppins-Medium.ttf');
 }
 
 @font-face {
-    font-family: fontawesome-regular;
-    src: url('/fonts/fontawesome/fa-regular-400.ttf');
+  font-family: fontawesome-regular;
+  src: url('/fonts/fontawesome/fa-regular-400.ttf');
 }
 
 @font-face {
-    font-family: fontawesome-solid;
-    src: url('/fonts/fontawesome/fa-solid-900.ttf');
+  font-family: fontawesome-solid;
+  src: url('/fonts/fontawesome/fa-solid-900.ttf');
 }
 
 * {
@@ -28,15 +28,9 @@
 }
 
 body {
-<<<<<<< HEAD
   margin: 0;
   background-color: whitesmoke;
-  font-family: poppins-regular;
-=======
-    margin: 0;
-    background-color: whitesmoke;
-    font-family: poppins-regular, sans-serif;
->>>>>>> 6e50444e3626a7c7000d58acb3798d71f8a8f76f
+  font-family: poppins-regular, sans-serif;
 }
 
 h1,
@@ -68,21 +62,12 @@ button {
 }
 
 .icon {
-<<<<<<< HEAD
   border: none;
   background-color: unset;
   border-radius: 25px;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   transition: background-color 0.5s;
-=======
-    border: none;
-    background-color: unset;
-    border-radius: 25px;
-    width: 35px;
-    height: 35px;
-    transition: background-color .5s;
->>>>>>> 6e50444e3626a7c7000d58acb3798d71f8a8f76f
 }
 
 .icon:hover {
@@ -110,12 +95,6 @@ button {
 }
 
 @font-face {
-<<<<<<< HEAD
   font-family: fontawesome-solid;
   src: url('/fonts/fontawesome/fa-solid-900.ttf');
 }
-=======
-    font-family: fontawesome-solid;
-    src: url('/fonts/fontawesome/fa-solid-900.ttf');
-}
->>>>>>> 6e50444e3626a7c7000d58acb3798d71f8a8f76f
