@@ -7,8 +7,10 @@ export default {
       <section v-if="note" class="note-details" :style="{ 'background-color': note.color }">
       <h2>Dyn</h2>
         <div class="note-detail-cont">
-          <component :is="note.type + 'Detail'" :note="note">
-                </component>
+          <form @submit.prevent="editNote">
+            <component :is="note.type + 'Detail'" :note="note" @updateNote="updateNote">
+            </component>
+          </form>
           <p class="lastEdited">Last edited: {{editedAt.time}}, {{editedAt.date}}</p>
           <div class="buttons-cont">
               <router-link to="/noteDyn">
@@ -23,11 +25,15 @@ export default {
   data() {
     return {
       note: null,
-      prevNoteId: null,
-      nextNoteId: null,
     };
   },
   methods: {
+    updateNote(newNote) {
+      if (newNote.type === 'noteTxt') {
+        this.note.info.title = newNote.info.title;
+        this.note.info.txt = newNote.info.txt;
+      }
+    },
     editNote() {
       this.note.lastEdited = Date.now();
       noteService.editNote(this.note);
