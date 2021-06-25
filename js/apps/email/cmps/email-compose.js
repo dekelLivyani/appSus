@@ -1,3 +1,4 @@
+import { eventBus } from "../../../services/event-bus-service.js";
 import { emailService } from "../services/email-service.js";
 
 export default {
@@ -30,7 +31,6 @@ export default {
                 from: null,
                 to: null,
                 isRead: false,
-                isDraft: false,
                 isStar: false,
                 sentAt: null,
             }
@@ -54,12 +54,23 @@ export default {
     methods: {
         composeEmail() {
             if (!this.email.subject || !this.email.to || !this.email.body) {
-                console.log('Empty Cell!');
+                let txt;
+                if (!this.email.body) txt = 'Body email is required.';
+                if (!this.email.subject) txt = 'Subject is required.';
+                if (!this.email.to) txt = 'Recipient is required.';
+                const msg = {
+                    txt,
+                    type: 'error'
+                }
+                eventBus.$emit('show-msg', msg);
                 return;
             }
             this.email.sentAt = Date.now();
+            console.log('yes');
             this.$emit('addEmail', this.email)
-            this.$router.push('/email')
+            if (this.$router.history.current.fullPath !== '/email') {
+                this.$router.push('/email')
+            }
         },
         setDraft(deff) {
             this.email.isDraft = deff;

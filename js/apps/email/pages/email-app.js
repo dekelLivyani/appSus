@@ -10,7 +10,7 @@ export default {
      <section class="email-app">
         <div class="header-email-app">
              <img src="/img/logos/email-logo.png"/>      
-             <email-search :emails="emails" @EmailsAfterSearch="EmailsAfterSearch"/>
+             <email-search class="search" :emails="emails" @EmailsAfterSearch="EmailsAfterSearch"/>
           <div class="info-place">
             <email-sort :emails="emails"/>
             <div> 
@@ -72,6 +72,21 @@ export default {
             emailService.addEmail(newEmail)
                 .then(email => {
                     this.renderEmails();
+                    console.log(newEmail.isDraft);
+                    const txt = (newEmail.isDraft) ? 'Email saved in Drafts!' : 'Email sent!'
+                    const msg = {
+                        txt,
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
+                .catch(err => {
+                    const msg = {
+                        txt: err + 'Error, please try again later',
+                        type: 'error'
+                    }
+                    eventBus.$emit('show-msg', msg);
+
                 })
         },
         removeEmail(emailId) {

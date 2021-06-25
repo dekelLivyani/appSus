@@ -1,0 +1,39 @@
+.user-msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.3rem;
+    border-radius: 15px;
+    width: 250px;
+    height: 100px;
+    z-index: 25;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(153, 214, 153);
+}
+
+.success {
+    background-color: rgb(153, 214, 153);
+}
+
+.error {
+    background-color: rgb(236, 172, 172);
+    border: 3px solid red;
+    color: rgb(0, 0, 0)
+}
+
+.close-user-msg {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0px;
+    right: 0px
+}
+
+.close-user-msg:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
