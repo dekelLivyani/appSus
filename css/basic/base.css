@@ -1,25 +1,26 @@
 @font-face {
-  font-family: poppins-bold;
-  src: url('/fonts/Poppins/Poppins-Bold.ttf');
+    font-family: poppins-bold;
+    src: url('/fonts/Poppins/Poppins-Bold.ttf');
 }
 
 @font-face {
-  font-family: poppins-regular;
-  src: url('/fonts/Poppins/Poppins-Regular.ttf');
+    font-family: poppins-regular;
+    src: url('/fonts/Poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
-  font-family: poppins-medium;
-  src: url('/fonts/Poppins/Poppins-Medium.ttf');
+    font-family: poppins-medium;
+    src: url('/fonts/Poppins/Poppins-Medium.ttf');
 }
 
 @font-face {
-  font-family: fontawesome-regular;
-  src: url('/fonts/fontawesome/fa-regular-400.ttf');
+    font-family: fontawesome-regular;
+    src: url('/fonts/fontawesome/fa-regular-400.ttf');
 }
+
 @font-face {
-  font-family: fontawesome-solid;
-  src: url('/fonts/fontawesome/fa-solid-900.ttf');
+    font-family: fontawesome-solid;
+    src: url('/fonts/fontawesome/fa-solid-900.ttf');
 }
 
 * {
@@ -27,15 +28,9 @@
 }
 
 body {
-<<<<<<< HEAD
-  margin: 0;
-  background-color: whitesmoke;
-  font-family: poppins-regular;
-=======
     margin: 0;
     background-color: whitesmoke;
-    font-family: poppins-regular;
->>>>>>> b84443ed052cbd1d4a688894b460d63319057c64
+    font-family: poppins-regular, sans-serif;
 }
 
 h1,
@@ -70,12 +65,10 @@ button {
     border: none;
     background-color: unset;
     border-radius: 25px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     transition: background-color .5s;
 }
-<<<<<<< HEAD
-=======
 
 .icon:hover {
     background-color: rgb(211, 208, 208);
@@ -105,4 +98,3 @@ button {
     font-family: fontawesome-solid;
     src: url('/fonts/fontawesome/fa-solid-900.ttf');
 }
->>>>>>> b84443ed052cbd1d4a688894b460d63319057c64

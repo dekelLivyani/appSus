@@ -3,7 +3,6 @@ import emailCompose from '../cmps/email-compose.js'
 import emailSearch from '../cmps/email.search.js'
 import emailSort from '../cmps/email-sort.js'
 import { emailService } from '../services/email-service.js'
-import { UserService } from '../services/User-Service.js'
 import { eventBus } from '../../../services/event-bus-service.js'
 
 export default {
@@ -43,8 +42,8 @@ export default {
             isComposeEmail: false,
             listOf: 'Inbox',
             isUnReadTop: false,
-            user: null,
-            emailsSearches: null
+            emailsSearches: null,
+            user: emailService.getUser()
 
         }
     },
@@ -57,13 +56,13 @@ export default {
     created() {
         this.renderEmails();
         eventBus.$on('removeEmail', this.removeEmail);
-        UserService.query()
-            .then(user => this.user = user[0])
     },
     methods: {
         renderEmails() {
             emailService.query()
-                .then(emails => this.emails = emails)
+                .then(emails => {
+                    this.emails = emails
+                })
         },
         composeEmail() {
             this.isComposeEmail = true;
@@ -104,8 +103,7 @@ export default {
                     case 'Drafts':
                         return (emailsToFilter).filter(email => email.isDraft);
                     case 'Sent':
-                        console.log(emailsToFilter);
-                        return (emailsToFilter).filter(email => email.from === this.user.name);
+                        return (emailsToFilter).filter(email => email.from.id === this.user.id);
                 }
                 return (emailsToFilter).filter(email => !email.isDraft);
             }
