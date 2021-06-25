@@ -1,4 +1,5 @@
 import { emailService } from "../services/email-service.js";
+import { eventBus } from "../../../services/event-bus-service.js";
 import emailCompose from '../cmps/email-compose.js'
 
 export default {
@@ -76,7 +77,21 @@ export default {
         },
         addEmail(newEmail) {
             emailService.addEmail(newEmail)
-
+                .then(() => {
+                    const txt = (newEmail.isDraft) ? 'Your email save in Drafts!' : 'Your email send!'
+                    const msg = {
+                        txt,
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
+                .catch(err => {
+                    const msg = {
+                        txt: 'Error, please try again later',
+                        type: 'error'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
         },
     },
     computed: {

@@ -9,7 +9,7 @@ export default {
             <email-preview :email="email" :emailIsHover="emailIsHover" @click.native="clickEmail(email)"
            />
        </li>
-       <li v-if="isEmptyList"><h1>No have emails to show </h1></li>
+       <li v-if="isEmptyList"><h1>No emails to show </h1></li>
     </ul>
   `,
     components: {

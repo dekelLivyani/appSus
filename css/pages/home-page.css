@@ -1,0 +1,18 @@
+.home-page {
+    text-align: center;
+}
+
+.home-page img {
+    height: 82vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.home-page .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+    color: #4e4c4c;
+}

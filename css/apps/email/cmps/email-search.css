@@ -3,6 +3,5 @@
      border: 1px solid #ccc;
      border-radius: 10px;
      font-family: poppins-regular, sans-serif;
-     flex-grow: 1;
-     /* max-width: 600px; */
+     width: 70%;
  }
