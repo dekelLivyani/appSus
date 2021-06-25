@@ -1,5 +1,4 @@
 import { emailService } from "../services/email-service.js";
-import { UserService } from '../services/User-Service.js'
 
 export default {
     props: ['emailToEdit'],
@@ -14,7 +13,7 @@ export default {
          <input id="to" type="text" v-model="email.to">
          <label for="subject">Subject:</label>
          <input id="subject" type="text"  v-model="email.subject">
-         <textarea class="body" rows="15" cols="70" v-model="email.body">
+         <textarea class="body" rows="12" cols="55" v-model="email.body">
          </textarea>
          <div class="buttons">
           <button class="send" type="submit" @click="setDraft(false)">Send</button>
@@ -28,7 +27,7 @@ export default {
             email: {
                 subject: null,
                 body: null,
-                from: UserService.query(),
+                from: null,
                 to: null,
                 isRead: false,
                 isDraft: false,
@@ -64,6 +63,6 @@ export default {
     computed: {
         title() {
             return this.$route.params.emailId ? 'Edit Message' : 'New Message';
-        }
+        },
     },
 };

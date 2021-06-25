@@ -3,7 +3,7 @@ import emailCompose from '../cmps/email-compose.js'
 
 export default {
     template: `
-    <section class="email-details">
+    <section class="email-details" v-if="email">
        <div class="header">
        <h2 class="subject">{{email.subject}} </h2>
        <div class="buttons-icon" :class="classToButtons">
@@ -13,8 +13,8 @@ export default {
           <button class="back-btn icon" @click="goBack" title="Back"></button>
       </div>
       </div>
-      <div class="details">
-         <div class="from">By {{email.from}}</div>
+      <div class="details" >
+         <div class="from" >By {{email.from.name}} > ({{email.from.email}})</div> 
          <div class="to"> To {{email.to}}</div>
          <div class="sent-at">
             <span> {{formatDate.date}}</span>
@@ -27,7 +27,7 @@ export default {
 `,
     data() {
         return {
-            email: {},
+            email: null,
             isEdit: false
         }
     },

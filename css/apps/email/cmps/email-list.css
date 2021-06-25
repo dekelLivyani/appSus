@@ -3,8 +3,7 @@
     flex-direction: column;
     flex-grow: 1;
     margin: 0;
-    /* margin-left: 5px; */
-    height: 65vh;
+    height: 67vh;
     border: 1px solid rgba(204, 203, 203, 0.534);
     overflow: auto;
 }

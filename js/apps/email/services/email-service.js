@@ -8,6 +8,7 @@ export const emailService = {
     getById,
     removeEmail,
     updateEmail,
+    getUser
 }
 
 function query() {
@@ -24,10 +25,10 @@ function query() {
                         porro quas explicabo Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
                         porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
                         dolore aliquid maxime consequuntur. Quisquam`,
-                        from: 'Muki',
+                        from: getUser(),
                         to: 'Puki',
                         isRead: false,
-                        isDraft: false,
+                        isDraft: true,
                         isStar: false,
                         sentAt: 1624443334523
                     },
@@ -35,7 +36,7 @@ function query() {
                         id: utilService.makeId(),
                         subject: 'Hey all',
                         body: 'Hey for all my friends',
-                        from: 'Muki',
+                        from: getUser(),
                         to: 'Shuki',
                         isRead: false,
                         isDraft: false,
@@ -49,7 +50,7 @@ function query() {
                         porro quas explicabo Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
                         porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
                         dolore aliquid maxime consequuntur. Quisquam`,
-                        from: 'Dekel',
+                        from: getUser(),
                         to: 'Muki',
                         isRead: false,
                         isDraft: false,
@@ -66,7 +67,13 @@ function query() {
                         dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum! blanditiis possimus consectetur est earum delectus dolorum, nihil 
                         dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum! blanditiis possimus consectetur est earum delectus dolorum, nihil 
                         dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum!`,
-                        from: 'Stav',
+                        from: {
+                            id: utilService.makeId(),
+                            name: 'Shimi',
+                            lName: 'Tom',
+                            age: 24,
+                            email: 'Shimimi@gmail.com',
+                        },
                         to: 'Amit',
                         isRead: false,
                         isDraft: false,
@@ -77,7 +84,13 @@ function query() {
                         id: utilService.makeId(),
                         subject: 'Yes???',
                         body: 'Of corse!!!',
-                        from: 'Dekel',
+                        from: {
+                            id: utilService.makeId(),
+                            name: 'Omer',
+                            lName: 'Tofi',
+                            age: 31,
+                            email: 'Omer2423@gmail.com',
+                        },
                         to: 'Puki',
                         isRead: false,
                         isDraft: false,
@@ -90,7 +103,8 @@ function query() {
                         body: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed laborum nulla, 
                         porro quas explicabo blanditiis possimus consectetur est earum delectus dolorum, nihil 
                         dolore aliquid maxime consequuntur. Quisquam, nobis nihil. Eum!`,
-                        from: 'Omer',
+
+                        from: getUser(),
                         to: 'Stav',
                         isRead: false,
                         isDraft: false,
@@ -101,7 +115,13 @@ function query() {
                         id: utilService.makeId(),
                         subject: 'love?',
                         body: 'Love is in the air',
-                        from: 'Dekel',
+                        from: {
+                            id: utilService.makeId(),
+                            name: 'Stav',
+                            lName: 'potlak',
+                            age: 19,
+                            email: 'stavistav@gmail.com',
+                        },
                         to: 'Puki',
                         isRead: false,
                         isDraft: false,
@@ -115,6 +135,7 @@ function query() {
 }
 
 function addEmail(newEmail) {
+    newEmail.from = getUser();
     return (storageService.post(EMAIL_KEY, newEmail))
 }
 
@@ -128,4 +149,18 @@ function removeEmail(id) {
 
 function updateEmail(email) {
     return storageService.put(EMAIL_KEY, email);
+}
+
+function getUser() {
+    let user = localStorage.getItem('User')
+    if (user) return JSON.parse(user);
+    user = {
+        id: utilService.makeId(),
+        name: 'Dekel',
+        lName: 'Livyani',
+        age: 24,
+        email: 'Dekelliv0@gmail.com',
+    }
+    localStorage.setItem('User', JSON.stringify(user))
+    return user;
 }

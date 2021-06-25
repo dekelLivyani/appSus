@@ -16,11 +16,12 @@
     border-bottom: 1px solid gray;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .email-details .details {
     display: grid;
-    grid-template-columns: 1fr 155px;
+    grid-template-columns: 1fr 170px;
     grid-template-rows: 3fr 2fr;
     border-bottom: 1px solid rgba(179, 174, 174, 0.712);
 }
@@ -62,5 +63,4 @@
 .email-details .buttons-icon .back-btn::after {
     content: "\f100";
     padding: 0;
-    font-size: 2rem;
 }
