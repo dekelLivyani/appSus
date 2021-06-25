@@ -2,19 +2,20 @@ export default {
   props: ['note'],
   template: `
       <section v-if="note" class="note-details" :style="{ 'background-color': note.color }">
-          <form >
-                <input type="text" class="note-title" v-model="note.info.title">
-                <textarea rows="10" cols="20"class="note-txt" v-model="note.info.txt"> </textarea>
+          <form @submit.prevent="editNote">
+                <input type="text" class="note-title" v-model="noteContent.title">
+                <textarea rows="10" cols="20"class="note-txt" v-model="noteContent.txt"> </textarea>
             </form>
       </section>
       `,
   data() {
     return {
-      note: { txt: null },
+      noteContent: { title: this.note.info.title, txt: this.note.info.txt },
     };
   },
-  watch: {
-    noteTitle() {},
+  created() {
+    this.noteContent.title = this.note.info.title;
+    this.noteContent.txt = this.note.info.txt;
   },
 };
 // TODO: emit
