@@ -1,4 +1,5 @@
 import noteTxt from './note-types/note-txt.js';
+import noteImg from './note-types/note-img.js';
 
 export default {
   props: ['notes'],
@@ -22,17 +23,6 @@ export default {
   },
   components: {
     noteTxt,
+    noteImg,
   },
-  created() {},
 };
-
-// id: 'KS0qjHo',
-//     created: 1624612963984,
-//     lastEdited: 1624612963984,
-//     type: 'NoteTxt',
-//     isPinned: false,
-//     color: 'whitesmoke',
-//     info: {
-//       title: 'Call Mom',
-//       txt: 'To say Happy Mothers day',
-//     },

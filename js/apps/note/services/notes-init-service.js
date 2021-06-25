@@ -11,19 +11,19 @@ function getInitNotes() {
 const notesInitOld = _createInitNotes();
 
 const notesInitNew = [
-  // {
-  //   id: 'gsfd234T',
-  //   created: 1624612963984,
-  //   lastEdited: 1624612963984,
-  //   type: 'noteImg',
-  //   info: {
-  //     url: 'http://some-img/me',
-  //     title: 'Me playing Mi',
-  //   },
-  //   style: {
-  //     backgroundColor: '#00d',
-  //   },
-  // },
+  {
+    id: 'gsfd234T',
+    created: 1624612963984,
+    lastEdited: 1624612963984,
+    type: 'noteImg',
+    info: {
+      url: 'https://static01.nyt.com/images/2021/01/19/science/09TB-PLATYPUS/09TB-PLATYPUS-superJumbo.jpg',
+      title: 'Me playing Mi',
+    },
+    style: {
+      backgroundColor: '#00d',
+    },
+  },
   // {
   //   id: 'asdfo897',
   //   created: 1624612963984,

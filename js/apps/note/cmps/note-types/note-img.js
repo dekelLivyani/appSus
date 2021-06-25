@@ -8,7 +8,7 @@ export default {
   template: `
     <li v-if="note" class="note-preview-cont" title="Edit the note" :style="{ 'background-color': note.color }">
         <h3 class="note-title">{{note.info.title}}</h3>
-        <p class="note-txt">{{note.info.txt}}</p>
+        <img :src="note.info.url" alt="note.info.title" class="note-img">
         <note-pin :propNote="note"/>
         <note-actions-dyn :propNote="note" @updateColor="renderColor"/>
     </li>       
@@ -39,3 +39,17 @@ export default {
     notePin,
   },
 };
+
+// {
+//   id: 'gsfd234T',
+//   created: 1624612963984,
+//   lastEdited: 1624612963984,
+//   type: 'noteImg',
+//   info: {
+//     url: 'https://static01.nyt.com/images/2021/01/19/science/09TB-PLATYPUS/09TB-PLATYPUS-superJumbo.jpg',
+//     title: 'Me playing Mi',
+//   },
+//   style: {
+//     backgroundColor: '#00d',
+//   },
+// },
