@@ -23,6 +23,7 @@ export default {
   components: {
     noteTxt,
   },
+  created() {},
 };
 
 // id: 'KS0qjHo',

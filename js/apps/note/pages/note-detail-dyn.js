@@ -1,5 +1,6 @@
+import { eventBus } from '../../../services/event-bus-service.js';
 import { noteService } from '../services/note-service.js';
-import noteActions from '../cmps/note-actions.js';
+import noteActionsDyn from '../cmps/note-actions-dyn/note-actions-dyn.js';
 import noteTxtDetail from './note-detail-types/note-txt-detail.js';
 
 export default {
@@ -14,9 +15,9 @@ export default {
           <p class="lastEdited">Last edited: {{editedAt.time}}, {{editedAt.date}}</p>
           <div class="buttons-cont">
               <router-link to="/noteDyn">
-              <button class="back-to-notes icon" @click="editNote" title="Close"></button>
+              <button class="back-to-notes icon" @click="editNote" title="Save"></button>
             </router-link>
-            <note-actions :propNote="note" @updateColor="renderColor"/>
+            <note-actions-dyn :propNote="note" @updateColor="renderColor"/>
           </div>
         </div>
         
@@ -37,6 +38,11 @@ export default {
     editNote() {
       this.note.lastEdited = Date.now();
       noteService.editNote(this.note);
+      const msg = {
+        txt: 'Note saved!',
+        type: 'success',
+      };
+      eventBus.$emit('show-msg', msg);
     },
     renderColor(color) {
       this.note.color = color;
@@ -64,7 +70,7 @@ export default {
     },
   },
   components: {
-    noteActions,
+    noteActionsDyn,
     noteTxtDetail,
   },
 };

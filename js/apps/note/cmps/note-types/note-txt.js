@@ -1,6 +1,6 @@
 import { eventBus } from '../../../../services/event-bus-service.js';
 import { noteService } from '../../services/note-service.js';
-import noteActions from '../note-actions.js';
+import noteActionsDyn from '../note-actions-dyn/note-actions-dyn.js';
 import notePin from '../note-pin.js';
 
 export default {
@@ -10,7 +10,7 @@ export default {
         <h3 class="note-title">{{note.info.title}}</h3>
         <p class="note-txt">{{note.info.txt}}</p>
         <note-pin :propNote="note"/>
-        <note-actions :propNote="note" @updateColor="renderColor"/>
+        <note-actions-dyn :propNote="note" @updateColor="renderColor"/>
     </li>       
     `,
   data() {
@@ -43,7 +43,7 @@ export default {
     noteService.cloneNote(this.propNote).then((note) => (this.note = note));
   },
   components: {
-    noteActions,
+    noteActionsDyn,
     notePin,
   },
 };

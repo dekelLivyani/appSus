@@ -2,8 +2,8 @@ export default {
   props: ['note'],
   template: `
       <section v-if="note" class="note-details" :style="{ 'background-color': note.color }">
-        <input type="text" class="note-title" @input="updateNote" v-model="newNote.info.title">
-        <textarea rows="10" cols="20"class="note-txt" @input="updateNote" v-model="newNote.info.txt"> </textarea>
+        <input type="text" class="note-title" @input="updateNote" v-model="newNote.info.title" placeholder="Title...">
+        <textarea rows="10" cols="20"class="note-txt" @input="updateNote" v-model="newNote.info.txt" placeholder="What's on your mind?"> </textarea>
       </section>
       `,
   data() {
@@ -17,8 +17,8 @@ export default {
     },
   },
   created() {
-    this.newNote.title = this.note.info.title;
-    this.newNote.txt = this.note.info.txt;
+    console.log('this.newNote.title:', this.newNote.title);
+    this.newNote.info.title = this.note.info.title;
+    this.newNote.info.txt = this.note.info.txt;
   },
 };
-// TODO: emit

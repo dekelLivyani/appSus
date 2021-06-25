@@ -85,5 +85,5 @@
 }
 .note-details .buttons-cont .back-to-notes::after {
   font-family: fontawesome-solid;
-  content: '\f101';
+  content: '\f00c';
 }
