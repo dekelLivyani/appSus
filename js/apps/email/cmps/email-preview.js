@@ -3,18 +3,17 @@ import emailDescription from '../../email/cmps/email-description.js'
 import { emailService } from '../services/email-service.js';
 
 export default {
-    props: ['email'],
+    props: ['email', 'emailIsHover'],
     template: `
-         <article class="email-preview" :class="classByRead">
-        <p class="subject">{{email.subject}} </p>
-        <email-description :desc="email.body" :isTextOpen="isTextOpen"/>
-        <p class="sent-at">
-           <span> {{formatDate.date}}</span>
-           <span> {{formatDate.time}}</span>
+         <article class="email-preview" :class="classToEmail">
+         <button class="star-btn icon" :class="classToStared" @click.stop="toggleStar" :title="titleStar"></button>
+        <p class="subject">{{email.from.name}} </p>
+        <email-description class="body" :desc="subjectAndBody" :isTextOpen="isTextOpen"/>
+        <p class="sent-at" v-if="!isHover">
+           <span> {{formatDate}}</span>
         </p>
-        <div class="buttons-icon" :class="classToButtons">
+        <div class="buttons-icon" v-else>
         <button class="read-more icon":class="{'is-open':isTextOpen}" @click.stop="toggleLongText" v-if="isLongText" :title="titleArrow"></button>
-        <button class="star-btn icon" :class="classToStared" @click.stop="toggleStar" :title="titleStar"></button>
         <button class="remove-btn icon" @click.stop="removeEmail" title="Delete"></button>
         <button class="read-btn icon" @click.stop="setRead" :title="titleRead"></button>
         </div>
@@ -26,6 +25,7 @@ export default {
     data() {
         return {
             isTextOpen: false,
+            subjectAndBody: this.email.subject + ' - ' + this.email.body,
         }
     },
     methods: {
@@ -49,16 +49,14 @@ export default {
     computed: {
         formatDate() {
             var fullDate = new Date(this.email.sentAt);
-            return {
-                date: (fullDate.getDate() + '').padStart(2, '0') + '/' +
-                    ((fullDate.getMonth() + 1) + '').padStart(2, '0') + '/' +
-                    (fullDate.getFullYear() + '').padStart(2, '0'),
-                time: (fullDate.getHours() + '').padStart(2, '0') + ':' +
-                    (fullDate.getMinutes() + '').padStart(2, '0')
-            };
+            return ((fullDate.getDate() + '').padStart(2, '0') + '/' +
+                ((fullDate.getMonth() + 1) + '').padStart(2, '0'));
         },
-        classToButtons() {
-            return { 'is-stared': this.email.isStar, 'is-readed': !this.email.isRead }
+        isHover() {
+            return (this.emailIsHover === this.email.id)
+        },
+        classToEmail() {
+            return { 'is-stared': this.email.isStar, 'is-readed': !this.email.isRead, 'email-read': this.email.isRead }
         },
         titleRead() {
             return (this.email.isRead) ? 'Read' : 'Unread';
@@ -71,9 +69,6 @@ export default {
         },
         isLongText() {
             return (this.email.body.length > 155)
-        },
-        classByRead() {
-            return { 'email-read': this.email.isRead }
         },
         classToStared() {
             return { 'stared': this.email.isStar }

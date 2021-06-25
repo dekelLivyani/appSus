@@ -50,6 +50,11 @@
     font-family: fontawesome-solid;
 }
 
+.email-details .buttons-icon .replay-btn::after {
+    content: "\f3e5";
+    padding: 0;
+}
+
 .email-details .buttons-icon .edit-btn::after {
     content: "\f044";
     padding: 0;

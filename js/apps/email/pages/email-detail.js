@@ -7,6 +7,7 @@ export default {
        <div class="header">
        <h2 class="subject">{{email.subject}} </h2>
        <div class="buttons-icon" :class="classToButtons">
+       <button class="replay-btn icon" @click.stop="replayEmail" title="Replay"></button>
        <button class="star-btn icon" :class="classToStared" @click.stop="toggleStar" :title="titleStar"></button>
        <button class="edit-btn icon" v-if="email.isDraft" @click="editEmail" title="Edit"></button>
           <button class="remove-btn icon" @click="removeEmail(email.id)" title="Delete"></button>
@@ -14,7 +15,9 @@ export default {
       </div>
       </div>
       <div class="details" >
-         <div class="from" >By {{email.from.name}} > ({{email.from.email}})</div> 
+         <div class="from" >By {{email.from.name}}
+            <span v-if="email.from.email"> > ({{email.from.email}})</span>
+         </div> 
          <div class="to"> To {{email.to}}</div>
          <div class="sent-at">
             <span> {{formatDate.date}}</span>
@@ -22,13 +25,16 @@ export default {
          </div> 
       </div>
          <div class="body">{{email.body}}</div> 
-      <email-compose v-if="isEdit" @addEmail="updateEmail" />
+      <email-compose v-if="isEdit" @addEmail="updateEmail" @closeCompose="isEdit = false"/>
+      <email-compose v-if="isReplay" :emailToReplay="email"  @addEmail="addEmail" @closeCompose="isReplay = false"/>
+      
    </section>
 `,
     data() {
         return {
             email: null,
-            isEdit: false
+            isEdit: false,
+            isReplay: false
         }
     },
     components: {
@@ -57,7 +63,6 @@ export default {
                 .then(email => {
                     this.isEdit = false;
                     this.email = email;
-
                 })
         },
         toggleStar() {
@@ -65,7 +70,14 @@ export default {
         },
         goBack() {
             this.$router.push('/email')
-        }
+        },
+        replayEmail() {
+            this.isReplay = true;
+        },
+        addEmail(newEmail) {
+            emailService.addEmail(newEmail)
+
+        },
     },
     computed: {
         classToButtons() {

@@ -1,7 +1,7 @@
 import { emailService } from "../services/email-service.js";
 
 export default {
-    props: ['emailToEdit'],
+    props: ['emailToReplay'],
     template: `
       <form class="email-compose" @submit.prevent="composeEmail">
          <div class="title">      
@@ -37,11 +37,18 @@ export default {
         }
     },
     created() {
-        if (this.emailToEdit) this.email = this.emailToEdit;
-        const { emailId } = this.$route.params;
-        if (emailId) {
-            emailService.getById(emailId)
-                .then(email => this.email = email);
+        if (this.emailToReplay) {
+            const to = this.emailToReplay.from;
+            const from = this.emailToReplay.to;
+            this.email.to = to.name;
+            this.email.from = { name: from };
+            this.email.subject = "Re: "
+        } else {
+            const { emailId } = this.$route.params;
+            if (emailId) {
+                emailService.getById(emailId)
+                    .then(email => this.email = email);
+            }
         }
     },
     methods: {
@@ -52,6 +59,7 @@ export default {
             }
             this.email.sentAt = Date.now();
             this.$emit('addEmail', this.email)
+            this.$router.push('/email')
         },
         setDraft(deff) {
             this.email.isDraft = deff;

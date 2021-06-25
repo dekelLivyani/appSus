@@ -1,16 +1,30 @@
 export default {
   template: `
       <section class="app-header">
-          <div class="logo">
             <img src="./img/logos/main-logo.png" class="logo-main">
-            <h1 class="page-title"></h1>
-          </div>
-          <div class="nav">
-            <router-link to="/">Homepage</router-link> |
-            <router-link to="/email">Email</router-link> |
-            <router-link to="/note">Note</router-link>
-            <router-link to="/noteDyn">NoteDyn</router-link>
-          </div>
+          <button class="menu-btn" @click="toggleMenu">
+             <img src="./img/menu.png" />
+          </button>
+          <nav class="nav" :class="classToNav">
+          <div @click="toggleMenu"><router-link class="home-page-link" to="/"></router-link> </div>
+          <div @click="toggleMenu"> <router-link class="email-link" to="/email"></router-link> </div>
+          <div @click="toggleMenu"> <router-link class="note-link" to="/note"></router-link></div>
+          </nav>
       </section>
       `,
+  data() {
+    return {
+      menuOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+  },
+  computed: {
+    classToNav() {
+      return { 'open-nav': this.menuOpen };
+    },
+  },
 };

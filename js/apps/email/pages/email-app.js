@@ -10,8 +10,8 @@ export default {
      <section class="email-app">
         <div class="header-email-app">
              <img src="/img/logos/email-logo.png"/>      
+             <email-search :emails="emails" @EmailsAfterSearch="EmailsAfterSearch"/>
           <div class="info-place">
-            <email-search :emails="emails" @EmailsAfterSearch="EmailsAfterSearch"/>
             <email-sort :emails="emails"/>
             <div> 
              <p class="unread">
@@ -33,7 +33,7 @@ export default {
      <email-list v-if="!isUnReadTop" :emails="emailsToShow"/>
      <email-list v-else :emails="EmailsUnReadShow"/>
      </div>
-     <email-compose  v-if="isComposeEmail" @closeCompose="isComposeEmail = false" @addEmail="addEmail"/>   
+     <email-compose v-if="isComposeEmail" @closeCompose="isComposeEmail = false" @addEmail="addEmail"/>   
  </section>
  `,
     data() {
