@@ -1,4 +1,4 @@
-import noteTxt from './note-txt.js';
+import noteTxt from './note-types/note-txt.js';
 
 export default {
   props: ['notes'],
@@ -12,7 +12,7 @@ export default {
     `,
   methods: {
     noteClicked(note) {
-      this.$router.push(`/note/${note.id}`);
+      this.$router.push(`/noteDyn/${note.id}`);
     },
   },
   computed: {

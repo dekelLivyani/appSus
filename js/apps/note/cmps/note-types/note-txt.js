@@ -1,7 +1,7 @@
-import { eventBus } from '../../../services/event-bus-service.js';
-import { noteService } from '../services/note-service.js';
-import noteActions from './note-actions.js';
-import notePin from './note-pin.js';
+import { eventBus } from '../../../../services/event-bus-service.js';
+import { noteService } from '../../services/note-service.js';
+import noteActions from '../note-actions.js';
+import notePin from '../note-pin.js';
 
 export default {
   props: ['propNote'],

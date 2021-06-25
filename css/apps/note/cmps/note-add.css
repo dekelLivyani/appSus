@@ -72,11 +72,38 @@
   background-color: whitesmoke;
 }
 
+.add-note-form-dyn input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.add-note-form-dyn input:focus-visible {
+  outline: none;
+}
+
 .note-type-select {
   font-family: fontawesome-solid;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.note-type-select {
+  color: grey;
+}
+
+.note-type-select:focus {
+  color: black;
 }
 
 .note-type-select.txt::after {
   content: '\f303';
+}
+
+.add-note-form-dyn .btn-add-note::after {
+  font-family: fontawesome-solid;
+  content: '\f067';
 }
