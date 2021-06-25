@@ -4,14 +4,21 @@ export default {
     props: ['emails'],
     template: `
     <ul class="email-list">
-       <li v-for="email in emails" :key="email.id">
-            <email-preview :email="email" @click.native="clickEmail(email)"/>
+       <li v-for="email in emails" :key="email.id"
+        @mouseover="emailIsHover = email.id" @mouseout="emailIsHover = email.id">
+            <email-preview :email="email" :emailIsHover="emailIsHover" @click.native="clickEmail(email)"
+           />
        </li>
        <li v-if="isEmptyList"><h1>No have emails to show </h1></li>
     </ul>
   `,
     components: {
         emailPreview,
+    },
+    data() {
+        return {
+            emailIsHover: false,
+        }
     },
     methods: {
         clickEmail(email) {

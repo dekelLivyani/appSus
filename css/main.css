@@ -4,7 +4,6 @@
 @import url('../css/cmps/app-header.css');
 @import url('./apps/email/email.css');
 @import url('./apps/note/note.css');
-
 .wrapper {
-  min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 40px);
 }

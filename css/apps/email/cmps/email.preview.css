@@ -1,8 +1,7 @@
 .email-preview {
     background-color: rgba(236, 236, 236, 0.404);
-    display: grid;
-    grid-column: 6fr 1fr;
-    grid-row: 1fr 2fr;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 5px 10px;
     font-weight: 900;
@@ -13,46 +12,56 @@
 
 .email-preview:hover {
     box-shadow: 0px 0px 7px 0px rgba(105, 105, 105, 0.75);
-    border-bottom: 2px solid rgba(119, 119, 119, 0.534);
+}
+
+.email-preview .star-btn {
+    font-family: fontawesome-regular;
+}
+
+.email-preview.is-stared>.star-btn {
+    font-family: fontawesome-solid;
+}
+
+.star-btn::after {
+    content: "\f005";
+    font-size: 1.2rem;
+}
+
+.star-btn.stared {
+    color: rgb(235, 210, 69);
 }
 
 .email-preview .subject {
+    margin-right: 40px;
     font-size: 1.1rem;
-    grid-row: 1/2;
-    grid-column: 1/2;
+    min-width: 120px;
 }
 
 .email-preview.email-read {
     font-weight: unset;
+    background-color: whitesmoke;
 }
 
 .email-preview .body {
-    grid-row: 2/3;
-    grid-column: 1/2;
+    justify-self: flex-start;
+    flex-grow: 1;
 }
 
 .email-preview .sent-at {
-    grid-row: 1/2;
-    grid-column: 2/3;
-    justify-self: flex-end;
+    text-align: right;
+    width: 120px;
 }
 
 .email-preview .buttons-icon {
-    grid-row: 2/3;
-    grid-column: 2/3;
-    align-self: center;
-    justify-self: flex-end;
+    text-align: right;
+    min-width: 120px;
 }
 
 .buttons-icon>* {
     font-family: fontawesome-regular;
 }
 
-.buttons-icon.is-stared>.star-btn {
-    font-family: fontawesome-solid;
-}
-
-.buttons-icon.is-readed>.read-btn {
+.email-preview.is-readed .read-btn {
     font-family: fontawesome-solid;
 }
 
@@ -81,12 +90,4 @@
 
 .read-more.is-open::after {
     content: "\f0de";
-}
-
-.star-btn::after {
-    content: "\f005";
-}
-
-.star-btn.stared {
-    color: rgb(235, 210, 69);
 }

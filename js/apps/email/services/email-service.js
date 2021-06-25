@@ -135,7 +135,7 @@ function query() {
 }
 
 function addEmail(newEmail) {
-    newEmail.from = getUser();
+    if (!newEmail.from) newEmail.from = getUser();
     return (storageService.post(EMAIL_KEY, newEmail))
 }
 
