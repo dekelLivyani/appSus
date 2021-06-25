@@ -7,6 +7,7 @@ export default {
           <form @submit.prevent="addNote" class="add-note-form-dyn">
             <input type="text" v-if="isTxt" v-model="note.info.txt" class="note-add-txt" placeholder="Enter text..." >
             <button class="note-type-select txt icon" @click="getNewNote('noteTxt')" type="button"></button>
+            <button class="note-type-select img icon" @click="getNewNote('noteImg')" type="button"></button>
             <button class="btn-add-note icon" title="Add the note"></button>
           </form>
       </section>
@@ -18,6 +19,7 @@ export default {
   },
   methods: {
     getNewNote(type) {
+      // TODO: change placeholder, add img note CRUD
       console.log('getting note of type', type);
       this.getEmptyNote(type).then((note) => (this.note = note));
     },

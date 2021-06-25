@@ -103,6 +103,10 @@
   content: '\f303';
 }
 
+.note-type-select.img::after {
+  content: '\f03e';
+}
+
 .add-note-form-dyn .btn-add-note::after {
   font-family: fontawesome-solid;
   content: '\f067';
