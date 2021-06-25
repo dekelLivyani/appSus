@@ -4,11 +4,70 @@ export const notesInitService = {
   getInitNotes,
 };
 
-const notesInit = _createInitNotes();
-
 function getInitNotes() {
-  return Promise.resolve(notesInit);
+  return Promise.resolve(notesInitNew);
 }
+
+const notesInitOld = _createInitNotes();
+
+const notesInitNew = [
+  {
+    type: 'NoteImg',
+    info: {
+      url: 'http://some-img/me',
+      title: 'Me playing Mi',
+    },
+    style: {
+      backgroundColor: '#00d',
+    },
+  },
+  {
+    type: 'NoteTodos',
+    info: {
+      label: 'How was it:',
+      todos: [
+        { txt: 'Do that', doneAt: null },
+        { txt: 'Do this', doneAt: 187111111 },
+      ],
+    },
+  },
+  {
+    id: 'KS0qjHo',
+    created: 1624612963984,
+    lastEdited: 1624612963984,
+    type: 'NoteTxt',
+    isPinned: false,
+    color: 'whitesmoke',
+    info: {
+      title: 'Call Mom',
+      txt: 'To say Happy Mothers day',
+    },
+  },
+  {
+    id: 'ZmSIAAg',
+    created: 1624612963984,
+    lastEdited: 1624612963984,
+    type: 'NoteTxt',
+    isPinned: false,
+    color: '#D499B9',
+    info: {
+      title: 'Sign up for a marathon run',
+      txt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, non sit deserunt quos voluptate inventore est saepe molestiae similique suscipit',
+    },
+  },
+  {
+    id: '0t5pxVZ',
+    created: 1624612963984,
+    lastEdited: 1624612963984,
+    type: 'NoteTxt',
+    isPinned: false,
+    color: '#DCE2AA',
+    info: {
+      title: 'Sign up for the gym',
+      txt: 'Maybe next week?',
+    },
+  },
+];
 
 function _createInitNotes(num = 10) {
   let notes = [];
@@ -21,7 +80,6 @@ function _createInitNotes(num = 10) {
       type: 'NoteTxt',
       isPinned: false,
       color: 'whitesmoke',
-      imgURLs: [],
       info: {
         title: `Title ${i}`,
         txt: noteTxt,

@@ -11,7 +11,7 @@ export default {
                 <input class="note-add-title" v-model="note.info.title" v-if="note" type="text" name="addNoteTitle" placeholder="Title" >
                 <input class="note-add-txt" v-model="note.info.txt" v-if="note" @focus="isEditing=true"  type="text" name="addNoteText" placeholder="Take a note..." >
                 <button class="btn-add-note icon">Add note</button>
-            </form>
+            </form>            
         </section>
     `,
   data() {
@@ -22,6 +22,9 @@ export default {
     };
   },
   methods: {
+    submitNote() {
+      console.log('Submit note of type', this.noteType);
+    },
     addNote() {
       noteService.addNote(this.note).then(() => eventBus.$emit('renderNotes'));
     },
