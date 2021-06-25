@@ -4,7 +4,7 @@ import { eventBus } from '../../../services/event-bus-service.js';
 export default {
   template: `
         <section class="add-note-cont">
-            <form @submit.prevent="addNote">
+            <form @submit.prevent="addNote" class="add-note-form">
             <select name="noteType" v-model="noteType" >
                 <option value="txt">Text</option>
             </select>

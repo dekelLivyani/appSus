@@ -6,7 +6,6 @@ export default {
         <ul class="note-list">
             <div v-for="note in notes" :key="note.id">
                 <component :is="note.type" :propNote="note" @click.native="noteClicked(note)">
-
                 </component>
             </div>
         </ul>

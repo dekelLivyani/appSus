@@ -1,7 +1,7 @@
 import { noteService } from '../services/note-service.js';
 import noteListDyn from '../cmps/note-list-dyn.js';
 import noteFilter from '../cmps/note-filter.js';
-import noteAdd from '../cmps/note-add.js';
+import noteAddDyn from '../cmps/note-add-dyn.js';
 import { eventBus } from '../../../services/event-bus-service.js';
 
 export default {
@@ -13,7 +13,7 @@ export default {
           </div>        
           <note-filter />
         </div>
-        <note-add />
+        <note-add-dyn />
           <h1 class="list-empty-state" v-if="!isPinnedNotes && !isNotes">No notes! Try adding some...</h1>
           <h2 class="list-title" v-if="isPinnedNotes">Pinned</h2>
           <note-list-dyn :notes="pinnedNotes" v-if="isPinnedNotes">Pinned notes</note-list-dyn>
@@ -50,6 +50,6 @@ export default {
   components: {
     noteListDyn,
     noteFilter,
-    noteAdd,
+    noteAddDyn,
   },
 };

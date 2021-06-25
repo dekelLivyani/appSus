@@ -54,8 +54,8 @@ function getNeighborById(id, diff) {
   });
 }
 
-function getEmptyNote(type) {
-  if ((type = 'txt')) return _createEmptyNote();
+function getEmptyNote(type = 'noteTxt') {
+  if ((type = 'noteTxt')) return _createEmptyTxtNote();
 }
 
 function _createNotes() {
@@ -71,6 +71,21 @@ function _createNotes() {
 
 function _getInitNotes() {
   return notesInitService.getInitNotes().then((notes) => notes);
+}
+
+function _createEmptyTxtNote() {
+  const note = {
+    id: utilService.makeId(),
+    created: Date.now(),
+    lastEdited: Date.now(),
+    type: 'noteTxt',
+    isPinned: false,
+    info: {
+      title: '',
+      txt: '',
+    },
+  };
+  return Promise.resolve(note);
 }
 
 function _createEmptyNote() {

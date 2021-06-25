@@ -8,26 +8,35 @@
   src: url('/fonts/Poppins/Poppins-Bold.ttf');
 }
 
+@font-face {
+  font-family: fontawesome-regular;
+  src: url('/fonts/fontawesome/fa-regular-400.ttf');
+}
+@font-face {
+  font-family: fontawesome-solid;
+  src: url('/fonts/fontawesome/fa-solid-900.ttf');
+}
+
 .add-note-cont {
   display: flex;
   justify-content: center;
 }
 
-.add-note-cont form {
+.add-note-cont .add-note-form {
   display: flex;
   flex-direction: column;
 }
 
-.add-note-cont form > * {
+.add-note-cont .add-note-form > * {
   margin-bottom: 1rem;
   width: 500px;
 }
 
-.add-note-cont form > *:focus-visible {
+.add-note-cont .add-note-form > *:focus-visible {
   outline: none;
 }
 
-.add-note-cont form input[type='text'] {
+.add-note-cont .add-note-form input[type='text'] {
   width: 100%;
   padding: 12px 20px;
   display: inline-block;
@@ -36,7 +45,7 @@
   box-sizing: border-box;
 }
 
-.add-note-cont form select {
+.add-note-cont .add-note-form select {
   font-family: poppins-regular;
   border-radius: 10px;
   padding-left: 20px;
@@ -53,4 +62,21 @@
 
 .add-note-cont .btn-add-note {
   font-family: poppins-regular;
+}
+
+/* Dynamic */
+
+.add-note-cont .add-note-form-dyn {
+  display: flex;
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+.note-type-select {
+  font-family: fontawesome-solid;
+  cursor: pointer;
+}
+
+.note-type-select.txt::after {
+  content: '\f303';
 }
