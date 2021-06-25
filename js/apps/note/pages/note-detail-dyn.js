@@ -7,15 +7,11 @@ export default {
       <section v-if="note" class="note-details" :style="{ 'background-color': note.color }">
       <h2>Dyn</h2>
         <div class="note-detail-cont">
-          <!-- <form @submit.prevent="editNote">
-              <input type="text" class="note-title" v-model="note.info.title">
-              <textarea rows="10" cols="20"class="note-txt" v-model="note.info.txt"> </textarea>
-          </form> -->
           <component :is="note.type + 'Detail'" :note="note">
                 </component>
           <p class="lastEdited">Last edited: {{editedAt.time}}, {{editedAt.date}}</p>
           <div class="buttons-cont">
-              <router-link to="/note">
+              <router-link to="/noteDyn">
               <button class="back-to-notes icon" @click="editNote" title="Close"></button>
             </router-link>
             <note-actions :propNote="note" @updateColor="renderColor"/>

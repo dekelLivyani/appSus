@@ -14,5 +14,8 @@ export default {
       noteTxt: null,
     };
   },
+  watch: {
+    noteTitle() {},
+  },
 };
 // TODO: emit
