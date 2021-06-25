@@ -14,11 +14,11 @@ export default {
           <note-filter />
         </div>
         <note-add />
-        <h1 v-if="isNotes" class="list-empty-state">No notes! Try adding some...</h1>
-        <h2 class="list-title" v-if="!arePinned">Pinned</h2>
-        <note-list v-show="pinnedNotes" :notes="pinnedNotes">Pinned notes</note-list>
-        <h2 class="list-title" v-if="!arePinned">Others</h2>
-        <note-list v-show="notes" :notes="notes">Note List</note-list>
+          <h1 class="list-empty-state" v-if="!isPinnedNotes && !isNotes">No notes! Try adding some...</h1>
+          <h2 class="list-title" v-if="isPinnedNotes">Pinned</h2>
+          <note-list :notes="pinnedNotes" v-if="isPinnedNotes">Pinned notes</note-list>
+          <h2 class="list-title" v-if="isNotes && isPinnedNotes">Others</h2>
+          <note-list  v-show="notes" v-if="isNotes" :notes="notes">Note List</note-list>
     </section>
     `,
   data() {
@@ -36,11 +36,11 @@ export default {
     },
   },
   computed: {
-    arePinned() {
-      return !this.pinnedNotes || !this.pinnedNotes.length;
+    isPinnedNotes() {
+      return this.pinnedNotes && this.pinnedNotes.length;
     },
     isNotes() {
-      return !this.notes || !this.notes.length;
+      return this.notes && this.notes.length;
     },
   },
   created() {
