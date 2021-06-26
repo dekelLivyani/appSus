@@ -1,7 +1,7 @@
 export default {
   props: ['notes'],
   template: `
-    <div class="email-search"> 
+    <div class="note-search"> 
         <input v-model="searchBy" type="text" @input="search" placeholder="Search...">
     </div>
    `,

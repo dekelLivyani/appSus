@@ -7,3 +7,5 @@
 @import url('./cmps/note-preview-types/note-general.css');
 @import url('./cmps/note-preview-types/note-img.css');
 @import url('./cmps/note-preview-types/note-txt.css');
+@import url('./cmps/note-search.css');
+@import url('./cmps/note-sort.css');

@@ -6,3 +6,9 @@
   padding: 1rem;
   gap: 1rem;
 }
+
+@media (max-width: 550px) {
+  .note-list {
+    padding: 0;
+  }
+}
