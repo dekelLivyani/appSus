@@ -4,7 +4,8 @@ export default {
   props: ['note'],
   template: `
       <section v-if="newNote" class="note-details" :style="{ 'background-color': note.color }">
-        <img :src="note.info.url" alt="note.info.title" class="note-img-detail">
+        <button class="deleteImg icon" title="Delete img" type="button" @click="deleteImg">X</button>
+        <img :src="newNote.info.url" v-if="newNote.info.url" alt="note.info.title" class="note-img-detail">
         <input type="text" v-model="newNote.info.title" @input="updateNote" class="note-title" placeholder="Title...">
         <input type="text" v-model="newURL" @input="verifyURL" class="note-add-txt" placeholder="Enter an different image URL..." >
       </section>
@@ -44,12 +45,18 @@ export default {
       }
     },
     updateNote() {
+      console.log('this.newNote:', this.newNote);
       this.$emit('updateNote', this.newNote);
+    },
+    deleteImg() {
+      this.newNote.info.url = '';
+      this.updateNote();
+      console.log('this.newNote.info.url:', this.newNote.info.url);
     },
   },
   created() {
     this.newNote.info.title = this.note.info.title;
-    this.newNote.info.txt = this.note.info.txt;
+    this.newNote.info.url = this.note.info.url;
     this.verifyURL = utilService.debounce(this.verifyURL);
   },
 };
