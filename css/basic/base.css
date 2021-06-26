@@ -29,7 +29,8 @@
 
 body {
     margin: 0;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
+    background-color: red;
     font-family: poppins-regular, sans-serif;
 }
 
