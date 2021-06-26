@@ -39,6 +39,8 @@
 
 .main-compose .body {
     font-size: 1rem;
+    width: 500px;
+    height: 180px;
 }
 
 .email-compose .buttons {
@@ -53,4 +55,10 @@
     border-radius: 5px;
     border: 0;
     font-size: 1rem;
+}
+
+@media (max-width: 552px) {
+    .main-compose .body {
+        width: 95vw;
+    }
 }

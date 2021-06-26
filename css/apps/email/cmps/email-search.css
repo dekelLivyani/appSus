@@ -9,3 +9,9 @@
  .email-search input:focus-visible {
      outline: none;
  }
+ 
+ @media (max-width:655px) {
+     .email-search input {
+         width: 100%;
+     }
+ }

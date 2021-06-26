@@ -3,5 +3,6 @@
 @import url('./cmps/email-compose.css');
 @import url('./cmps/email-search.css');
 @import url('./cmps/email-sort.css');
+@import url('./cmps/email-description.css');
 @import url('./pages/email-app.css');
 @import url('./pages/email.details.css');

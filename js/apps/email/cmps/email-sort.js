@@ -1,7 +1,7 @@
 export default {
     props: ['emails'],
     template: `
-      <div class="email-sort"> Sort By
+      <div class="email-sort">
    <select v-model="sortBy" class="sort-select" @change="sortEmails">
                <option value="Date">Date</option>
                <option value="Subject">Subject</option>

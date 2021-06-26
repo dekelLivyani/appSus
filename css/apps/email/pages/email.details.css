@@ -55,6 +55,14 @@
     font-family: fontawesome-solid;
 }
 
+.email-details .buttons-icon>.star-btn {
+    font-family: fontawesome-regular;
+}
+
+.email-details .buttons-icon.is-stared>.star-btn {
+    font-family: fontawesome-solid;
+}
+
 .email-details .buttons-icon .replay-btn::after {
     content: "\f3e5";
     padding: 0;

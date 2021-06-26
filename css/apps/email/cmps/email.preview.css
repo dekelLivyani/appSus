@@ -40,7 +40,7 @@
     background-color: whitesmoke;
 }
 
-.email-preview .body {
+.email-preview .body-container {
     justify-self: flex-start;
     flex-grow: 1;
 }
@@ -88,4 +88,16 @@
 
 .read-more.is-open::after {
     content: "\f0de";
+}
+
+@media (max-width:1000px) {
+    .email-preview .subject {
+        min-width: 100px;
+    }
+}
+
+@media (max-width:500px) {
+    .email-preview .subject {
+        min-width: 80px;
+    }
 }

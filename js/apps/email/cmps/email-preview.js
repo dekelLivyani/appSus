@@ -9,7 +9,9 @@ export default {
          <button class="star-btn icon" :class="classToStared" @click.stop="toggleStar" :title="titleStar"></button>
         <p class="subject" v-if="listOf !== 'Sent'">{{email.from.name}} </p>
         <p class="subject" v-else> To: {{email.to}} </p>
+        <div class="body-container">
         <email-description class="body" :desc="subjectAndBody" :isTextOpen="isTextOpen"/>
+        </div>
         <p class="sent-at" v-if="!isHover">
            <span> {{formatDate}}</span>
         </p>
@@ -27,7 +29,6 @@ export default {
         return {
             isTextOpen: false,
             subjectAndBody: this.email.subject + ' - ' + this.email.body,
-
         }
     },
     methods: {
@@ -38,6 +39,7 @@ export default {
             this.email.isRead = !this.email.isRead;
             emailService.updateEmail(this.email)
                 .then(() => {})
+            console.log(this.$refs);
         },
         toggleLongText() {
             this.isTextOpen = !this.isTextOpen;
@@ -74,7 +76,7 @@ export default {
         },
         classToStared() {
             return { 'stared': this.email.isStar }
-        }
+        },
     }
 
 };
