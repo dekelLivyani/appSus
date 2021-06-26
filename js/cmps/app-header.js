@@ -1,5 +1,5 @@
 export default {
-  template: `
+    template: `
       <section class="app-header">
             <img src="./img/logos/main-logo.png" class="logo-main">
           <button class="menu-btn" @click="toggleMenu">
@@ -13,19 +13,19 @@ export default {
           </nav>
       </section>
       `,
-  data() {
-    return {
-      menuOpen: false,
-    };
-  },
-  methods: {
-    toggleMenu() {
-      this.menuOpen = !this.menuOpen;
+    data() {
+        return {
+            menuOpen: false,
+        };
     },
-  },
-  computed: {
-    classToNav() {
-      return { 'open-nav': this.menuOpen };
+    methods: {
+        toggleMenu() {
+            this.menuOpen = !this.menuOpen;
+        },
     },
-  },
+    computed: {
+        classToNav() {
+            return { 'open-nav': this.menuOpen };
+        },
+    },
 };

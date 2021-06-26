@@ -3,11 +3,12 @@ import emailDescription from '../../email/cmps/email-description.js'
 import { emailService } from '../services/email-service.js';
 
 export default {
-    props: ['email', 'emailIsHover'],
+    props: ['email', 'emailIsHover', 'listOf'],
     template: `
          <article class="email-preview" :class="classToEmail">
          <button class="star-btn icon" :class="classToStared" @click.stop="toggleStar" :title="titleStar"></button>
-        <p class="subject">{{email.from.name}} </p>
+        <p class="subject" v-if="listOf !== 'Sent'">{{email.from.name}} </p>
+        <p class="subject" v-else> To: {{email.to}} </p>
         <email-description class="body" :desc="subjectAndBody" :isTextOpen="isTextOpen"/>
         <p class="sent-at" v-if="!isHover">
            <span> {{formatDate}}</span>
@@ -26,6 +27,7 @@ export default {
         return {
             isTextOpen: false,
             subjectAndBody: this.email.subject + ' - ' + this.email.body,
+
         }
     },
     methods: {

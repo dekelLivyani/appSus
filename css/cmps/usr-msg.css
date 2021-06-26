@@ -13,17 +13,16 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: rgb(153, 214, 153);
 }
 
 .success {
-    background-color: rgb(153, 214, 153);
+    background-color: rgb(221, 221, 221);
+    border: 3px solid rgb(54, 54, 54);
 }
 
 .error {
-    background-color: rgb(236, 172, 172);
+    background-color: rgb(238, 196, 196);
     border: 3px solid red;
-    color: rgb(0, 0, 0)
 }
 
 .close-user-msg {

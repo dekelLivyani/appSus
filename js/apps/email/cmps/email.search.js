@@ -2,7 +2,7 @@ export default {
     props: ['emails'],
     template: `
     <div class="email-search"> 
-    <input v-model="searchBy" type="text" @input="search" placeholder="Search...">
+    <input v-model="searchBy" type="text" @input="search" placeholder="Search mail...">
     </div>
    `,
     data() {

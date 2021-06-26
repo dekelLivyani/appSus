@@ -5,3 +5,7 @@
      font-family: poppins-regular, sans-serif;
      width: 70%;
  }
+ 
+ .email-search input:focus-visible {
+     outline: none;
+ }

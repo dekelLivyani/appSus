@@ -32,9 +32,7 @@
 }
 
 .email-preview .subject {
-    margin-right: 40px;
-    font-size: 1.1rem;
-    min-width: 120px;
+    min-width: 160px;
 }
 
 .email-preview.email-read {

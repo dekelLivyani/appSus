@@ -60,38 +60,39 @@
     border-bottom: 1px solid rgba(177, 176, 176, 0.767);
 }
 
-.filter-email>* {
-    font-family: fontawesome-solid;
-}
-
 .filter-email .inbox::before {
+    font-family: fontawesome-solid;
     content: '\f01c';
     color: rgb(255, 103, 103);
 }
 
 .filter-email .stars::before {
+    font-family: fontawesome-solid;
     content: '\f005';
     color: rgb(253, 229, 89);
 }
 
 .filter-email .drafts::before {
+    font-family: fontawesome-solid;
     content: '\f249';
     color: rgb(168, 172, 236);
 }
 
 .filter-email .sent::before {
+    font-family: fontawesome-solid;
     content: '\f1d8';
     color: rgb(120, 223, 214);
 }
 
 .filter-email .add-compose::before {
+    font-family: fontawesome-solid;
     content: '\f067';
     color: rgb(32, 240, 32);
 }
 
 .active {
     font-weight: bold;
-    background-color: rgb(235, 232, 232) !important;
+    background-color: rgba(247, 190, 190, 0.432) !important;
 }
 
 .filter-email button {
@@ -105,4 +106,14 @@
 
 .filter-email button:hover {
     background-color: rgb(235, 232, 232);
+}
+
+.email-app .compose-email {
+    transform: translateY(100%);
+    transition: transform 1s;
+}
+
+.email-app .compose-email.is-open {
+    transform: translateY(0);
+    transition: transform 1s;
 }
