@@ -2,6 +2,7 @@ import { eventBus } from '../../../services/event-bus-service.js';
 import { noteService } from '../services/note-service.js';
 import noteActionsDyn from '../cmps/note-actions-dyn/note-actions-dyn.js';
 import noteTxtDetail from './note-detail-types/note-txt-detail.js';
+import noteImgDetail from './note-detail-types/note-img-detail.js';
 
 export default {
   template: `
@@ -33,6 +34,10 @@ export default {
       if (newNote.type === 'noteTxt') {
         this.note.info.title = newNote.info.title;
         this.note.info.txt = newNote.info.txt;
+      }
+      if (newNote.type === 'noteImg') {
+        this.note.info.title = newNote.info.title;
+        this.note.info.url = newNote.info.url;
       }
     },
     editNote() {
@@ -72,5 +77,6 @@ export default {
   components: {
     noteActionsDyn,
     noteTxtDetail,
+    noteImgDetail,
   },
 };

@@ -87,3 +87,7 @@
   font-family: fontawesome-solid;
   content: '\f00c';
 }
+
+.note-details .note-img-detail {
+  width: 100%;
+}

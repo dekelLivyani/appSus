@@ -8,7 +8,7 @@ export default {
   template: `
     <li v-if="note" class="note-preview-cont" title="Edit the note" :style="{ 'background-color': note.color }">
         <h3 class="note-title">{{note.info.title}}</h3>
-        <img :src="note.info.url" alt="note.info.title" class="note-img">
+        <img :src="note.info.url" alt="note.info.title" class="note-img-preview">
         <note-pin :propNote="note"/>
         <note-actions-dyn :propNote="note" @updateColor="renderColor"/>
     </li>       

@@ -25,7 +25,7 @@ export default {
     getNewNote(type) {
       noteService.getEmptyNote(type).then((note) => {
         this.note = note;
-        console.log(this.note.type);
+        console.log('getting note of type:', this.note.type);
       });
     },
     updateNote(newNote) {
