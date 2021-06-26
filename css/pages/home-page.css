@@ -46,3 +46,12 @@
   content: '\f249';
   color: rgb(184, 127, 238);
 }
+
+@media (max-width: 640px) {
+  .home-page .title {
+    font-size: 2.5rem;
+  }
+  .home-page .homepage-nav {
+    font-size: 3rem;
+  }
+}

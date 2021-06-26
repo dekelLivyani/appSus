@@ -10,15 +10,15 @@
   margin: 0 2rem;
 }
 
-.note-app > * {
+/* .note-app > * {
   margin: 0 2rem;
   gap: 1.2rem;
-}
+} */
 
 .logo-img {
   height: 65px;
 }
-
+/* 
 .header-note-app {
   display: flex;
   justify-content: space-between;
@@ -38,4 +38,29 @@
 
 .header-note-app input:focus-visible {
   outline: none;
+} */
+
+.note-app .header-note-app {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(177, 176, 176, 0.767);
+  padding: 5px 0;
+}
+
+.header-note-app .logo {
+  font-size: 2.4rem;
+  color: rgb(74, 74, 77);
+}
+
+.header-note-app .search {
+  flex-grow: 1;
+  justify-self: center;
+  text-align: center;
+}
+
+.header-note-app .info-place {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }

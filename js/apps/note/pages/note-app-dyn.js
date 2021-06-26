@@ -3,15 +3,25 @@ import noteListDyn from '../cmps/note-list-dyn.js';
 import noteFilter from '../cmps/note-filter.js';
 import noteAddDyn from '../cmps/note-add-dyn.js';
 import { eventBus } from '../../../services/event-bus-service.js';
+import noteSearch from '../cmps/note-search.js';
+import noteSort from '../cmps/note-sort.js';
 
 export default {
   template: `
     <section class="note-app">
-        <div class="header-note-app">
+        <!-- <div class="header-note-app">
           <div class="logo">
             <img src="./img/logos/note-logo.png" class="logo-img">
           </div>        
           <note-filter />
+        </div> -->
+        <div class="header-note-app">
+             <img src="/img/logos/note-logo.png"/>      
+             <note-search class="search" />
+          <div class="info-place">
+            <note-sort/>
+         </div>
+
         </div>
         <note-add-dyn />
           <h1 class="list-empty-state" v-if="!isPinnedNotes && !isNotes">No notes! Try adding some...</h1>
@@ -51,5 +61,7 @@ export default {
     noteListDyn,
     noteFilter,
     noteAddDyn,
+    noteSearch,
+    noteSort,
   },
 };
