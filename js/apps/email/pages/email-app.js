@@ -9,7 +9,7 @@ export default {
     template: `
      <section class="email-app">
         <div class="header-email-app">
-             <img class="logo" src="/img/logos/email-logo.png"/>     
+             <img class="logo" src="./img/logos/email-logo.png"/>     
              <email-search class="search" :emails="emails" @EmailsAfterSearch="EmailsAfterSearch"/>
             <email-sort class="sort" :emails="emails"/>
              <p class="unread">
