@@ -39,7 +39,6 @@ export default {
             this.email.isRead = !this.email.isRead;
             emailService.updateEmail(this.email)
                 .then(() => {})
-            console.log(this.$refs);
         },
         toggleLongText() {
             this.isTextOpen = !this.isTextOpen;

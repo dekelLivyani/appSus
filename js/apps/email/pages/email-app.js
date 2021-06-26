@@ -70,9 +70,8 @@ export default {
         addEmail(newEmail) {
             this.isComposeEmail = false;
             emailService.addEmail(newEmail)
-                .then(email => {
+                .then(() => {
                     this.renderEmails();
-                    console.log(newEmail.isDraft);
                     const txt = (newEmail.isDraft) ? 'Email saved in Drafts!' : 'Email sent!'
                     const msg = {
                         txt,

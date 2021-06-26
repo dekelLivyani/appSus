@@ -1,6 +1,6 @@
 .email-description .txt-body {
     overflow-y: hidden;
-    max-height: 40px;
+    max-height: 37px;
 }
 
 .email-description .txt-body.is-open {
