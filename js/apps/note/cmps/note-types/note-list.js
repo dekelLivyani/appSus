@@ -13,7 +13,7 @@ export default {
         </ul>
         <note-pin :propNote="note"/>
         <div class="bottom-preview-bar">
-          <div class="note-icon txt" title="Text note"></div>
+          <div class="note-icon list" title="Text note"></div>
           <note-actions-dyn :propNote="note" @updateColor="renderColor"/>
         </div>
     </li>       

@@ -1,3 +1,13 @@
+@font-face {
+  font-family: fontawesome-solid;
+  src: url('/fonts/fontawesome/fa-solid-900.ttf');
+}
+
 .isDone {
   text-decoration: line-through;
+}
+
+.note-icon.list::after {
+  font-family: fontawesome-solid;
+  content: '\f0ca';
 }

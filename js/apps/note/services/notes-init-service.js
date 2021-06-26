@@ -31,8 +31,8 @@ const notesInitNew = [
     info: {
       title: 'How was it:',
       list: [
-        { id: utilService.makeId(), txt: 'Do that', doneAt: null },
-        { id: utilService.makeId(), txt: 'Do this', doneAt: 187111111 },
+        { id: utilService.makeId(), txt: 'Code hard', doneAt: null },
+        { id: utilService.makeId(), txt: 'Party hard', doneAt: 187111111 },
       ],
     },
   },
