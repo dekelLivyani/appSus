@@ -30,6 +30,10 @@ export default {
     },
     updateNote(newNote) {
       if (newNote.type === 'noteTxt') this.note.info.txt = newNote.info.txt;
+      if (newNote.type === 'noteImg') {
+        console.log('this.note.info.url:', this.note.info.url);
+        this.note.info.url = newNote.info.url;
+      }
     },
     addNote() {
       noteService.addNote(this.note).then(() => eventBus.$emit('renderNotes'));
