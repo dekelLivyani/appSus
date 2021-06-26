@@ -1,16 +1,16 @@
 @font-face {
     font-family: poppins-bold;
-    src: url('./fonts/Poppins/Poppins-Bold.ttf');
+    src: url('/fonts/Poppins/Poppins-Bold.ttf');
 }
 
 @font-face {
     font-family: poppins-regular;
-    src: url('./fonts/Poppins/Poppins-Regular.ttf');
+    src: url('/fonts/Poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
     font-family: poppins-medium;
-    src: url('./fonts/Poppins/Poppins-Medium.ttf');
+    src: url('/fonts/Poppins/Poppins-Medium.ttf');
 }
 
 @font-face {
@@ -29,8 +29,7 @@
 
 body {
     margin: 0;
-    /* background-color: whitesmoke; */
-    background-color: red;
+    background-color: whitesmoke;
     font-family: poppins-regular, sans-serif;
 }
 
