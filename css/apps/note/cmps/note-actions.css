@@ -34,7 +34,8 @@
 
 .change-color-modal {
   position: absolute;
-  bottom: 2.5rem;
+  right: 2.3rem;
+  bottom: 0rem;
   width: 4rem;
   height: 4rem;
   min-width: 6rem;
@@ -42,6 +43,7 @@
   border-radius: 10px;
   padding: 0.2rem;
   border: 1px solid lightgray;
+  z-index: 1;
 }
 
 .change-color-modal button {
