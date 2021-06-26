@@ -25,6 +25,11 @@
   font-size: 1rem;
 }
 
+.pinNote {
+  display: flex;
+  justify-content: center;
+}
+
 .pinNote::after {
   content: url('../../../../img/note/pin-hollow.png');
 }
