@@ -6,7 +6,7 @@ export default {
   props: ['propNote'],
   template: `
     <section v-if="note" class="note-actions">
-        <button class="btn-remove-note icon" @click.stop="removeNote" title="Delete"></button>
+        <button class="btn-remove-note icon" @click.stop="removeNote" title="Delete note"></button>
         <button class="btn-color-change icon" @click.stop="toggleColorEdit" title="ChangeColor">
             <note-color-select v-if="isEditingColor" @updateColor="updateColor"/>
         </button>

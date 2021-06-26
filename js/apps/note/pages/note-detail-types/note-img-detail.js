@@ -4,8 +4,10 @@ export default {
   props: ['note'],
   template: `
       <section v-if="newNote" class="note-details" :style="{ 'background-color': note.color }">
-        <button class="deleteImg icon" title="Delete img" type="button" @click="deleteImg">X</button>
-        <img :src="newNote.info.url" v-if="newNote.info.url" alt="note.info.title" class="note-img-detail">
+        <div class="img-cont">
+          <button class="deleteImg icon" v-if="newNote.info.url" title="Delete image" type="button" @click="deleteImg"></button>
+          <img :src="newNote.info.url" v-if="newNote.info.url" alt="note.info.title" class="note-img-detail">
+        </div>
         <input type="text" v-model="newNote.info.title" @input="updateNote" class="note-title" placeholder="Title...">
         <input type="text" v-model="newURL" @input="verifyURL" class="note-add-txt" placeholder="Enter an different image URL..." >
       </section>

@@ -22,8 +22,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 5rem;
   position: relative;
+  padding-top: 2rem;
 }
 
 .note-dtails-cont {
@@ -90,4 +90,16 @@
 
 .note-details .note-img-detail {
   width: 100%;
+}
+
+.note-details .img-contv {
+  position: relative;
+}
+.note-details .deleteImg {
+  position: absolute;
+  top: -5px;
+}
+.note-details .deleteImg::after {
+  font-family: fontawesome-solid;
+  content: '\f05e';
 }

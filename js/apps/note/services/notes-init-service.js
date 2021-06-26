@@ -16,12 +16,10 @@ const notesInitNew = [
     created: 1624612963984,
     lastEdited: 1624612963984,
     type: 'noteImg',
+    color: 'whitesmoke',
     info: {
       title: 'Agent P',
       url: 'https://static01.nyt.com/images/2021/01/19/science/09TB-PLATYPUS/09TB-PLATYPUS-superJumbo.jpg',
-    },
-    style: {
-      backgroundColor: '#00d',
     },
   },
   // {

@@ -81,6 +81,7 @@ function _createEmptyTxtNote() {
     lastEdited: Date.now(),
     type: 'noteTxt',
     isPinned: false,
+    color: 'whitesmoke',
     info: {
       title: '',
       txt: '',
@@ -96,6 +97,7 @@ function _createEmptyImgNote() {
     lastEdited: Date.now(),
     type: 'noteImg',
     isPinned: false,
+    color: 'whitesmoke',
     info: {
       title: '',
       url: '',
