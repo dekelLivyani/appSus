@@ -57,6 +57,7 @@ function getNeighborById(id, diff) {
 function getEmptyNote(type = 'noteTxt') {
   if (type === 'noteTxt') return _createEmptyTxtNote();
   if (type === 'noteImg') return _createEmptyImgNote();
+  if (type === 'noteList') return _createEmptyListNote();
 }
 
 function _createNotes() {
@@ -74,6 +75,21 @@ function _getInitNotes() {
   return notesInitService.getInitNotes().then((notes) => notes);
 }
 
+function _createEmptyListNote() {
+  const note = {
+    id: utilService.makeId(),
+    created: Date.now(),
+    lastEdited: Date.now(),
+    type: 'noteList',
+    isPinned: false,
+    color: 'whitesmoke',
+    info: {
+      title: '',
+      list: [],
+    },
+  };
+  return Promise.resolve(note);
+}
 function _createEmptyTxtNote() {
   const note = {
     id: utilService.makeId(),
@@ -89,6 +105,7 @@ function _createEmptyTxtNote() {
   };
   return Promise.resolve(note);
 }
+
 function _createEmptyImgNote() {
   console.log('creating img');
   const note = {

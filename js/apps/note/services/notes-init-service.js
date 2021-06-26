@@ -33,19 +33,20 @@ const notesInitNew = [
   //     url: 'https://www.youtube.com/embed/GRCT30pDtVE',
   //   },
   // },
-  // {
-  //   id: 'asdfo897',
-  //   created: 1624612963984,
-  //   lastEdited: 1624612963984,
-  //   type: 'noteTodos',
-  //   info: {
-  //     label: 'How was it:',
-  //     todos: [
-  //       { txt: 'Do that', doneAt: null },
-  //       { txt: 'Do this', doneAt: 187111111 },
-  //     ],
-  //   },
-  // },
+  {
+    id: 'asdfo897',
+    created: 1624612963984,
+    lastEdited: 1624612963984,
+    type: 'noteList',
+    color: 'lightyellow',
+    info: {
+      title: 'How was it:',
+      list: [
+        { id: utilService.makeId(), txt: 'Do that', doneAt: null },
+        { id: utilService.makeId(), txt: 'Do this', doneAt: 187111111 },
+      ],
+    },
+  },
   {
     id: 'KS0qjHo',
     created: 1624612963984,

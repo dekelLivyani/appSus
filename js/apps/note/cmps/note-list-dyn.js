@@ -1,5 +1,6 @@
 import noteTxt from './note-types/note-txt.js';
 import noteImg from './note-types/note-img.js';
+import noteList from './note-types/note-list.js';
 
 export default {
   props: ['notes'],
@@ -24,5 +25,6 @@ export default {
   components: {
     noteTxt,
     noteImg,
+    noteList,
   },
 };
