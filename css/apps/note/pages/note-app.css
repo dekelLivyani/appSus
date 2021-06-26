@@ -44,4 +44,7 @@
     margin: 0 0.5rem;
     gap: 0.5rem;
   }
+  .header-note-app {
+    flex-wrap: wrap;
+  }
 }
