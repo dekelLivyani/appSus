@@ -16,7 +16,10 @@ export default {
           <p class="lastEdited">Last edited: {{editedAt.time}}, {{editedAt.date}}</p>
           <div class="buttons-cont">
               <router-link to="/noteDyn">
-              <button class="back-to-notes icon" @click="editNote" title="Save"></button>
+              <button class="back-to-notes icon" @click="editNote" title="Save and exit"></button>
+            </router-link>
+              <router-link to="/noteDyn">
+              <button class="back-to-notes exit icon" title="Exit"></button>
             </router-link>
             <note-actions-dyn :propNote="note" @updateColor="renderColor"/>
           </div>

@@ -1,3 +1,13 @@
+@font-face {
+  font-family: fontawesome-solid;
+  src: url('/fonts/fontawesome/fa-solid-900.ttf');
+}
+
 img.note-img-preview {
   width: 100%;
+}
+
+.note-icon.img::after {
+  font-family: fontawesome-solid;
+  content: '\f03e';
 }

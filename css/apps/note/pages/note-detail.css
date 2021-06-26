@@ -74,18 +74,13 @@
   font-size: 2rem;
 }
 
-.note-details .buttons-cont .prev-note::after {
-  font-family: fontawesome-solid;
-  content: '\f060';
-}
-
-.note-details .buttons-cont .next-note::after {
-  font-family: fontawesome-solid;
-  content: '\f061';
-}
 .note-details .buttons-cont .back-to-notes::after {
   font-family: fontawesome-solid;
   content: '\f00c';
+}
+.note-details .buttons-cont .back-to-notes.exit::after {
+  font-family: fontawesome-solid;
+  content: '\f101';
 }
 
 .note-details .note-img-detail {

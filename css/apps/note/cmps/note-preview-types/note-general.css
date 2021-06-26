@@ -22,3 +22,9 @@
   right: 0.5rem;
   top: 0;
 }
+
+.bottom-preview-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

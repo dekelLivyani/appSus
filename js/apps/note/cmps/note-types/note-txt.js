@@ -10,7 +10,10 @@ export default {
         <h3 class="note-title">{{note.info.title}}</h3>
         <p class="note-txt">{{note.info.txt}}</p>
         <note-pin :propNote="note"/>
-        <note-actions-dyn :propNote="note" @updateColor="renderColor"/>
+        <div class="bottom-preview-bar">
+          <div class="note-icon txt" title="Text note"></div>
+          <note-actions-dyn :propNote="note" @updateColor="renderColor"/>
+        </div>
     </li>       
     `,
   data() {

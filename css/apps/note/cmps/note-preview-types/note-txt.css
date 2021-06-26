@@ -1,0 +1,23 @@
+@font-face {
+  font-family: fontawesome-solid;
+  src: url('/fonts/fontawesome/fa-solid-900.ttf');
+}
+
+.note-icon.txt::after {
+  font-family: fontawesome-solid;
+  content: '\f303';
+}
+
+/* 
+.note-type-select.txt::after {
+  }
+  
+  .note-type-select.img::after {
+    content: '\f03e';
+  }
+  .note-type-select.vid::after {
+    content: '\f03d';
+  }
+  .note-type-select.list::after {
+    content: '\f0ca';
+  } */

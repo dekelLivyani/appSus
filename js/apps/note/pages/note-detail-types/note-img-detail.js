@@ -9,7 +9,7 @@ export default {
           <img :src="newNote.info.url" v-if="newNote.info.url" alt="note.info.title" class="note-img-detail">
         </div>
         <input type="text" v-model="newNote.info.title" @input="updateNote" class="note-title" placeholder="Title...">
-        <input type="text" v-model="newURL" @input="verifyURL" class="note-add-txt" placeholder="Enter an different image URL..." >
+        <input type="text" v-model="newURL" @input="verifyURL" class="note-add-txt" placeholder="Enter an image URL..." >
       </section>
       `,
   data() {
