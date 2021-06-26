@@ -9,15 +9,9 @@ import noteSort from '../cmps/note-sort.js';
 export default {
   template: `
     <section class="note-app">
-        <!-- <div class="header-note-app">
-          <div class="logo">
-            <img src="./img/logos/note-logo.png" class="logo-img">
-          </div>        
-          <note-filter />
-        </div> -->
         <div class="header-note-app">
              <img src="/img/logos/note-logo.png"/>      
-             <note-search class="search" />
+             <note-search class="search" :notes="notes" @search="search"/>
           <div class="info-place">
             <note-sort/>
          </div>
@@ -38,6 +32,9 @@ export default {
     };
   },
   methods: {
+    search(searchBy) {
+      console.log(searchBy);
+    },
     renderNotes() {
       noteService.query().then((notes) => {
         this.notes = notes.filter((note) => !note.isPinned);

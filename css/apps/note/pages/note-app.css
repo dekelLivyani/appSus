@@ -10,42 +10,16 @@
   margin: 0 2rem;
 }
 
-/* .note-app > * {
-  margin: 0 2rem;
-  gap: 1.2rem;
-} */
-
 .logo-img {
   height: 65px;
 }
-/* 
-.header-note-app {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid gray;
-}
-
-.header-note-app input {
-  width: 100%;
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-sizing: border-box;
-  font-family: poppins-regular;
-}
-
-.header-note-app input:focus-visible {
-  outline: none;
-} */
 
 .note-app .header-note-app {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(177, 176, 176, 0.767);
-  padding: 5px 0;
+  padding: 7px 0;
 }
 
 .header-note-app .logo {
