@@ -106,8 +106,15 @@
 .note-type-select.img::after {
   content: '\f03e';
 }
+.note-type-select.vid::after {
+  content: '\f03d';
+}
+.note-type-select.list::after {
+  content: '\f0ca';
+}
 
 .add-note-form-dyn .btn-add-note::after {
   font-family: fontawesome-solid;
   content: '\f067';
+  color: limegreen;
 }

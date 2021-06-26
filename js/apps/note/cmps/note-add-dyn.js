@@ -1,13 +1,17 @@
 import { noteService } from '../services/note-service.js';
 import { eventBus } from '../../../services/event-bus-service.js';
+import noteTxtAdd from './note-add-types/note-txt-add.js';
+import noteImgAdd from './note-add-types/note-img-add.js';
 
 export default {
   template: `
       <section class="add-note-cont">
           <form @submit.prevent="addNote" class="add-note-form-dyn">
-            <input type="text" v-if="isTxt" v-model="note.info.txt" class="note-add-txt" placeholder="Enter text..." >
+            <component v-if="note" :is="note.type +'Add'" @updateNote="updateNote"></component>
             <button class="note-type-select txt icon" @click="getNewNote('noteTxt')" type="button"></button>
             <button class="note-type-select img icon" @click="getNewNote('noteImg')" type="button"></button>
+            <button class="note-type-select vid icon" @click="getNewNote('noteVid')" type="button"></button>
+            <button class="note-type-select list icon" @click="getNewNote('noteList')" type="button"></button>
             <button class="btn-add-note icon" title="Add the note"></button>
           </form>
       </section>
@@ -19,35 +23,40 @@ export default {
   },
   methods: {
     getNewNote(type) {
-      // TODO: change placeholder, add img note CRUD
-      console.log('getting note of type', type);
-      this.getEmptyNote(type).then((note) => (this.note = note));
+      noteService.getEmptyNote(type).then((note) => {
+        this.note = note;
+        console.log(this.note.type);
+      });
+    },
+    updateNote(newNote) {
+      if (newNote.type === 'noteTxt') this.note.info.txt = newNote.info.txt;
     },
     addNote() {
       noteService.addNote(this.note).then(() => eventBus.$emit('renderNotes'));
-    },
-    getEmptyNote() {
-      return noteService.getEmptyNote(this.noteType).then((note) => {
-        return note;
-      });
     },
   },
   computed: {
     isTxt() {
       return this.note && this.note.type === 'noteTxt';
     },
+    placeholder() {
+      switch (this.note.type) {
+        case 'noteTxt':
+          return 'Enter text...';
+        case 'noteImg':
+          return 'Enter an image URL...';
+
+        default:
+          'Enter text...';
+          break;
+      }
+    },
   },
   created() {
     this.getNewNote('noteTxt');
   },
+  components: {
+    noteTxtAdd,
+    noteImgAdd,
+  },
 };
-// id: 'KS0qjHo',
-//     created: 1624612963984,
-//     lastEdited: 1624612963984,
-//     type: 'NoteTxt',
-//     isPinned: false,
-//     color: 'whitesmoke',
-//     info: {
-//       title: 'Call Mom',
-//       txt: 'To say Happy Mothers day',
-//     },

@@ -55,8 +55,8 @@ function getNeighborById(id, diff) {
 }
 
 function getEmptyNote(type = 'noteTxt') {
-  if ((type = 'noteTxt')) return _createEmptyTxtNote();
-  if ((type = 'noteImg')) return _createEmptyImgNote();
+  if (type === 'noteTxt') return _createEmptyTxtNote();
+  if (type === 'noteImg') return _createEmptyImgNote();
 }
 
 function _createNotes() {
@@ -89,6 +89,7 @@ function _createEmptyTxtNote() {
   return Promise.resolve(note);
 }
 function _createEmptyImgNote() {
+  console.log('creating img');
   const note = {
     id: utilService.makeId(),
     created: Date.now(),

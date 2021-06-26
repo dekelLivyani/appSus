@@ -4,5 +4,5 @@
 @import url('./cmps/note-add.css');
 @import url('./pages/note-app.css');
 @import url('./pages/note-detail.css');
-@import url('./cmps/note-types/note-general.css');
-@import url('./cmps/note-types/note-img.css');
+@import url('./cmps/note-preview-types/note-general.css');
+@import url('./cmps/note-preview-types/note-img.css');
