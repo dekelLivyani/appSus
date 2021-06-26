@@ -22,17 +22,6 @@ const notesInitNew = [
       url: 'https://static01.nyt.com/images/2021/01/19/science/09TB-PLATYPUS/09TB-PLATYPUS-superJumbo.jpg',
     },
   },
-  // {
-  //   id: 'afdadsfd',
-  //   created: 1624612963984,
-  //   lastEdited: 1624612963984,
-  //   type: 'noteVid',
-  //   color: 'lightskyblue',
-  //   info: {
-  //     title: 'Opening credits',
-  //     url: 'https://www.youtube.com/embed/GRCT30pDtVE',
-  //   },
-  // },
   {
     id: 'asdfo897',
     created: 1624612963984,
@@ -57,6 +46,17 @@ const notesInitNew = [
     info: {
       title: 'Call Mom',
       txt: 'To say Happy Mothers day',
+    },
+  },
+  {
+    id: 'pjert92nf',
+    created: 1624612963984,
+    lastEdited: 1624612963984,
+    type: 'noteImg',
+    color: 'lightskyblue',
+    info: {
+      title: 'A mans best friend',
+      url: 'https://cdn.buttercms.com/ZF8K2t8hT8OoNR3W42bX',
     },
   },
   {

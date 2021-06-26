@@ -10,12 +10,7 @@ export default {
   template: `
     <section class="note-app">
         <div class="header-note-app">
-             <img src="/img/logos/note-logo.png"/>      
-             <note-search class="search" :notes="notes" @search="search"/>
-          <div class="info-place">
-            <note-sort/>
-         </div>
-
+             <img src="/img/logos/note-logo.png"/>
         </div>
         <note-add-dyn />
           <h1 class="list-empty-state" v-if="!isPinnedNotes && !isNotes">No notes! Try adding some...</h1>
