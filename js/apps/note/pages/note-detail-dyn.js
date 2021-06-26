@@ -3,6 +3,7 @@ import { noteService } from '../services/note-service.js';
 import noteActionsDyn from '../cmps/note-actions-dyn/note-actions-dyn.js';
 import noteTxtDetail from './note-detail-types/note-txt-detail.js';
 import noteImgDetail from './note-detail-types/note-img-detail.js';
+import noteListDetail from './note-detail-types/note-list-detail.js';
 
 export default {
   template: `
@@ -81,5 +82,6 @@ export default {
     noteActionsDyn,
     noteTxtDetail,
     noteImgDetail,
+    noteListDetail,
   },
 };

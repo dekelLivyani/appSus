@@ -98,3 +98,26 @@
   font-family: fontawesome-solid;
   content: '\f05e';
 }
+
+.note-details .btn-add-todo::after {
+  font-family: fontawesome-solid;
+  content: '\f067';
+}
+
+.note-details .list-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  width: 50%;
+}
+
+.details-todo-cont {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.list-details .list-item {
+  cursor: pointer;
+}
