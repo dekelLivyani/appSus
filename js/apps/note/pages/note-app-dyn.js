@@ -32,8 +32,8 @@ export default {
     };
   },
   methods: {
-    search(searchBy) {
-      console.log(searchBy);
+    search(notesToShow) {
+      console.log(notesToShow);
     },
     renderNotes() {
       noteService.query().then((notes) => {
@@ -43,6 +43,7 @@ export default {
     },
   },
   computed: {
+    notesToShow() {},
     isPinnedNotes() {
       return this.pinnedNotes && this.pinnedNotes.length;
     },
