@@ -28,12 +28,12 @@ export default {
          <button class="stars" :class="isActiveStars" @click="setList('Stars')"> Stars</button>
          <button class="drafts" :class="isActiveDrafts" @click="setList('Drafts')"> Drafts</button>
          <button class="sent" :class="isActiveSent" @click="setList('Sent')"> Sent</button>
-         <button class="add-compose" @click="composeEmail"> Compose</button>
+         <button class="add-compose"  @click="composeEmail"> Compose</button>
       </div>
-     <email-list v-if="!isUnReadTop" :emails="emailsToShow"/>
-     <email-list v-else :emails="EmailsUnReadShow"/>
+     <email-list v-if="!isUnReadTop" :emails="emailsToShow" :listOf="listOf"/>
+     <email-list v-else :emails="EmailsUnReadShow" :listOf="listOf"/>
      </div>
-     <email-compose v-if="isComposeEmail" @closeCompose="isComposeEmail = false" @addEmail="addEmail"/>   
+     <email-compose class="compose-email" :class="{'is-open' : isComposeEmail}" @closeCompose="isComposeEmail = false" @addEmail="addEmail"/>   
  </section>
  `,
     data() {
