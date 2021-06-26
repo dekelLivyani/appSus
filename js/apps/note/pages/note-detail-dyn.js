@@ -8,7 +8,6 @@ import noteListDetail from './note-detail-types/note-list-detail.js';
 export default {
   template: `
       <section v-if="note" class="note-details" :style="{ 'background-color': note.color }">
-      <h2>Dyn</h2>
         <div class="note-detail-cont">
           <form @submit.prevent="editNote">
             <component :is="note.type + 'Detail'" :note="note" @updateNote="updateNote">

@@ -121,3 +121,13 @@
 .list-details .list-item {
   cursor: pointer;
 }
+
+@media (max-width: 550) {
+  .note-details-cont {
+    width: max-content;
+    background-color: red;
+  }
+  .buttons-cont {
+    width: 372px;
+  }
+}
