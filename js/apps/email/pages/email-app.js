@@ -85,12 +85,26 @@ export default {
                         type: 'error'
                     }
                     eventBus.$emit('show-msg', msg);
-
                 })
         },
         removeEmail(emailId) {
             emailService.removeEmail(emailId)
-                .then(() => this.renderEmails())
+                .then(() => {
+                    this.renderEmails()
+                    const msg = {
+                        txt: 'Email Removed',
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
+                .catch(err => {
+                    const msg = {
+                        txt: err + 'Error, please try again later',
+                        type: 'error'
+                    }
+                    eventBus.$emit('show-msg', msg);
+
+                })
         },
         setList(list) {
             this.isFilterOpen = false;

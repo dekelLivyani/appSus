@@ -11,7 +11,7 @@ export default {
        <button class="replay-btn icon" @click.stop="replayEmail" title="Replay"></button>
        <button class="star-btn icon" :class="classStared" @click.stop="toggleStar" :title="titleStar"></button>
        <button class="edit-btn icon" v-if="email.isDraft" @click="editEmail" title="Edit"></button>
-          <button class="remove-btn icon" @click="removeEmail(email.id)" title="Delete"></button>
+          <button class="remove-btn icon" @click="removeEmail(email.id)" title="Remove"></button>
           <button class="back-btn icon" @click="goBack" title="Back"></button>
       </div>
       </div>

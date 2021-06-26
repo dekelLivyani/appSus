@@ -17,7 +17,7 @@ export default {
         </p>
         <div class="buttons-icon" v-else>
         <button class="read-more icon":class="{'is-open':isTextOpen}" @click.stop="toggleLongText" v-if="isLongText" :title="titleArrow"></button>
-        <button class="remove-btn icon" @click.stop="removeEmail" title="Delete"></button>
+        <button class="remove-btn icon" @click.stop="removeEmail" title="Remove"></button>
         <button class="read-btn icon" @click.stop="setRead" :title="titleRead"></button>
         </div>
         </article>
