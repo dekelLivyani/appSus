@@ -1,6 +1,6 @@
 export default {
   template: `
-    <section class="add-note-cont">
+    <section>
       <input type="text" v-model="newNote.info.url" @input="updateNote" class="note-add-txt" placeholder="Enter an image URL..." >
     </section>
       `,

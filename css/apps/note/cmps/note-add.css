@@ -58,6 +58,7 @@
 
 .add-note-cont .note-add-txt {
   font-family: poppins-regular;
+  width: 25rem;
 }
 
 .add-note-cont .btn-add-note {
@@ -117,4 +118,10 @@
   font-family: fontawesome-solid;
   content: '\f067';
   color: limegreen;
+}
+
+@media (max-width: 550px) {
+  .add-note-cont .note-add-txt {
+    width: 11.5rem;
+  }
 }
