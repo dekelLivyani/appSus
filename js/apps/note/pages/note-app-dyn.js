@@ -7,10 +7,19 @@ import noteSearch from '../cmps/note-search.js';
 import noteSort from '../cmps/note-sort.js';
 
 export default {
-  template: `
+    template: `
     <section class="note-app">
         <div class="header-note-app">
+<<<<<<< HEAD
              <img src="/img/logos/note-logo.png"/>
+=======
+             <img src="./img/logos/note-logo.png"/>      
+             <note-search class="search" :notes="notes" @search="search"/>
+          <div class="info-place">
+            <note-sort/>
+         </div>
+
+>>>>>>> 8eb67bcf0de397cfb082c08cbea39a0cee80470f
         </div>
         <note-add-dyn />
           <h1 class="list-empty-state" v-if="!isPinnedNotes && !isNotes">No notes! Try adding some...</h1>
@@ -20,41 +29,41 @@ export default {
           <note-list-dyn  v-show="notes" v-if="isNotes" :notes="notes">Note List</note-list-dyn>
     </section>
     `,
-  data() {
-    return {
-      notes: null,
-      pinnedNotes: null,
-    };
-  },
-  methods: {
-    search(notesToShow) {
-      console.log(notesToShow);
+    data() {
+        return {
+            notes: null,
+            pinnedNotes: null,
+        };
     },
-    renderNotes() {
-      noteService.query().then((notes) => {
-        this.notes = notes.filter((note) => !note.isPinned);
-        this.pinnedNotes = notes.filter((note) => note.isPinned);
-      });
+    methods: {
+        search(notesToShow) {
+            console.log(notesToShow);
+        },
+        renderNotes() {
+            noteService.query().then((notes) => {
+                this.notes = notes.filter((note) => !note.isPinned);
+                this.pinnedNotes = notes.filter((note) => note.isPinned);
+            });
+        },
     },
-  },
-  computed: {
-    notesToShow() {},
-    isPinnedNotes() {
-      return this.pinnedNotes && this.pinnedNotes.length;
+    computed: {
+        notesToShow() {},
+        isPinnedNotes() {
+            return this.pinnedNotes && this.pinnedNotes.length;
+        },
+        isNotes() {
+            return this.notes && this.notes.length;
+        },
     },
-    isNotes() {
-      return this.notes && this.notes.length;
+    created() {
+        this.renderNotes();
+        eventBus.$on('renderNotes', this.renderNotes);
     },
-  },
-  created() {
-    this.renderNotes();
-    eventBus.$on('renderNotes', this.renderNotes);
-  },
-  components: {
-    noteListDyn,
-    noteFilter,
-    noteAddDyn,
-    noteSearch,
-    noteSort,
-  },
+    components: {
+        noteListDyn,
+        noteFilter,
+        noteAddDyn,
+        noteSearch,
+        noteSort,
+    },
 };

@@ -15,12 +15,12 @@
 
 @font-face {
     font-family: fontawesome-regular;
-    src: url('/fonts/fontawesome/fa-regular-400.ttf');
+    src: url('./fonts/fontawesome/fa-regular-400.ttf');
 }
 
 @font-face {
     font-family: fontawesome-solid;
-    src: url('/fonts/fontawesome/fa-solid-900.ttf');
+    src: url('./fonts/fontawesome/fa-solid-900.ttf');
 }
 
 * {

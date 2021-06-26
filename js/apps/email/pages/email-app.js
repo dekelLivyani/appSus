@@ -9,29 +9,28 @@ export default {
     template: `
      <section class="email-app">
         <div class="header-email-app">
-             <img src="/img/logos/email-logo.png"/>      
+             <img class="logo" src="./img/logos/email-logo.png"/>     
              <email-search class="search" :emails="emails" @EmailsAfterSearch="EmailsAfterSearch"/>
-          <div class="info-place">
-            <email-sort :emails="emails"/>
-            <div> 
+            <email-sort class="sort" :emails="emails"/>
              <p class="unread">
              <button class="read-btn icon" @click="toggleUnReadTop"></button>
              <span>{{unReadCount}}</span> </p> 
-          </div>
-         </div>
-
         </div>
 
-        <div class="body-email-app">
-      <div class="filter-email">
-         <button class="inbox" :class="isActiveInbox" @click="setList('Inbox')"> Inbox</button>
-         <button class="stars" :class="isActiveStars" @click="setList('Stars')"> Stars</button>
-         <button class="drafts" :class="isActiveDrafts" @click="setList('Drafts')"> Drafts</button>
-         <button class="sent" :class="isActiveSent" @click="setList('Sent')"> Sent</button>
-         <button class="add-compose"  @click="composeEmail"> Compose</button>
+        <div class="body-email-app" :class="classMenuOpen">
+           <aside class="menu-filter-container">
+           <button class="menu icon" @click="openFiltersMenu"></button>
+      <div class="filter-email"  
+      @mouseover="isFilterOpen= true" @mouseout="isFilterOpen= false">
+         <button class="inbox" :class="isActiveInbox" @click="setList('Inbox')"><span class="info-txt">&nbsp;&nbsp; Inbox</span></button>
+         <button class="stars" :class="isActiveStars" @click="setList('Stars')"><span class="info-txt">&nbsp;&nbsp; Stars</span></button>
+         <button class="drafts" :class="isActiveDrafts" @click="setList('Drafts')"><span class="info-txt">&nbsp;&nbsp; Drafts</span></button>
+         <button class="sent" :class="isActiveSent" @click="setList('Sent')"> <span class="info-txt">&nbsp;&nbsp; Sent</span></button>
+         <button class="add-compose"  @click="composeEmail"><span class="info-txt">&nbsp;&nbsp; Compose </span></button>
       </div>
-     <email-list v-if="!isUnReadTop" :emails="emailsToShow" :listOf="listOf"/>
-     <email-list v-else :emails="EmailsUnReadShow" :listOf="listOf"/>
+      </aside>
+     <email-list class="list-emails" v-if="!isUnReadTop" :emails="emailsToShow" :listOf="listOf"/>
+     <email-list class="list-emails" v-else :emails="EmailsUnReadShow" :listOf="listOf"/>
      </div>
      <email-compose class="compose-email" :class="{'is-open' : isComposeEmail}" @closeCompose="isComposeEmail = false" @addEmail="addEmail"/>   
  </section>
@@ -43,7 +42,8 @@ export default {
             listOf: 'Inbox',
             isUnReadTop: false,
             emailsSearches: null,
-            user: emailService.getUser()
+            user: emailService.getUser(),
+            isFilterOpen: false
 
         }
     },
@@ -70,9 +70,8 @@ export default {
         addEmail(newEmail) {
             this.isComposeEmail = false;
             emailService.addEmail(newEmail)
-                .then(email => {
+                .then(() => {
                     this.renderEmails();
-                    console.log(newEmail.isDraft);
                     const txt = (newEmail.isDraft) ? 'Email saved in Drafts!' : 'Email sent!'
                     const msg = {
                         txt,
@@ -94,6 +93,7 @@ export default {
                 .then(() => this.renderEmails())
         },
         setList(list) {
+            this.isFilterOpen = false;
             this.listOf = list;
         },
         toggleUnReadTop() {
@@ -101,6 +101,9 @@ export default {
         },
         EmailsAfterSearch(emailsToShow) {
             this.emailsSearches = emailsToShow;
+        },
+        openFiltersMenu() {
+            this.isFilterOpen = !this.isFilterOpen;
         }
     },
     computed: {
@@ -144,6 +147,9 @@ export default {
         },
         isActiveSent() {
             return { 'active': (this.listOf === 'Sent') }
+        },
+        classMenuOpen() {
+            return { 'is-open': this.isFilterOpen }
         }
     }
 }

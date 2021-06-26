@@ -14,7 +14,7 @@ export default {
          <input id="to" type="text" v-model="email.to">
          <label for="subject">Subject:</label>
          <input id="subject" type="text" v-model="email.subject">
-         <textarea class="body" rows="12" cols="55" v-model="email.body">
+         <textarea class="body"  v-model="email.body">
          </textarea>
          <div class="buttons">
           <button class="send" type="submit" @click="setDraft(false)">Send</button>
@@ -105,7 +105,7 @@ export default {
     },
     computed: {
         title() {
-            return this.$route.params.emailId ? 'Edit Message' : 'New Message';
+            return (this.$route.params.emailId && !this.emailToReplay) ? 'Edit Message' : 'New Message';
         },
     },
 };
