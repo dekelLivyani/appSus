@@ -99,7 +99,7 @@ export default {
                 })
                 .catch(err => {
                     const msg = {
-                        txt: err + 'Error, please try again later',
+                        txt: 'Error, please try again later',
                         type: 'error'
                     }
                     eventBus.$emit('show-msg', msg);

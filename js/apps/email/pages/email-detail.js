@@ -55,8 +55,23 @@ export default {
     },
     methods: {
         removeEmail(emailId) {
-            emailService.removeEmail(emailId);
-            this.$router.push('/email');
+            emailService.removeEmail(emailId)
+                .then(() => {
+                    const msg = {
+                        txt: 'Email Removed',
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                    this.$router.push('/email');
+                })
+                .catch(err => {
+                    const msg = {
+                        txt: 'Error, please try again later',
+                        type: 'error'
+                    }
+                    eventBus.$emit('show-msg', msg);
+                })
+
         },
         editEmail() {
             this.isEdit = true;
