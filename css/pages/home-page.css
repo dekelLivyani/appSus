@@ -1,18 +1,42 @@
+@font-face {
+  font-family: fontawesome-solid;
+  src: url('/fonts/fontawesome/fa-solid-900.ttf');
+}
+
 .home-page {
-    text-align: center;
+  text-align: center;
 }
 
 .home-page img {
-    height: 82vh;
-    width: 100%;
-    object-fit: cover;
+  height: 82vh;
+  width: 100%;
+  object-fit: cover;
 }
 
 .home-page .title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3.5rem;
-    color: #4e4c4c;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.5rem;
+  color: #4e4c4c;
+}
+
+.home-page .homepage-nav {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.homepage-nav .email-link::after {
+  font-family: fontawesome-solid;
+  content: '\f658';
+  color: rgb(240, 114, 114);
+}
+.homepage-nav .note-link::after {
+  font-family: fontawesome-solid;
+  content: '\f249';
+  color: rgb(184, 127, 238);
 }
