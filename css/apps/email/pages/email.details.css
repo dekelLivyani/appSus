@@ -74,10 +74,6 @@
     color: rgb(119, 119, 122)
 }
 
-.email-details .buttons-icon .back-btn {
-    transform: rotate(180deg);
-}
-
 .email-details .buttons-icon .back-btn::after {
     content: "\f100";
     padding: 0;
